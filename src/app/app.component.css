@@ -1,0 +1,15 @@
+.brand-logo {
+  margin-left: 15px;
+}
+
+.menu_button {
+  height: auto;
+}
+
+.menu_button i {
+  font-size: 2.2rem;
+}
+
+.sidenav-container {
+  min-height: 100vh;
+}
