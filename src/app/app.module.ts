@@ -14,12 +14,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { ToppageComponent } from './toppage/toppage.component';
+import { MypageComponent } from './mypage/mypage.component';
+import { TimelineComponent } from './timeline/timeline.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
-    SidemenuComponent
+    SidemenuComponent,
+    ToppageComponent,
+    MypageComponent,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,
