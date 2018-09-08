@@ -2,7 +2,6 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 body {
-  margin: 0;
   font-family: Roboto, sans-serif;
 }
 
@@ -12,12 +11,8 @@ mat-card {
   text-align: center;
 }
 
-mat-toolbar {
-  text-align: center;
-}
-
-mat-toolbar-row {
-  justify-content: space-between;
+mz-card {
+  width: auto;
 }
 
 .done {
