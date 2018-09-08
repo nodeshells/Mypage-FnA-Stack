@@ -1,5 +1,8 @@
 # FnA-Stack
 
+## 説明
+ ポートフォリオとしてマイページを作っていこうと思います。
+
 ## Japanese README:
 ### 特色
     Firebase & Angular6で作るWebサービスです。
