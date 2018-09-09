@@ -6,9 +6,9 @@ import { MypageComponent } from './mypage/mypage.component';
 
 
 const myRoutes = [
-  { path: '', component: ToppageComponent },
+  { path: 'top', component: ToppageComponent },
   { path: 'profile', component: MypageComponent },
-  { path: '**', component: ToppageComponent },
+  { path: '**', redirectTo: 'top' },
 ];
 
 
