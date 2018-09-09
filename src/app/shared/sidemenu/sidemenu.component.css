@@ -1,4 +1,7 @@
-.logo {
-  padding: 20px;
-  width: 330px;
+.menu_container {
+  text-align: center;
+  overflow: scroll;
+  max-height: 40vh;
+  min-width: 100vw;
+  overflow-x: hidden;
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   MzButtonModule, MzInputModule, MzCardModule, MzSidenavModule, MzIconModule, MzIconMdiModule,
-  MzNavbarModule
+  MzNavbarModule, MzCheckboxModule, MzCollectionModule
 } from 'ngx-materialize';
 
 @NgModule({
@@ -13,7 +13,9 @@ import {
     MzSidenavModule,
     MzIconMdiModule,
     MzIconModule,
-    MzNavbarModule
+    MzNavbarModule,
+    MzCheckboxModule,
+    MzCollectionModule
   ],
   exports: [
     MzButtonModule,
@@ -22,7 +24,9 @@ import {
     MzSidenavModule,
     MzIconMdiModule,
     MzIconModule,
-    MzNavbarModule
+    MzNavbarModule,
+    MzCheckboxModule,
+    MzCollectionModule
   ]
 })
 export class MaterializeModule { }
