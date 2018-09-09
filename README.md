@@ -54,7 +54,7 @@
 
     firebase login
 
-6.QIconnectフォルダ直下でnpm install
+6.Git Cloneしたフォルダ直下でnpm install
 
     npm install
 
