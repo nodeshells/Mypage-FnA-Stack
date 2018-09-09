@@ -46,6 +46,7 @@
     "@angular/platform-browser-dynamic": "^6.1.4",
     "@angular/router": "^6.1.4",
     "@mdi/font": "^2.7.94",
+    "@types/jquery": "^3.3.6",
     "angularfire2": "^5.0.0-rc.12",
     "body-parser": "^1.18.3",
     "core-js": "^2.5.7",
