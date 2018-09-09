@@ -1,15 +1,55 @@
 <div class="background">
-  <mz-card class="blue-grey darken-1 white-text" [hoverable]="true">
+  <div class="top-logo">
+    <div>
+      <mz-parallax [height]="350">
+        <img src="assets/lab.jpg">
+      </mz-parallax>
+    </div>
+    <div class="logo-img-block">
+      <img async class="logo-img" src="assets/logo_transparent.png" alt="logo">
+    </div>
+  </div>
+  <mz-card class="blue white-text" [horizontal]="true" [hoverable]="true">
     <mz-card-title>
-      Card Title
+      このページは何なの？
     </mz-card-title>
     <mz-card-content>
-      I am a very simple card. I am good at containing small bits of information. I am convenient because I require
-      little markup to use effectively.
+      <p>Kentaという人物のホームページです。</p>
+      <p>今までの自分の経歴や、最近触れている技術や、自分の趣味関係の物を掲載していきたいと思います。</p>
     </mz-card-content>
-    <mz-card-action>
-      <a href="#">This is a link</a>
-      <a href="#">This is a link</a>
-    </mz-card-action>
   </mz-card>
+  <div class="top-logo">
+    <div>
+      <mz-parallax [height]="300">
+        <img src="assets/keyboard.jpg">
+      </mz-parallax>
+    </div>
+  </div>
+  <mz-card class="blue white-text" [horizontal]="true" [hoverable]="true">
+    <mz-card-title>
+      Kentaってどういう人？
+    </mz-card-title>
+    <mz-card-content>
+      <p>純日本人です。高校生までは田んぼと山に囲まれて過ごしてきた。</p>
+      <p>中学生だった頃に初めて実家にパソコンが導入され、そこからパソコン沼にはまっていく。</p>
+      <p>最初はネットサーフィンを、次はゲーム機の改造を、次は自作パソコンを、最後にプログラミングを（ここ4年間）</p>
+      <p>＊さらに細かいプロフィールはプロフィールページに記載する予定です。</p>
+    </mz-card-content>
+  </mz-card>
+  <div class="top-logo">
+    <div>
+      <mz-parallax [height]="300">
+        <img async src="assets/console1.jpg">
+      </mz-parallax>
+    </div>
+  </div>
 </div>
+<mz-card class="blue white-text" [horizontal]="true" [hoverable]="true">
+  <mz-card-title>
+    このページはどのように作られているの？
+  </mz-card-title>
+  <mz-card-content>
+    このページはAngularとFirebaseを使用して作成されました。
+    ソースコードはGithubに上がっています。
+  </mz-card-content>
+</mz-card>
