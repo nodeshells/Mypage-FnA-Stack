@@ -1,35 +1,39 @@
-<mz-navbar navbarClass="blue">
-  <mz-navbar-item-container [align]="'left'">
-    <mz-navbar-item>
-      <a *ngIf="!this.isMobile" href="/" class="brand-logo">
-        Kenta Technology Lab
-      </a>
-    </mz-navbar-item>
-    <mz-navbar-item>
-      <a *ngIf="this.isMobile" href="/" class="brand-logo-mobile">
-        K.T.L.
-      </a>
-    </mz-navbar-item>
-  </mz-navbar-item-container>
-  <mz-navbar-item-container [align]="'right'">
-    <mz-navbar-item>
-      <a href="https://angular.jp/">
-        <mat-icon class="logo-img" svgIcon="nglogo"></mat-icon>
-      </a>
-    </mz-navbar-item>
-    <mz-navbar-item>
-      <a href="https://firebase.google.com/">
-        <mat-icon class="logo-img" svgIcon="firebaselogo"></mat-icon>
-      </a>
-    </mz-navbar-item>
-    <mz-navbar-item>
-      <button mz-button class="menu_button" flat="true">
-        <label class="menu-open white-text" for="menu-toggle"><i class="menu-open white-text" for="menu-toggle" mz-icon
-            [icon]="'menu'"></i></label>
-      </button>
-    </mz-navbar-item>
-  </mz-navbar-item-container>
-</mz-navbar>
+<div class="navbar-fixed">
+  <mz-navbar navbarClass="blue siteheader">
+    <mz-navbar-item-container [align]="'left'">
+      <mz-navbar-item>
+        <a *ngIf="!this.isMobile" href="/" class="brand-logo">
+          Kenta Technology Lab
+        </a>
+      </mz-navbar-item>
+      <mz-navbar-item>
+        <a *ngIf="this.isMobile" href="/" class="brand-logo-mobile">
+          K.T.L.
+        </a>
+      </mz-navbar-item>
+    </mz-navbar-item-container>
+    <mz-navbar-item-container [align]="'right'">
+      <mz-navbar-item>
+        <a href="https://angular.jp/">
+          <mat-icon class="logo-img" svgIcon="nglogo"></mat-icon>
+        </a>
+      </mz-navbar-item>
+      <mz-navbar-item>
+        <a href="https://firebase.google.com/">
+          <mat-icon class="logo-img" svgIcon="firebaselogo"></mat-icon>
+        </a>
+      </mz-navbar-item>
+      <mz-navbar-item>
+        <!-- <button mz-button class="menu_button" flat="true"> -->
+        <a href="#!">
+          <label class="menu_button menu-open white-text" for="menu-toggle"><i class="menu-open white-text" for="menu-toggle"
+              mz-icon [icon]="'menu'"></i></label>
+        </a>
+        <!-- </button> -->
+      </mz-navbar-item>
+    </mz-navbar-item-container>
+  </mz-navbar>
+</div>
 
 <input id="menu-toggle" type="checkbox">
 <ul>
