@@ -13,7 +13,7 @@ import { SharedService } from './shared/shared.service';
   styleUrls: ['./app.component.css'],
   providers: [SharedService]
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnDestroy, OnInit {
   mobileQuery: MediaQueryList;
   isMobile = false;
   displaydetectSubscription: Subscription;
@@ -34,6 +34,10 @@ export class AppComponent implements OnDestroy {
     this.displaydetectSubscription = this.sharedservice.displaysizedetect().subscribe((isMobile: boolean) => {
       this.isMobile = isMobile;
     });
+  }
+
+  ngOnInit() {
+    this.sharedservice.routeingtop();
   }
 
   ngOnDestroy(): void {
