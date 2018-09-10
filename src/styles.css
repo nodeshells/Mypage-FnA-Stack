@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+html {
+  background-color: white;
+}
+
 body {
   margin: 0;
   font-family: 'Noto Sans JP', sans-serif;
@@ -25,6 +29,16 @@ mat-card {
 
 mz-card {
   width: auto;
+}
+
+dt {
+  float: left;
+}
+
+dt,
+dd {
+  min-height: 24px;
+  line-height: 24px;
 }
 
 div.collection {
