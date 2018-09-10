@@ -5,11 +5,13 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, retry } from 'rxjs/operators';
 import { MatIconRegistry } from '../../node_modules/@angular/material';
 import { DomSanitizer } from '../../node_modules/@angular/platform-browser';
+import { SharedService } from './shared/shared.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [SharedService]
 })
 export class AppComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
@@ -20,7 +22,7 @@ export class AppComponent implements OnDestroy {
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
-    private breakpointObserver: BreakpointObserver, private maticonregistory: MatIconRegistry, private domSanitizer: DomSanitizer) {
+    private maticonregistory: MatIconRegistry, private domSanitizer: DomSanitizer, private sharedservice: SharedService) {
 
     this.maticonregistory.addSvgIcon('nglogo', this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/Angular_full_color_logo.svg'));
     this.maticonregistory.addSvgIcon('firebaselogo', this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/firebase-logo.svg'));
@@ -29,7 +31,7 @@ export class AppComponent implements OnDestroy {
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
 
-    this.displaydetectSubscription = this.displaysizedetect().subscribe((isMobile: boolean) => {
+    this.displaydetectSubscription = this.sharedservice.displaysizedetect().subscribe((isMobile: boolean) => {
       this.isMobile = isMobile;
     });
   }
@@ -39,9 +41,5 @@ export class AppComponent implements OnDestroy {
     if (this.displaydetectSubscription) {
       this.displaydetectSubscription.unsubscribe();
     }
-  }
-
-  displaysizedetect(): Observable<boolean> {
-    return this.breakpointObserver.observe('(max-width: 1024px)').pipe(map((state) => state.matches));
   }
 }
