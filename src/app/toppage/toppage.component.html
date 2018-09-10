@@ -2,7 +2,7 @@
   <div class="top-logo">
     <div>
       <mz-parallax [height]="350">
-        <img src="assets/lab.jpg">
+        <img async src="assets/lab.jpg">
       </mz-parallax>
     </div>
     <div class="logo-img-block">
@@ -11,17 +11,17 @@
   </div>
   <mz-card class="blue white-text" [horizontal]="true" [hoverable]="true">
     <mz-card-title>
-      このページは何なの？
+      ここはどういうサイト？
     </mz-card-title>
     <mz-card-content>
       <p>Kentaという人物のホームページです。</p>
-      <p>今までの自分の経歴や、最近触れている技術や、自分の趣味関係の物を掲載していきたいと思います。</p>
+      <p>今までの自分の経歴や、最近触れた技術や、自分の趣味について掲載していきたいと思います。</p>
     </mz-card-content>
   </mz-card>
   <div class="top-logo">
     <div>
-      <mz-parallax [height]="300">
-        <img src="assets/keyboard.jpg">
+      <mz-parallax [height]="this.isMobile ? this.parallaxsize_m : this.parallaxsize_pc">
+        <img async src="assets/keyboard.jpg">
       </mz-parallax>
     </div>
   </div>
@@ -30,15 +30,15 @@
       Kentaってどういう人？
     </mz-card-title>
     <mz-card-content>
-      <p>純日本人です。高校生までは田んぼと山に囲まれて過ごしてきた。</p>
-      <p>中学生だった頃に初めて実家にパソコンが導入され、そこからパソコン沼にはまっていく。</p>
-      <p>最初はネットサーフィンを、次はゲーム機の改造を、次は自作パソコンを、最後にプログラミングを（ここ4年間）</p>
+      <p>純日本人です。高校生までは田と山に囲まれて過ごしました。</p>
+      <p>中学生だった頃に実家にパソコンが導入され、そこからパソコン沼にはまっていきました。</p>
+      <p>最初はネットサーフィンを、次はゲーム機の改造を、次は自作パソコンを、最後にプログラミングをという感じで歩んできました。</p>
       <p>＊さらに細かいプロフィールはプロフィールページに記載する予定です。</p>
     </mz-card-content>
   </mz-card>
   <div class="top-logo">
     <div>
-      <mz-parallax [height]="300">
+      <mz-parallax [height]="this.isMobile ? this.parallaxsize_m : this.parallaxsize_pc">
         <img async src="assets/console1.jpg">
       </mz-parallax>
     </div>
@@ -49,7 +49,7 @@
     このページはどのように作られているの？
   </mz-card-title>
   <mz-card-content>
-    このページはAngularとFirebaseを使用して作成されました。
-    ソースコードはGithubに上がっています。
+    このページはAngularとFirebaseを使用して作成しました。
+    ソースコードはGithub上で公開されています。
   </mz-card-content>
 </mz-card>
