@@ -1,8 +1,6 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { Observable, Subscription } from 'rxjs';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { map, retry } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 import { MatIconRegistry } from '../../node_modules/@angular/material';
 import { DomSanitizer } from '../../node_modules/@angular/platform-browser';
 import { SharedService } from './shared/shared.service';

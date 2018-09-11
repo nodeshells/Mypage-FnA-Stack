@@ -22,13 +22,39 @@
   grid-column-gap: 15px;
 }
 
+.skill_grid_container mz-card {
+  height: 100%;
+}
+
 .profile_img {
   display: flex;
   justify-content: center;
   width: 80%;
   height: auto;
-  margin: 0 auto;
+  margin: 15px auto;
   max-width: 180px;
+  border-radius: 12%;
+}
+
+.star-rating {
+  position: relative;
+  display: inline-block;
+  font-size: 25px;
+}
+
+.star-rating .star-rating-item {
+  position: absolute;
+  overflow: hidden;
+}
+
+.star-rating .star-rating-item:before {
+  content: "★★★★★";
+  color: #ffcc33;
+}
+
+.star-rating:after {
+  content: "★★★★★";
+  color: #ccc;
 }
 
 @media screen and (max-width: 1024px) {

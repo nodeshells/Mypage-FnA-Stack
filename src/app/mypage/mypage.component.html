@@ -11,14 +11,14 @@
     <div name="profile">
       <mz-card class="blue white-text" [hoverable]="false">
         <mz-card-title>
-          プロフィール
+          <p style="text-align:center;">プロフィール</p>
         </mz-card-title>
         <mz-card-content>
           <img class="profile_img" src="assets/profile2.jpg" alt="kenta">
           <p style="text-align:center;">名前: Kenta</p>
           <dl>
-            <dt>自己紹介</dt>
-            <dd></dd>
+            <dt>性別:</dt>
+            <dd>男</dd>
             <dt>出身:</dt>
             <dd>島根県</dd>
             <dt>年齢:</dt>
@@ -30,99 +30,159 @@
           </dl>
           自己紹介:
           <p>はじめまして、Kentaと言います。</p>
-          <p>岐阜のIT系のベンチャー企業でSEとして働いております。メインはバックエンドですが、最近はフロントエンドの技術を多く触るようになってきました。違う分野ですが頑張って技術を磨いていきたいと思います。このページ内に自分のスキルをまとめたいと思います。</p>
+          <p>岐阜のIT系のベンチャー企業でSEとして働いております。メインはバックエンドですが、最近はフロントエンドの技術を多く触るようになってきました。特異な分野とは違う分野ですが頑張って技術を磨いていきたいと思います。このページ内に自分の使用できるスキルをまとめておきたいと思います。</p>
         </mz-card-content>
       </mz-card>
     </div>
     <div class="skill_grid_container">
-      <mz-card class="blue-grey darken-1 white-text" [hoverable]="true">
-        <mz-card-title>
-          Node.js
-        </mz-card-title>
-        <mz-card-content>
-          コンテンツ
-        </mz-card-content>
-      </mz-card>
-      <mz-card class="blue-grey darken-1 white-text" [hoverable]="true">
-        <mz-card-title>
-          Express
-        </mz-card-title>
-        <mz-card-content>
-          コンテンツ
-        </mz-card-content>
-      </mz-card>
-      <mz-card class="blue-grey darken-1 white-text" [hoverable]="true">
-        <mz-card-title>
-          MongoDB
-        </mz-card-title>
-        <mz-card-content>
-          コンテンツ
-        </mz-card-content>
-      </mz-card>
-      <mz-card class="blue-grey darken-1 white-text" [hoverable]="true">
-        <mz-card-title>
-          Angular
-        </mz-card-title>
-        <mz-card-content>
-          コンテンツ
-        </mz-card-content>
-      </mz-card>
-      <mz-card class="blue-grey darken-1 white-text" [hoverable]="true">
-        <mz-card-title>
-          Firebase
-        </mz-card-title>
-        <mz-card-content>
-          コンテンツ
-        </mz-card-content>
-      </mz-card>
-      <mz-card class="blue-grey darken-1 white-text" [hoverable]="true">
-        <mz-card-title>
-          HTML
-        </mz-card-title>
-        <mz-card-content>
-          コンテンツ
-        </mz-card-content>
-      </mz-card>
-      <mz-card class="blue-grey darken-1 white-text" [hoverable]="true">
-        <mz-card-title>
-          CSS
-        </mz-card-title>
-        <mz-card-content>
-          コンテンツ
-        </mz-card-content>
-      </mz-card>
-      <mz-card class="blue-grey darken-1 white-text" [hoverable]="true">
-        <mz-card-title>
-          TypeScript
-        </mz-card-title>
-        <mz-card-content>
-          コンテンツ
-        </mz-card-content>
-      </mz-card>
-      <mz-card class="blue-grey darken-1 white-text" [hoverable]="true">
-        <mz-card-title>
-          NativeScript
-        </mz-card-title>
-        <mz-card-content>
-          コンテンツ
-        </mz-card-content>
-      </mz-card>
-      <mz-card class="blue-grey darken-1 white-text" [hoverable]="true">
-        <mz-card-title>
-          MySQL
-        </mz-card-title>
-        <mz-card-content>
-          コンテンツ
-        </mz-card-content>
-      </mz-card>
-      <mz-card class="blue-grey darken-1 white-text" [hoverable]="true">
-        <mz-card-title>
-          Java
-        </mz-card-title>
-        <mz-card-content>
-          コンテンツ
-        </mz-card-content>
-      </mz-card>
+      <a href="https://nodejs.org/ja/">
+        <mz-card class="green darken-1 white-text" [hoverable]="true">
+          <mz-card-title>
+            Node.js
+          </mz-card-title>
+          <mz-card-content>
+            <p>JavaScriptをサーバーサイドで動かすプラットフォームです。</p>
+            <p>使用年数: 3年</p>
+            <div class="star-rating">
+              <div class="star-rating-item" style="width:70%;"></div>
+            </div>
+          </mz-card-content>
+        </mz-card>
+      </a>
+      <a href="http://expressjs.com/ja/">
+        <mz-card class="orange darken-1 white-text" [hoverable]="true">
+          <mz-card-title>
+            Express
+          </mz-card-title>
+          <mz-card-content>
+            <p>Nodeサーバをさっくり作れるNode.jsのフレームワークです。</p>
+            <p>使用年数: 3年</p>
+            <div class="star-rating">
+              <div class="star-rating-item" style="width:70%;"></div>
+            </div>
+          </mz-card-content>
+        </mz-card>
+      </a>
+      <a href="https://www.mongodb.com/">
+        <mz-card class="blue-grey darken-1 white-text" [hoverable]="true">
+          <mz-card-title>
+            MongoDB
+          </mz-card-title>
+          <mz-card-content>
+            <p>ドキュメント志向型のNoSQLDBです。 </p>
+            <p>SQLに比べ非常に高速です。JavaScriptでクエリの実行が出来ます。</p>
+            <p>使用年数: 3年</p>
+            <div class="star-rating">
+              <div class="star-rating-item" style="width:60%;"></div>
+            </div>
+          </mz-card-content>
+        </mz-card>
+      </a>
+      <a href="https://angular.jp/">
+        <mz-card class="red darken-1 white-text" [hoverable]="true">
+          <mz-card-title>
+            Angular
+          </mz-card-title>
+          <mz-card-content>
+            <p>JavaScriptのSPA開発用のフレームワークです。</p>
+            <p>フルスタックな思想で開発されたので、APIを叩く事も、内部でルーティングさせる事も、認証機能を持たせることも、ライブラリを追加せずに出来ます。（よくばりセットです）</p>
+            <p>使用年数: 3年</p>
+            <div class="star-rating">
+              <div class="star-rating-item" style="width:80%;"></div>
+            </div>
+          </mz-card-content>
+        </mz-card>
+      </a>
+      <a href="https://firebase.google.com/">
+        <mz-card class="orange lighten-1 white-text" [hoverable]="true">
+          <mz-card-title>
+            Firebase
+          </mz-card-title>
+          <mz-card-content>
+            <p>GoogleのmBaaSクラウドサービスです。</p>
+            <p>バックエンドの管理や面倒な実装をGoogleが肩代わりしてくれます。リアルタイムNoSQLデータベースや、ユーザ認証等のサービスがあります。</p>
+            <p>使用年数: 1年未満</p>
+            <div class="star-rating">
+              <div class="star-rating-item" style="width:20%;"></div>
+            </div>
+          </mz-card-content>
+        </mz-card>
+      </a>
+      <a href="https://ja.wikipedia.org/wiki/HyperText_Markup_Language">
+        <mz-card class="orange darken-4 white-text" [hoverable]="true">
+          <mz-card-title>
+            HTML
+          </mz-card-title>
+          <mz-card-content>
+            <p>WEBサイトの構造を決めるマークアップ言語です。</p>
+            <p>このページにも使用されています。</p>
+            <p>使用年数: 4年</p>
+            <div class="star-rating">
+              <div class="star-rating-item" style="width:100%;"></div>
+            </div>
+          </mz-card-content>
+        </mz-card>
+      </a>
+      <a href="https://ja.wikipedia.org/wiki/Cascading_Style_Sheets">
+        <mz-card class="blue darken-3 white-text" [hoverable]="true">
+          <mz-card-title>
+            CSS
+          </mz-card-title>
+          <mz-card-content>
+            <p>WEBサイトを装飾したり、レイアウトを決めたりするのに使用します。</p>
+            <p>このページにも使用されています。</p>
+            <p>使用年数: 3年</p>
+            <div class="star-rating">
+              <div class="star-rating-item" style="width:50%;"></div>
+            </div>
+          </mz-card-content>
+        </mz-card>
+      </a>
+      <a href="https://www.typescriptlang.org/">
+        <mz-card class="blue lighten-1 white-text" [hoverable]="true">
+          <mz-card-title>
+            TypeScript
+          </mz-card-title>
+          <mz-card-content>
+            <p>JavaScriptのスーパーセットです。</p>
+            <p>JavaScriptに静的型付けとクラスベースオブジェクト指向を追加した物です。コンパイルするとjsファイルになります。</p>
+            <p>使用年数: 3年</p>
+            <div class="star-rating">
+              <div class="star-rating-item" style="width:70%;"></div>
+            </div>
+          </mz-card-content>
+        </mz-card>
+      </a>
+      <a href="https://www.nativescript.org/">
+        <mz-card class="blue accent-3 white-text" [hoverable]="true">
+          <mz-card-title>
+            NativeScript
+          </mz-card-title>
+          <mz-card-content>
+            <p>ハイブリッドアプリ開発用JavaScriptフレームワークです。</p>
+            <p>JAVAやSwiftを使用せずにJavaScriptだけでスマホアプリが開発できますが、現状ではまだまだ荒い所が多いです。</p>
+            <p>使用年数: 2年</p>
+            <div class="star-rating">
+              <div class="star-rating-item" style="width:60%;"></div>
+            </div>
+          </mz-card-content>
+        </mz-card>
+      </a>
+      <a href="https://www.mysql.com/jp/">
+        <mz-card class="blue accent-5 white-text" [hoverable]="true">
+          <mz-card-title>
+            MySQL
+          </mz-card-title>
+          <mz-card-content>
+            <p>リレーショナル型DBです。</p>
+            <p>専門時代に少し習いましたが、業務では驚くほど使っていませんでした。最近、危機感を覚えて一人で復習していました。</p>
+            <p>使用年数: 1年未満</p>
+            <div class="star-rating">
+              <div class="star-rating-item" style="width:20%;"></div>
+            </div>
+          </mz-card-content>
+        </mz-card>
+      </a>
     </div>
   </div>
 </div>
