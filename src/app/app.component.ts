@@ -4,12 +4,14 @@ import { Subscription } from 'rxjs';
 import { MatIconRegistry } from '../../node_modules/@angular/material';
 import { DomSanitizer } from '../../node_modules/@angular/platform-browser';
 import { SharedService } from './shared/shared.service';
+import { fadeAnimation } from './animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [SharedService]
+  providers: [SharedService],
+  animations: [fadeAnimation]
 })
 export class AppComponent implements OnDestroy, OnInit {
   mobileQuery: MediaQueryList;
