@@ -72,7 +72,8 @@ ul {
 .tauch_close {
   position: fixed;
   top: 0;
-  height: 60vh;
+  cursor: default;
+  height: 70vh;
   width: 100vw;
   z-index: 50;
   display: none;

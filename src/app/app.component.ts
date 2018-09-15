@@ -1,8 +1,8 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { Subscription } from 'rxjs';
-import { MatIconRegistry } from '../../node_modules/@angular/material';
-import { DomSanitizer } from '../../node_modules/@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 import { SharedService } from './shared/shared.service';
 import { fadeAnimation } from './animations';
 
@@ -13,7 +13,7 @@ import { fadeAnimation } from './animations';
   providers: [SharedService],
   animations: [fadeAnimation]
 })
-export class AppComponent implements OnDestroy, OnInit {
+export class AppComponent implements OnDestroy, OnInit, AfterViewInit {
   mobileQuery: MediaQueryList;
   isMobile = false;
   displaydetectSubscription: Subscription;
@@ -45,5 +45,9 @@ export class AppComponent implements OnDestroy, OnInit {
     if (this.displaydetectSubscription) {
       this.displaydetectSubscription.unsubscribe();
     }
+  }
+
+  ngAfterViewInit(): void {
+
   }
 }
