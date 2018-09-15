@@ -1,3 +1,7 @@
+[type="checkbox"]:checked+label:before {
+  display: none;
+}
+
 .siteheader {
   position: fixed;
   width: 100vw;
@@ -71,10 +75,10 @@ ul {
 /* 開いたメニューをタップで閉じるための当たり判定 */
 .tauch_close {
   position: fixed;
-  top: 0;
+  top: 56px;
   cursor: default;
-  height: 70vh;
-  width: 100vw;
+  height: 60%;
+  width: 100%;
   z-index: 50;
   display: none;
   margin: 0;
