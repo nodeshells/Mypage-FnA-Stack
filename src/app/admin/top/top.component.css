@@ -2674,6 +2674,16 @@ select {
   width: 98%;
 }
 
+.grid_container {
+  padding: 0 0.5rem;
+  margin: 10px auto;
+  max-width: 100% !important;
+  width: 98%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+}
+
 .container .dropdown-settings i.right {
   margin-left: 0;
 }
@@ -2682,7 +2692,7 @@ select {
   position: fixed;
   width: 100px;
   left: 180px;
-  z-index: 999;
+  z-index: 1;
   height: auto;
 }
 
@@ -2716,6 +2726,10 @@ select {
 }
 
 @media only screen and (max-width: 993px) {
+  .grid_container {
+    grid-template-columns: 1fr;
+  }
+
   #main {
     padding-left: 0;
   }
