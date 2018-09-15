@@ -2,14 +2,14 @@
   <mz-navbar navbarClass="blue siteheader">
     <mz-navbar-item-container [align]="'left'">
       <mz-navbar-item>
-        <a *ngIf="!this.isMobile" href="/" class="brand-logo">
+        <div *ngIf="!this.isMobile" routerLink="/" class="brand-logo">
           Kenta Technology Lab
-        </a>
+        </div>
       </mz-navbar-item>
       <mz-navbar-item>
-        <a *ngIf="this.isMobile" href="/" class="brand-logo-mobile">
+        <div *ngIf="this.isMobile" routerLink="/" class="brand-logo-mobile">
           K.T.L.
-        </a>
+        </div>
       </mz-navbar-item>
     </mz-navbar-item-container>
     <mz-navbar-item-container [align]="'right'">
@@ -36,6 +36,7 @@
 </div>
 
 <input id="menu-toggle" type="checkbox">
+<label class="tauch_close" for="menu-toggle"></label>
 <ul>
   <app-sidemenu></app-sidemenu>
 </ul>
