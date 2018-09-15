@@ -17,7 +17,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { ToppageComponent } from './toppage/toppage.component';
 import { MypageComponent } from './mypage/mypage.component';
 import { TimelineComponent } from './timeline/timeline.component';
-import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [

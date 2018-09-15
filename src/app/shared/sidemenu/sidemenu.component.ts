@@ -1,42 +1,37 @@
 import { Component, ChangeDetectorRef, Inject, Injectable, OnInit, DoCheck, OnChanges } from '@angular/core';
-import { SharedModule } from '../shared.module';
 import { Router, NavigationEnd } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { Location } from '../../../../node_modules/@angular/common';
+import { Location } from '@angular/common';
+import { AuthService } from '../authguard/auth.service';
+import { UserService } from '../authguard/user.service';
+import { SharedService } from '../shared.service';
+
 
 @Component({
   selector: 'app-sidemenu',
   templateUrl: './sidemenu.component.html',
-  styleUrls: ['./sidemenu.component.css']
+  styleUrls: ['./sidemenu.component.css'],
+  providers: [AuthService, UserService, SharedService]
 })
 export class SidemenuComponent implements OnInit, OnChanges {
 
-  public activebox = {
-    top: false,
-    profile: false
-  };
-
-  constructor(private router: Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private location: Location) {
+  constructor(private router: Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private location: Location, private auth: AuthService, private user: UserService, private sharedservice: SharedService) {
   }
 
   ngOnInit() {
   }
 
   ngOnChanges() {
-    this.activebox.top = false;
-    this.activebox.profile = false;
+  }
 
-    switch (String(this.location.path)) {
-      case '/top':
-        this.activebox.top = true;
-        break;
-
-      case '/profile':
-        this.activebox.profile = true;
-        break;
-      default:
-        break;
+  // ログインさせる
+  async login() {
+    try {
+      const user = await this.user.getCurrentUser();
+      if (!this.sharedservice.mailCheck(user)) { throw new Error('permisson_error'); }
+    } catch (error) {
+      await this.auth.doGoogleLogin();
     }
   }
 

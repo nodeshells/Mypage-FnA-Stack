@@ -1,11 +1,13 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { Routes, RouterModule, CanActivate, PreloadingStrategy, PreloadAllModules } from '@angular/router';
-import { HelloComponent } from './hello/hello.component';
+import { Routes, RouterModule, PreloadingStrategy, PreloadAllModules } from '@angular/router';
 import { ToppageComponent } from './toppage/toppage.component';
 import { MypageComponent } from './mypage/mypage.component';
+import { AuthGuard } from './shared/authguard/auth.guard';
+import { UserService } from './shared/authguard/user.service';
 
 
 const myRoutes = [
+  { path: 'admin', loadChildren: './admin/admin.module#AdminModule', canActivate: [AuthGuard] },
   { path: 'top', component: ToppageComponent },
   { path: 'profile', component: MypageComponent },
   { path: '**', redirectTo: 'top' },
@@ -14,6 +16,7 @@ const myRoutes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(myRoutes, { preloadingStrategy: PreloadAllModules })],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard, UserService]
 })
 export class AppRoutingModule { }

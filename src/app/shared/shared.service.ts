@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from '../../../node_modules/rxjs';
-import { map } from '../../../node_modules/rxjs/operators';
-import { BreakpointObserver } from '../../../node_modules/@angular/cdk/layout';
-import { Router, NavigationEnd } from '../../../node_modules/@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { Router, NavigationEnd } from '@angular/router';
+
+import { environment_config } from '../../environments/environment_config';
 
 declare let ga;
 
@@ -28,5 +30,13 @@ export class SharedService {
       ga('set', 'page', evt.urlAfterRedirects); // GoogleAnalyticsにページのURLを投げ飛ばす
       ga('send', 'pageview');
     });
+  }
+
+  mailCheck(user): boolean {
+    if (user.email === environment_config.admin_permission.mailaddress) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
