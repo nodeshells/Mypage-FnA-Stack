@@ -39,6 +39,10 @@
 
     src/environments/environment_config.ts でファイルを新規作成し、下記のコードを記述。
     (xの箇所は上記のサイトを参考に書き換える)
+    
+    任意で入力:
+    analytics は GoogleAnalyticsのIDを入力。
+    admin_permission は Firebase Authenticationのログインを制限(ホワイトリスト)
 
     export const environment_config = {
       firebase: {
@@ -48,6 +52,12 @@
         projectId: 'xxxxxxxxxxxxxxxxx',
         storageBucket: 'xxxxxxxxxxxxxxxxx',
         messagingSenderId: 'xxxxxxxxxxxxxxxxx'
+      },
+      analytics: {
+        id: 'XX-XXXXXXXXX-X'
+      },
+      admin_permission: {
+        mailaddress: 'XXXXXXXXXXXXXX@hoge.com'
       }
     };
 
