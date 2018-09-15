@@ -24,9 +24,12 @@ ul {
 }
 
 svg {
-  height: 1cap;
   vertical-align: baseline;
   width: auto;
+}
+
+a {
+  cursor: pointer;
 }
 
 dt {
