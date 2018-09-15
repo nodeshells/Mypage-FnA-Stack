@@ -77,13 +77,8 @@ ul {
   position: fixed;
   top: 56px;
   cursor: default;
-<<<<<<< HEAD
   height: 60%;
   width: 100%;
-=======
-  height: 65vh;
-  width: 100vw;
->>>>>>> 53f2df633766c5c3486e74df1cecb9aa5457d81a
   z-index: 50;
   display: none;
   margin: 0;
