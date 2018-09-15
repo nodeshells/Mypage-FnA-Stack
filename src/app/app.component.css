@@ -73,7 +73,7 @@ ul {
   position: fixed;
   top: 0;
   cursor: default;
-  height: 70vh;
+  height: 65vh;
   width: 100vw;
   z-index: 50;
   display: none;
