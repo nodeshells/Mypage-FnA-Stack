@@ -1,17 +1,18 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { Router, NavigationEnd } from '@angular/router';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {BreakpointObserver} from '@angular/cdk/layout';
+import {Router, NavigationEnd} from '@angular/router';
 
-import { environment_config } from '../../environments/environment_config';
+import {environment_config} from '../../environments/environment_config';
 
 declare let ga;
 
 @Injectable()
 export class SharedService {
 
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router) { }
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router) {
+  }
 
   // 画面サイズの検出
   displaysizedetect(): Observable<boolean> {

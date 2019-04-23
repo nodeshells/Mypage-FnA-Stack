@@ -1,95 +1,102 @@
-[type="checkbox"]:checked+label:before {
-  display: none;
+[type="checkbox"]:checked + label:before {
+    display: none;
 }
 
 .siteheader {
-  position: fixed;
-  width: 100vw;
+    position: fixed;
+    width: 100vw;
 }
 
 .site-logo-img {
-  margin: 0 auto;
-  transform: scale(2);
+    margin: 0 auto;
+    transform: scale(2);
 }
 
 .logo-img {
-  /* padding-left: 5px; */
-  margin: 0 auto;
-  transform: scale(1.8);
-  z-index: 5;
+    /* padding-left: 5px; */
+    margin: 0 auto;
+    transform: scale(1.8);
+    z-index: 5;
 }
 
 .logo-img-f {
-  /* padding-left: 5px; */
-  margin: 0 auto;
-  transform: scale(1.5);
+    /* padding-left: 5px; */
+    margin: 0 auto;
+    transform: scale(1.5);
+}
+
+.logo-img-cross {
+    /* padding-left: 5px; */
+    margin: 18px auto;
+    transform: scale(1.3);
+    z-index: 5;
 }
 
 .brand-logo {
-  margin-left: 10px;
-  cursor: pointer;
+    margin-left: 10px;
+    cursor: pointer;
 
 }
 
 .brand-logo-mobile {
-  margin-left: 10px;
-  font-size: 1.4rem;
-  cursor: pointer;
+    margin-left: 10px;
+    font-size: 1.4rem;
+    cursor: pointer;
 }
 
 .menu_button {
-  height: 100%;
+    height: 100%;
 }
 
 .menu_button i {
-  margin: 0 auto;
-  transform: scale(1.3);
+    margin: 0 auto;
+    transform: scale(1.3);
 }
 
 .sidenav {
-  min-height: 100vh;
+    min-height: 100vh;
 }
 
 .pure-toggle-label {
-  border: none;
+    border: none;
 }
 
 /* メニューのスタイル */
 .menu-open {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 #menu-toggle {
-  display: none;
+    display: none;
 }
 
 ul {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  transform: translateY(100%);
-  transition: 0.2s;
-  z-index: 30;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+    transition: 0.2s;
+    z-index: 30;
 }
 
 /* 開いたメニューをタップで閉じるための当たり判定 */
 .tauch_close {
-  position: fixed;
-  top: 56px;
-  cursor: default;
-  height: 60%;
-  width: 100%;
-  z-index: 50;
-  display: none;
-  margin: 0;
-  padding: 0;
+    position: fixed;
+    top: 56px;
+    cursor: default;
+    height: 60%;
+    width: 100%;
+    z-index: 50;
+    display: none;
+    margin: 0;
+    padding: 0;
 }
 
 /* 隠しチェックボタンにチェックがついていたら当たり判定を有効にする */
-#menu-toggle:checked~.tauch_close {
-  display: block;
+#menu-toggle:checked ~ .tauch_close {
+    display: block;
 }
 
-#menu-toggle:checked~ul {
-  transform: translateY(0);
+#menu-toggle:checked ~ ul {
+    transform: translateY(0);
 }
