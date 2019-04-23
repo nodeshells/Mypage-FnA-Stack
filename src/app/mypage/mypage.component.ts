@@ -1,19 +1,43 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Sanitizer} from '@angular/core';
+import {FirestoreService} from '../shared/firebase/firestore.service';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-mypage',
   templateUrl: './mypage.component.html',
-  styleUrls: ['./mypage.component.css']
+  styleUrls: ['./mypage.component.css'],
+  providers: [FirestoreService]
 })
 export class MypageComponent implements OnInit {
   myAge = 0;
   currentYear = '';
+  loadState = true;
 
-  constructor() {
+  SkillData$;
+
+  constructor(private firestoreService: FirestoreService, private sanitizer: DomSanitizer) {
   }
 
   ngOnInit() {
+    // 年齢を取得して変数に入れる
     this.getOld();
+    // FireStoreのドキュメントをWatchする
+    this.SkillData$ = this.firestoreService.getSkilldata().pipe(map(skill => {
+      skill.skilldata.forEach((skills) => {
+        // skillの中に入っている習熟度の数値をstyle情報に変換する(星を表示するため)
+        skills.star = this.sanitizer.bypassSecurityTrustStyle('width:' + skills.star + '%;');
+
+        if (!skills.color) {
+          // カードの情報が無かったらデフォルトのカラーを適用
+          skills.color = 'green darken-1';
+        }
+      });
+      // 読み込みを完了させる
+      this.loadState = false;
+      return skill.skilldata;
+    }));
   }
 
   getOld() {
@@ -42,7 +66,7 @@ export class MypageComponent implements OnInit {
 
 // 引き算
     this.myAge = Math.floor((Number(y1 + m1 + d1) - Number(y2 + m2 + d2)) / 10000);
-    console.log(this.myAge);
+    // console.log(this.myAge);
   }
 
 }
