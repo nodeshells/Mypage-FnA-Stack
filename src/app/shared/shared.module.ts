@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MaterialModule } from './ng_material_modules/material.module';
-import { MaterializeModule } from './materialize_css_modules/materialize.module';
-import { SharedService } from './shared.service';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {MaterialModule} from './ng_material_modules/material.module';
+import {MaterializeModule} from './materialize_css_modules/materialize.module';
+import {SharedService} from './shared.service';
 
 @NgModule({
   imports: [
@@ -18,4 +18,5 @@ import { SharedService } from './shared.service';
     SharedService
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+}
