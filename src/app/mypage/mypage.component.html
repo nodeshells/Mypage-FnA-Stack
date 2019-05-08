@@ -30,7 +30,7 @@
     <mz-spinner *ngIf="this.loadState" style="margin: 0 auto" color="blue" size="big"></mz-spinner>
     <div class="skill_grid_container">
       <ng-container *ngFor="let skill of (SkillData$ | async)">
-        <a href="{{skill.url}}">
+        <a *ngIf="skill.display" href="{{skill.url}}">
           <mz-card class="{{skill.color}} white-text" [hoverable]="true">
             <mz-card-title>
               {{skill.skillname}}
