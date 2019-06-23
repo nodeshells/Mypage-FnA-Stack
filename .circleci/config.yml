@@ -33,7 +33,7 @@ jobs:
 
 
       # firebaseのCLIをインストール
-      - run: npm install -g firebase-tools
+      - run: npm install firebase-tools
 
 
       - run: npm run build:client
