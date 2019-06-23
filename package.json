@@ -23,7 +23,7 @@
     "deploy": "npm-run-all -s build:client firebase:deploy",
     "hosting:kill": "firebase hosting:disable",
     "firebase:serve": "firebase serve",
-    "firebase:deploy": "firebase deploy",
+    "firebase:deploy": "firebase deploy --only hosting",
     "tunnel:start": "ssh -R 8420:localhost:4200 serveo.net",
     "test": "run-p test:*",
     "test:client": "ng test",
