@@ -33,8 +33,8 @@ jobs:
 
 
       # firebaseのCLIをインストール
-      - run: npm install firebase-tools -g
+      - run: sudo npm install firebase-tools -g
 
 
       - run: npm run build:client
-      - run: firebase deploy --token $FIREBASE_TOKEN
+      - run: sudo firebase deploy --token $FIREBASE_TOKEN
