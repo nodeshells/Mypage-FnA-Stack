@@ -12,7 +12,10 @@ export class EditProfileComponent implements OnInit {
 
   loadState = true;
   SkillData$;
+  UserData$;
   SkillData;
+  currentYear;
+  myAge;
 
   colorInfo = [
     {name: '赤', colorStyle: 'red'},
@@ -36,11 +39,7 @@ export class EditProfileComponent implements OnInit {
   ];
 
   constructor(private firestoreService: FirestoreService, private sanitizer: DomSanitizer) {
-  }
-
-
-  ngOnInit() {
-    // FireStoreのドキュメントをWatchする
+    // FireStoreのSkillドキュメントをWatchする
     this.SkillData$ = this.firestoreService.getSkilldata().pipe(map(skill => {
       skill.skilldata.forEach((skills) => {
         // skillの習熟度の値をバックアップ
@@ -57,15 +56,50 @@ export class EditProfileComponent implements OnInit {
       // 読み込みを完了させる
       this.loadState = false;
       this.SkillData = skill.skilldata;
-      console.log(this.SkillData);
+      // console.log(this.SkillData);
       return skill.skilldata;
     }));
+    this.UserData$ = this.firestoreService.getUserData();
+    this.getOld();
+  }
+
+
+  ngOnInit() {
   }
 
   changeSkillCard(changeData, index, changeObject) {
     console.log('changeData', changeData);
     console.log('index', index);
     console.log('changeObj', changeObject);
+  }
+
+  getOld() {
+    // あなたの誕生日
+    const yourBirthDay = {
+      year: 1996,
+      month: 4,
+      date: 19
+    };
+
+// Dateインスタンスに変換
+    const birthDate = new Date(yourBirthDay.year, yourBirthDay.month - 1, yourBirthDay.date);
+
+// 文字列に分解
+    const y2 = birthDate.getFullYear().toString().padStart(4, '0');
+    const m2 = (birthDate.getMonth() + 1).toString().padStart(2, '0');
+    const d2 = birthDate.getDate().toString().padStart(2, '0');
+
+// 今日の日付
+    const today = new Date();
+    const y1 = today.getFullYear().toString().padStart(4, '0');
+    const m1 = (today.getMonth() + 1).toString().padStart(2, '0');
+    const d1 = today.getDate().toString().padStart(2, '0');
+
+    this.currentYear = y1;
+
+// 引き算
+    this.myAge = Math.floor((Number(y1 + m1 + d1) - Number(y2 + m2 + d2)) / 10000);
+    // console.log(this.myAge);
   }
 
 }

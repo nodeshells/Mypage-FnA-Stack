@@ -18,6 +18,12 @@ export class FirestoreService {
 
   // Skillカードを更新する
   updateSkilldata() {
-    const skilldataRef = this.afs.collection('profile').doc('skill');
+    const skilldataRef = this.afs.collection('profile').doc('Skill');
+  }
+
+  // Userデータを取得する
+  getUserData(): Observable<any | undefined> {
+    const UserDocRef = this.afs.collection('profile').doc('User');
+    return UserDocRef.valueChanges();
   }
 }
