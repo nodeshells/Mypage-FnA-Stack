@@ -11,7 +11,7 @@ import { SharedService } from '../shared.service';
 @Component({
   selector: 'app-sidemenu',
   templateUrl: './sidemenu.component.html',
-  styleUrls: ['./sidemenu.component.css'],
+  styleUrls: ['./sidemenu.component.scss'],
   providers: [AuthService, UserService, SharedService]
 })
 export class SidemenuComponent implements OnInit, OnChanges {

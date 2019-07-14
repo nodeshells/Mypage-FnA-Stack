@@ -17,6 +17,7 @@ import {ToppageComponent} from './toppage/toppage.component';
 import {MypageComponent} from './mypage/mypage.component';
 import {TimelineComponent} from './timeline/timeline.component';
 import {HttpClientModule} from '@angular/common/http';
+import {ColorSketchModule} from 'ngx-color/sketch';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {HttpClientModule} from '@angular/common/http';
     AngularFireAuthModule,
     AngularFirestoreModule,
     HttpClientModule,
+    ColorSketchModule
   ],
   bootstrap: [AppComponent]
 })

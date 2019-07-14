@@ -7,7 +7,7 @@ import { UserService } from './shared/authguard/user.service';
 
 
 const myRoutes = [
-  { path: 'admin', loadChildren: './admin/admin.module#AdminModule', canActivate: [AuthGuard] },
+  { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
   { path: 'top', component: ToppageComponent },
   { path: 'profile', component: MypageComponent },
   { path: '**', redirectTo: 'top' },

@@ -4,7 +4,7 @@ import { UserService } from '../../shared/authguard/user.service';
 @Component({
   selector: 'app-top',
   templateUrl: './top.component.html',
-  styleUrls: ['./top.component.css'],
+  styleUrls: ['./top.component.scss'],
   providers: [UserService]
 })
 export class TopComponent implements OnInit {

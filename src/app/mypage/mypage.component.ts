@@ -7,7 +7,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 @Component({
   selector: 'app-mypage',
   templateUrl: './mypage.component.html',
-  styleUrls: ['./mypage.component.css'],
+  styleUrls: ['./mypage.component.scss'],
   providers: [FirestoreService]
 })
 export class MypageComponent implements OnInit {

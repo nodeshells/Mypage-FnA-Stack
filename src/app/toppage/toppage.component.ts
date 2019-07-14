@@ -4,7 +4,7 @@ import { SharedService } from '../shared/shared.service';
 @Component({
   selector: 'app-toppage',
   templateUrl: './toppage.component.html',
-  styleUrls: ['./toppage.component.css'],
+  styleUrls: ['./toppage.component.scss'],
   providers: [SharedService]
 })
 export class ToppageComponent implements OnInit {
