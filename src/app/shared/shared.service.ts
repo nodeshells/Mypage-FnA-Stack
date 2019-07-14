@@ -4,7 +4,6 @@ import {map} from 'rxjs/operators';
 import {BreakpointObserver} from '@angular/cdk/layout';
 import {Router, NavigationEnd} from '@angular/router';
 
-import {environment_config} from '../../environments/environment_config';
 
 declare let ga;
 
@@ -34,7 +33,7 @@ export class SharedService {
   }
 
   mailCheck(user): boolean {
-    if (user.email === environment_config.admin_permission.mailaddress) {
+    if (false) {
       return true;
     } else {
       return false;

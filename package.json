@@ -15,7 +15,7 @@
     "boot:server": "nodemon ./dist/server/bin/www.js",
     "boot:server_test": "nodemon ./dist/server_test/test.server.js",
     "build": "run-s build:server build:client",
-    "build:client": "ng build --output-path=./dist/server/public --prod --build-optimizer --aot",
+    "build:client": "ng build --output-path=./dist/server/public --prod",
     "build:server": "tsc -p ./server/tsconfig.server.json",
     "build:server_test": "tsc -p ./server/tsconfig.server.json",
     "buildRun": "run-s build boot:server",
