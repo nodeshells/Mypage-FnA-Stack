@@ -1,6 +1,5 @@
-import {Component, OnInit, Sanitizer} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FirestoreService} from '../shared/firebase/firestore.service';
-import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {DomSanitizer} from '@angular/platform-browser';
 
