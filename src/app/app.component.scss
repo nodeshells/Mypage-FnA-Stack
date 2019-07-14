@@ -1,3 +1,8 @@
+ion-button {
+    --padding-start: 1px;
+    --padding-end: 1px;
+}
+
 [type="checkbox"]:checked + label:before {
     display: none;
 }

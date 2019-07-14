@@ -5,74 +5,60 @@
       </ion-menu-button>
     </ion-buttons>
     <ion-title>トップ</ion-title>
-    <ion-buttons slot="start">
-      <ion-button fill="clear">
-        <a href="https://angular.jp/">
-          <ion-icon size="large" src="assets/Angular_full_color_logo.svg"></ion-icon>
-        </a>
-      </ion-button>
-      <ion-button fill="clear">
-        <a href="https://firebase.google.com/">
-          <ion-icon size="large" src="assets/firebase-logo.svg"></ion-icon>
-        </a>
-      </ion-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content>
-  <div class="background">
-    <ion-card class="blue white-text">
-      <div class="top-logo">
-        <div>
-          <img async src="assets/lab.jpg">
-        </div>
-        <div class="logo-img-block">
-          <img async class="logo-img" src="assets/logo_transparent.png" alt="logo">
-        </div>
-      </div>
-      <ion-card-header>
-        <ion-card-title>
-          どういうサイト？
-        </ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Kentaという人物のホームページです。</p>
-        <p>今までの自分の経歴や、最近触れた技術や、自分の趣味について掲載していきたいと思います。</p>
-      </ion-card-content>
-    </ion-card>
-    <ion-card class="blue white-text">
-      <div class="top-logo">
-        <div>
-          <img async src="assets/keyboard.jpg">
-        </div>
-      </div>
-      <ion-card-header>
-        <ion-card-title>
-          Kentaってどういう人？
-        </ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>純日本人です。高校生までは田と山に囲まれて過ごしました。</p>
-        <p>中学生だった頃に実家にパソコンが導入され、そこからパソコン沼にはまっていきました。</p>
-        <p>最初はネットサーフィンを、次はゲーム機の改造を、次は自作パソコンを、最後にプログラミングをという感じでパソコン人生を歩んできました。</p>
-      </ion-card-content>
-    </ion-card>
 
-  </div>
-  <ion-card class="blue white-text">
+<ion-content>
+  <ion-card mode="md" [color]="themeState$ | async" class="blue white-text">
     <div class="top-logo">
       <div>
-        <img async src="assets/console1.jpg">
+        <img async src="assets/lab.jpg">
+      </div>
+      <div class="logo-img-block">
+        <img async class="logo-img dropshadow" src="assets/logo_transparent.png" alt="logo">
       </div>
     </div>
     <ion-card-header>
       <ion-card-title>
-        このページはどのように作られているの？
+        どんなサイト？ 🤔
       </ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      このページはAngularとIonicとFirebaseを使用して作成しました。
-      ソースコードは<a href="https://github.com/nodeshells/Mypage-FnA-Stack">Github</a>上で公開しています。
+      <p>Kentaという人物のホームページです。</p>
+      <p>今までの自分の経歴や、最近触れた技術や、自分の趣味について掲載していきたいと思います。</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card mode="md" [color]="themeState$ | async" class="blue white-text">
+    <div class="top-logo">
+      <div>
+        <img class="dropshadow" async src="assets/keyboard.jpg">
+      </div>
+    </div>
+    <ion-card-header>
+      <ion-card-title>
+        Kentaってどういう人？ 🙂
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      普通の日本人です。高校生までは田んぼと畑と山に囲まれて過ごしていました。
+      中学生だった頃に実家にパソコンが導入され、そこからパソコンにはまりました。
+      ネットサーフィン、ゲーム機の改造、自作パソコン、プログラミングというように少しづつスキルを身につけていきました。
+    </ion-card-content>
+  </ion-card>
+  <ion-card mode="md" [color]="themeState$ | async" class="blue white-text">
+    <div class="top-logo">
+      <div>
+        <img class="dropshadow" async src="assets/console1.jpg">
+      </div>
+    </div>
+    <ion-card-header>
+      <ion-card-title>
+        サイトのソースコードを公開していますか？ 😎
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      ソースコードは <a href="https://github.com/nodeshells/Mypage-FnA-Stack">Github</a> 上で公開しています。
+      ご自由にお使いください。
     </ion-card-content>
   </ion-card>
 </ion-content>

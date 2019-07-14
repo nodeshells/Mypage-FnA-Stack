@@ -15,6 +15,7 @@ import {ColorSketchModule} from 'ngx-color/sketch';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {IonicModule} from '@ionic/angular';
+import {IonicStorageModule, Storage} from '@ionic/storage';
 
 const firebase = {
   apiKey: 'AIzaSyDXAkI4db4eoTnfXbzTCYJ-_Hlh7mA3RKo',
@@ -36,6 +37,7 @@ const firebase = {
     BrowserModule,
     BrowserAnimationsModule,
     IonicModule.forRoot(),
+    IonicStorageModule.forRoot(),
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
@@ -46,6 +48,7 @@ const firebase = {
     AngularFirestoreModule,
     ColorSketchModule
   ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
