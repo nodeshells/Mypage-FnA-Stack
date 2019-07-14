@@ -5,7 +5,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {HelloComponent} from './hello/hello.component';
 import {SharedModule} from './shared/shared.module';
-import {SidemenuComponent} from './shared/sidemenu/sidemenu.component';
 import {AppRoutingModule} from './app-routing.module';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';
@@ -16,6 +15,7 @@ import {TimelineComponent} from './timeline/timeline.component';
 import {ColorSketchModule} from 'ngx-color/sketch';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
+import {IonicModule} from '@ionic/angular';
 
 const firebase = {
   apiKey: 'AIzaSyDXAkI4db4eoTnfXbzTCYJ-_Hlh7mA3RKo',
@@ -30,7 +30,6 @@ const firebase = {
   declarations: [
     AppComponent,
     HelloComponent,
-    SidemenuComponent,
     ToppageComponent,
     MypageComponent,
     TimelineComponent
@@ -38,6 +37,7 @@ const firebase = {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    IonicModule.forRoot(),
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,

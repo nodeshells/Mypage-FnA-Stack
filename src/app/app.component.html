@@ -1,54 +1,44 @@
-<div class="navbar-fixed">
-  <mz-navbar navbarClass="blue siteheader">
-    <mz-navbar-item-container [align]="'left'">
-      <mz-navbar-item>
-        <div *ngIf="!this.isMobile" routerLink="/" class="brand-logo">
-          Kenta Technology Lab
-        </div>
-      </mz-navbar-item>
-      <mz-navbar-item>
-        <div *ngIf="this.isMobile" routerLink="/" class="brand-logo-mobile">
-          K.T.L.
-        </div>
-      </mz-navbar-item>
-    </mz-navbar-item-container>
-    <mz-navbar-item-container [align]="'right'">
-      <mz-navbar-item>
-        <a href="https://angular.jp/">
-          <mat-icon class="logo-img" svgIcon="nglogo"></mat-icon>
-        </a>
-      </mz-navbar-item>
-      <!--      <mz-navbar-item>-->
-      <!--        <mat-icon class="logo-img-cross">clear_round</mat-icon>-->
-      <!--      </mz-navbar-item>-->
-      <mz-navbar-item>
-        <a href="https://firebase.google.com/">
-          <mat-icon class="logo-img" svgIcon="firebaselogo"></mat-icon>
-        </a>
-      </mz-navbar-item>
-      <mz-navbar-item>
-        <!-- <button mz-button class="menu_button" flat="true"> -->
-        <a>
-          <label class="menu_button menu-open white-text" for="menu-toggle"><i class="menu-open white-text"
-                                                                               for="menu-toggle"
-                                                                               mz-icon [icon]="'menu'"></i></label>
-        </a>
-        <!-- </button> -->
-      </mz-navbar-item>
-    </mz-navbar-item-container>
-  </mz-navbar>
-</div>
-
-<input id="menu-toggle" type="checkbox">
-<label class="tauch_close" for="menu-toggle"></label>
-<ul>
-  <app-sidemenu></app-sidemenu>
-</ul>
-
-<main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
-  <router-outlet #o="outlet"></router-outlet>
-</main>
-
-<mz-sidenav #sidenav [id]="'sidenav-demo'" [collapseButtonId]="'btn-sidenav-demo'" [fixed]="false" [width]="250">
-  <app-sidemenu></app-sidemenu>
-</mz-sidenav>
+<ion-split-pane contentId="menu-content">
+  <ion-menu contentId="menu-content" type="push">
+    <ion-header>
+      <ion-toolbar mode="ios" color="primary">
+        <ion-title>メニュー</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item routerLink="/top">
+          <ion-icon color="primary" slot="start" name="home"></ion-icon>
+          <ion-label>
+            TOPページ
+          </ion-label>
+        </ion-item>
+        <ion-item routerLink="/profile">
+          <ion-icon color="primary" slot="start" name="happy"></ion-icon>
+          <ion-label>
+            プロフィール
+          </ion-label>
+        </ion-item>
+        <ion-item routerLink="">
+          <ion-icon color="primary" slot="start" name="text"></ion-icon>
+          <ion-label>
+            最近の活動
+          </ion-label>
+        </ion-item>
+        <ion-item routerLink="">
+          <ion-icon color="primary" slot="start" name="construct"></ion-icon>
+          <ion-label>
+            技術プレビュー
+          </ion-label>
+        </ion-item>
+        <ion-item routerLink="/admin/top">
+          <ion-icon color="primary" slot="start" name="glasses"></ion-icon>
+          <ion-label>
+            管理者ページ
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="menu-content"></ion-router-outlet>
+</ion-split-pane>

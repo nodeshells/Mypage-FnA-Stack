@@ -1,7 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
-@import './loader.css';
-
+// Ionic ---
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import "~@ionic/angular/css/display.css";
+// --- Ionic
 /* 背景色 */
 html {
     background-color: #fcfcfc;
@@ -10,12 +21,6 @@ html {
 body {
     margin: 0;
     font-family: 'Noto Sans JP', sans-serif;
-}
-
-router-outlet ~ * {
-    position: absolute;
-    height: 100%;
-    width: 100%;
 }
 
 ul {
@@ -57,20 +62,4 @@ div.collection {
     bottom: 20px;
     right: 20px;
     color: white;
-}
-
-/* スクロールバー */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #fff;
-    border-left: solid 1px #ececec;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 10px;
-    box-shadow: inset 0 0 0 2px #fff;
 }

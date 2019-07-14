@@ -1,0 +1,45 @@
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+$tab: 1025px; // タブレット
+$sp: 600px; // スマホ
+
+
+//メディアクエリ
+@mixin tab() {
+    @media (min-width: $sp) and (max-width: $tab) {
+        @content;
+    }
+}
+
+@mixin sp() {
+    @media (max-width: ($sp)) {
+        @content;
+    }
+}
+
+// ion spinner をcenterに寄せる
+ion-spinner {
+    display: block;
+    margin: auto;
+}
+
+// モーダルのサイズを変更
+//@include tab() {
+//    ion-modal {
+//        .modal-wrapper {
+//            position: absolute;
+//            top: 0;
+//            display: block;
+//            width: 100%;
+//            height: 100%;
+//        }
+//    }
+//}
