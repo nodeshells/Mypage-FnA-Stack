@@ -1,158 +1,158 @@
-<mat-tab-group color="warn">
-  <mat-tab label="プレビュー">
-    <div class="grid_container">
-      <div name="profile">
-        <mz-card class="blue white-text" [hoverable]="false">
-          <mz-card-title>
-            <p style="text-align:center;">プロフィール</p>
-          </mz-card-title>
-          <mz-card-content *ngIf="(UserData$ | async) as userdata">
-            <img class="profile_img" src="assets/profile3.jpg" alt="kenta">
-            <p style="text-align:center;">名前: {{userdata.name}}</p>
-            <dl>
-              <dt>性別:</dt>
-              <dd>{{userdata.gender}}</dd>
-              <dt>出身:</dt>
-              <dd>{{userdata.from}}</dd>
-              <dt>年齢:</dt>
-              <dd>現在{{this.myAge}}歳 ({{this.currentYear}}年)</dd>
-              <dt>職業:</dt>
-              <dd>{{userdata.job}}</dd>
-              <dt>趣味:</dt>
-              <dd>{{userdata.hobby}}</dd>
-            </dl>
-            自己紹介:
-            <p>{{userdata.pr}}</p>
-          </mz-card-content>
-        </mz-card>
-      </div>
-      <mz-spinner *ngIf="this.loadState" style="margin: 0 auto" color="blue" size="big"></mz-spinner>
-      <div class="skill_grid_container">
-        <ng-container *ngFor="let skill of (SkillData$ | async)">
-          <a *ngIf="skill.display">
-            <mz-card class="{{skill.color}} white-text" [hoverable]="true">
-              <mz-card-title>
-                {{skill.skillname}}
-              </mz-card-title>
-              <mz-card-content>
-                <p>{{skill.desc}}</p>
-                <p>使用年数: {{skill.experience}}年</p>
-                <dl>
-                  <dt>
-                    <h6>習熟度:</h6>
-                  </dt>
-                  <dd>
-                    <div class="star-rating">
-                      <div class="star-rating-item" [style]="skill.star"></div>
-                    </div>
-                  </dd>
-                </dl>
-              </mz-card-content>
-            </mz-card>
-          </a>
-        </ng-container>
-      </div>
-    </div>
-  </mat-tab>
-  <mat-tab label="カード編集">
-    <div class="grid_container">
-      <div name="profile">
-        <mz-card class="blue white-text" [hoverable]="false">
-          <mz-card-title>
-            <p style="text-align:center;">プロフィール</p>
-          </mz-card-title>
-          <mz-card-content *ngIf="(UserData$ | async) as userdata">
-            <img class="profile_img" src="assets/profile3.jpg" alt="kenta">
-            <p style="text-align:center;">名前: {{userdata.name}}</p>
-            <dl>
-              <dt>性別:</dt>
-              <dd>{{userdata.gender}}</dd>
-              <dt>出身:</dt>
-              <dd>{{userdata.from}}</dd>
-              <dt>年齢:</dt>
-              <dd>現在{{this.myAge}}歳 ({{this.currentYear}}年)</dd>
-              <dt>職業:</dt>
-              <dd>{{userdata.job}}</dd>
-              <dt>趣味:</dt>
-              <dd>{{userdata.hobby}}</dd>
-            </dl>
-            自己紹介:
-            <p>{{userdata.pr}}</p>
-          </mz-card-content>
-        </mz-card>
-      </div>
-      <mz-spinner *ngIf="this.loadState" style="margin: 0 auto" color="blue" size="big"></mz-spinner>
-      <div class="skill_grid_container">
-        <ng-container *ngFor="let skill of SkillData; let i = index">
-          <a *ngIf="skill.display">
-            <mz-card class="blue-grey white-text" [hoverable]="true">
-              <mz-card-title>
-                <div class="row">
-                  <div class="input-field title col s12">
-                    <input #skillName placeholder="タイトル" type="text" value="{{skill.skillname}}">
-                  </div>
-                </div>
-              </mz-card-title>
-              <mz-card-content>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input #skillDesc placeholder="説明" type="text" value="{{skill.desc}}">
-                  </div>
-                </div>
-                <!--                  <p>{{skill.desc}}</p>-->
-                <p>使用年数:</p>
-                <div class="row">
-                  <mat-slider #skillExperience class="col s12" thumbLabel="true" color="warn" min="0" max="100"
-                              value="{{skill.experience}}"></mat-slider>
-                </div>
-                <dl>
-                  <dt>
-                    <h6>習熟度:</h6>
-                  </dt>
-                </dl>
-                <div class="row">
-                  <mat-slider #skillStar class="col s12" thumbLabel="true" color="warn" min="0" max="100"
-                              value="{{skill.starRate}}"></mat-slider>
-                </div>
-                <p>カードの色:</p>
-                <div style="display: flex; flex-direction: column; padding: 5px;">
-                  <mat-select color="warn" #cardColor placeholder="カードの色を選択してください。">
-                    <mat-option *ngFor="let color of colorInfo"
-                                [value]="color.colorStyle">
-                      {{color.name}}
-                    </mat-option>
-                  </mat-select>
-                  <!--                  <mat-radio-group #cardColor>-->
-                  <!--                    <mat-radio-button style="width: 100px; padding: 2px;" class="white-text"-->
-                  <!--                                      *ngFor="let color of colorInfo"-->
-                  <!--                                      color="warn"-->
-                  <!--                                      value="{{color.colorStyle}}">-->
-                  <!--                      {{color.name}}-->
-                  <!--                    </mat-radio-button>-->
-                  <!--                  </mat-radio-group>-->
-                </div>
-                <div class="card-change-button">
-                  <button (click)="changeSkillCard(skill, i, { 'skillname':skillName.value, 'skilldesc':skillDesc.value, 'skillexp':skillExperience.value, 'skillstar':skillStar.value, 'cardcolor':cardColor.value})"
-                          mz-button class="red lighten-1 center">
-                    カード情報を変更する
-                  </button>
-                </div>
-              </mz-card-content>
-            </mz-card>
-          </a>
-        </ng-container>
-      </div>
-      <div class="add-fab-block">
-        <button mat-fab color="warn">
-          <mat-icon aria-label="Add Card">add</mat-icon>
-        </button>
-      </div>
-    </div>
-    <!--    <div class="fab-block">-->
-    <!--      <button mat-fab color="warn">-->
-    <!--        <mat-icon aria-label="Update Skilldata">done</mat-icon>-->
-    <!--      </button>-->
-    <!--    </div>-->
-  </mat-tab>
-</mat-tab-group>
+<!--<mat-tab-group color="warn">-->
+<!--  <mat-tab label="プレビュー">-->
+<!--    <div class="grid_container">-->
+<!--      <div name="profile">-->
+<!--        <mz-card class="blue white-text" [hoverable]="false">-->
+<!--          <mz-card-title>-->
+<!--            <p style="text-align:center;">プロフィール</p>-->
+<!--          </mz-card-title>-->
+<!--          <mz-card-content *ngIf="(UserData$ | async) as userdata">-->
+<!--            <img class="profile_img" src="assets/profile3.jpg" alt="kenta">-->
+<!--            <p style="text-align:center;">名前: {{userdata.name}}</p>-->
+<!--            <dl>-->
+<!--              <dt>性別:</dt>-->
+<!--              <dd>{{userdata.gender}}</dd>-->
+<!--              <dt>出身:</dt>-->
+<!--              <dd>{{userdata.from}}</dd>-->
+<!--              <dt>年齢:</dt>-->
+<!--              <dd>現在{{this.myAge}}歳 ({{this.currentYear}}年)</dd>-->
+<!--              <dt>職業:</dt>-->
+<!--              <dd>{{userdata.job}}</dd>-->
+<!--              <dt>趣味:</dt>-->
+<!--              <dd>{{userdata.hobby}}</dd>-->
+<!--            </dl>-->
+<!--            自己紹介:-->
+<!--            <p>{{userdata.pr}}</p>-->
+<!--          </mz-card-content>-->
+<!--        </mz-card>-->
+<!--      </div>-->
+<!--      <mz-spinner *ngIf="this.loadState" style="margin: 0 auto" color="blue" size="big"></mz-spinner>-->
+<!--      <div class="skill_grid_container">-->
+<!--        <ng-container *ngFor="let skill of (SkillData$ | async)">-->
+<!--          <a *ngIf="skill.display">-->
+<!--            <mz-card class="{{skill.color}} white-text" [hoverable]="true">-->
+<!--              <mz-card-title>-->
+<!--                {{skill.skillname}}-->
+<!--              </mz-card-title>-->
+<!--              <mz-card-content>-->
+<!--                <p>{{skill.desc}}</p>-->
+<!--                <p>使用年数: {{skill.experience}}年</p>-->
+<!--                <dl>-->
+<!--                  <dt>-->
+<!--                    <h6>習熟度:</h6>-->
+<!--                  </dt>-->
+<!--                  <dd>-->
+<!--                    <div class="star-rating">-->
+<!--                      <div class="star-rating-item" [style]="skill.star"></div>-->
+<!--                    </div>-->
+<!--                  </dd>-->
+<!--                </dl>-->
+<!--              </mz-card-content>-->
+<!--            </mz-card>-->
+<!--          </a>-->
+<!--        </ng-container>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </mat-tab>-->
+<!--  <mat-tab label="カード編集">-->
+<!--    <div class="grid_container">-->
+<!--      <div name="profile">-->
+<!--        <mz-card class="blue white-text" [hoverable]="false">-->
+<!--          <mz-card-title>-->
+<!--            <p style="text-align:center;">プロフィール</p>-->
+<!--          </mz-card-title>-->
+<!--          <mz-card-content *ngIf="(UserData$ | async) as userdata">-->
+<!--            <img class="profile_img" src="assets/profile3.jpg" alt="kenta">-->
+<!--            <p style="text-align:center;">名前: {{userdata.name}}</p>-->
+<!--            <dl>-->
+<!--              <dt>性別:</dt>-->
+<!--              <dd>{{userdata.gender}}</dd>-->
+<!--              <dt>出身:</dt>-->
+<!--              <dd>{{userdata.from}}</dd>-->
+<!--              <dt>年齢:</dt>-->
+<!--              <dd>現在{{this.myAge}}歳 ({{this.currentYear}}年)</dd>-->
+<!--              <dt>職業:</dt>-->
+<!--              <dd>{{userdata.job}}</dd>-->
+<!--              <dt>趣味:</dt>-->
+<!--              <dd>{{userdata.hobby}}</dd>-->
+<!--            </dl>-->
+<!--            自己紹介:-->
+<!--            <p>{{userdata.pr}}</p>-->
+<!--          </mz-card-content>-->
+<!--        </mz-card>-->
+<!--      </div>-->
+<!--      <mz-spinner *ngIf="this.loadState" style="margin: 0 auto" color="blue" size="big"></mz-spinner>-->
+<!--      <div class="skill_grid_container">-->
+<!--        <ng-container *ngFor="let skill of SkillData; let i = index">-->
+<!--          <a *ngIf="skill.display">-->
+<!--            <mz-card class="blue-grey white-text" [hoverable]="true">-->
+<!--              <mz-card-title>-->
+<!--                <div class="row">-->
+<!--                  <div class="input-field title col s12">-->
+<!--                    <input #skillName placeholder="タイトル" type="text" value="{{skill.skillname}}">-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </mz-card-title>-->
+<!--              <mz-card-content>-->
+<!--                <div class="row">-->
+<!--                  <div class="input-field col s12">-->
+<!--                    <input #skillDesc placeholder="説明" type="text" value="{{skill.desc}}">-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash;                  <p>{{skill.desc}}</p>&ndash;&gt;-->
+<!--                <p>使用年数:</p>-->
+<!--                <div class="row">-->
+<!--                  <mat-slider #skillExperience class="col s12" thumbLabel="true" color="warn" min="0" max="100"-->
+<!--                              value="{{skill.experience}}"></mat-slider>-->
+<!--                </div>-->
+<!--                <dl>-->
+<!--                  <dt>-->
+<!--                    <h6>習熟度:</h6>-->
+<!--                  </dt>-->
+<!--                </dl>-->
+<!--                <div class="row">-->
+<!--                  <mat-slider #skillStar class="col s12" thumbLabel="true" color="warn" min="0" max="100"-->
+<!--                              value="{{skill.starRate}}"></mat-slider>-->
+<!--                </div>-->
+<!--                <p>カードの色:</p>-->
+<!--                <div style="display: flex; flex-direction: column; padding: 5px;">-->
+<!--                  <mat-select color="warn" #cardColor placeholder="カードの色を選択してください。">-->
+<!--                    <mat-option *ngFor="let color of colorInfo"-->
+<!--                                [value]="color.colorStyle">-->
+<!--                      {{color.name}}-->
+<!--                    </mat-option>-->
+<!--                  </mat-select>-->
+<!--                  &lt;!&ndash;                  <mat-radio-group #cardColor>&ndash;&gt;-->
+<!--                  &lt;!&ndash;                    <mat-radio-button style="width: 100px; padding: 2px;" class="white-text"&ndash;&gt;-->
+<!--                  &lt;!&ndash;                                      *ngFor="let color of colorInfo"&ndash;&gt;-->
+<!--                  &lt;!&ndash;                                      color="warn"&ndash;&gt;-->
+<!--                  &lt;!&ndash;                                      value="{{color.colorStyle}}">&ndash;&gt;-->
+<!--                  &lt;!&ndash;                      {{color.name}}&ndash;&gt;-->
+<!--                  &lt;!&ndash;                    </mat-radio-button>&ndash;&gt;-->
+<!--                  &lt;!&ndash;                  </mat-radio-group>&ndash;&gt;-->
+<!--                </div>-->
+<!--                <div class="card-change-button">-->
+<!--                  <button (click)="changeSkillCard(skill, i, { 'skillname':skillName.value, 'skilldesc':skillDesc.value, 'skillexp':skillExperience.value, 'skillstar':skillStar.value, 'cardcolor':cardColor.value})"-->
+<!--                          mz-button class="red lighten-1 center">-->
+<!--                    カード情報を変更する-->
+<!--                  </button>-->
+<!--                </div>-->
+<!--              </mz-card-content>-->
+<!--            </mz-card>-->
+<!--          </a>-->
+<!--        </ng-container>-->
+<!--      </div>-->
+<!--      <div class="add-fab-block">-->
+<!--        <button mat-fab color="warn">-->
+<!--          <mat-icon aria-label="Add Card">add</mat-icon>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;    <div class="fab-block">&ndash;&gt;-->
+<!--    &lt;!&ndash;      <button mat-fab color="warn">&ndash;&gt;-->
+<!--    &lt;!&ndash;        <mat-icon aria-label="Update Skilldata">done</mat-icon>&ndash;&gt;-->
+<!--    &lt;!&ndash;      </button>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </div>&ndash;&gt;-->
+<!--  </mat-tab>-->
+<!--</mat-tab-group>-->
 
