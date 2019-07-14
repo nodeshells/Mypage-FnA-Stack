@@ -1,10 +1,9 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef, AfterViewInit } from '@angular/core';
-import { MediaMatcher } from '@angular/cdk/layout';
-import { Subscription } from 'rxjs';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
-import { SharedService } from './shared/shared.service';
-import { fadeAnimation } from './animations';
+import {Component, OnInit, OnDestroy, ChangeDetectorRef, AfterViewInit} from '@angular/core';
+import {MediaMatcher} from '@angular/cdk/layout';
+import {Subscription} from 'rxjs';
+import {DomSanitizer} from '@angular/platform-browser';
+import {SharedService} from './shared/shared.service';
+import {fadeAnimation} from './animations';
 
 @Component({
   selector: 'app-root',
@@ -21,12 +20,8 @@ export class AppComponent implements OnDestroy, OnInit, AfterViewInit {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
-    private maticonregistory: MatIconRegistry, private domSanitizer: DomSanitizer, private sharedservice: SharedService) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private domSanitizer: DomSanitizer, private sharedservice: SharedService) {
 
-    this.maticonregistory.addSvgIcon('nglogo', this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/Angular_full_color_logo.svg'));
-    this.maticonregistory.addSvgIcon('firebaselogo', this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/firebase-logo.svg'));
-    this.maticonregistory.addSvgIcon('sitelogo', this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/logo_transparent.png.svg'));
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -41,10 +36,6 @@ export class AppComponent implements OnDestroy, OnInit, AfterViewInit {
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
-    if (this.displaydetectSubscription) {
-      this.displaydetectSubscription.unsubscribe();
-    }
   }
 
   ngAfterViewInit(): void {
