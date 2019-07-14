@@ -21,7 +21,7 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles.scss",
               "node_modules/materialize-css/dist/css/materialize.min.css",
               "node_modules/@mdi/font/css/materialdesignicons.min.css"
             ],
