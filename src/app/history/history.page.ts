@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {SharedService} from '../shared/shared.service';
 
 @Component({
   selector: 'app-history',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./history.page.scss'],
 })
 export class HistoryPage implements OnInit {
+  themeSubject$;
 
-  constructor() { }
+  constructor(private shared: SharedService) {
+    this.themeSubject$ = this.shared.themesubject;
+  }
 
   ngOnInit() {
   }
