@@ -5,6 +5,7 @@ import {SharedService} from '../shared/shared.service';
   selector: 'app-blog',
   templateUrl: './blog.page.html',
   styleUrls: ['./blog.page.scss'],
+  providers: []
 })
 export class BlogPage implements OnInit {
   themeSubject$;

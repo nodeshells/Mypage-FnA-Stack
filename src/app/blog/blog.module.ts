@@ -7,11 +7,16 @@ import {IonicModule} from '@ionic/angular';
 
 import {BlogPage} from './blog.page';
 import {DetaileComponent} from './detaile/detaile.component';
+import {SharedModule} from '../shared/shared.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: BlogPage
+    component: BlogPage,
+  },
+  {
+    path: 'detail',
+    component: DetaileComponent
   }
 ];
 
@@ -20,9 +25,11 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedModule
   ],
-  declarations: [BlogPage, DetaileComponent]
+  declarations: [BlogPage, DetaileComponent],
+  providers: []
 })
 export class BlogPageModule {
 }

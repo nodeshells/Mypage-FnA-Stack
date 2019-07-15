@@ -7,6 +7,32 @@
     <ion-title>ブログ</ion-title>
   </ion-toolbar>
 </ion-header>
-
+<ion-toolbar [color]="(themeSubject$ | async) === 'dark' ? 'medium' : ''">
+  <ion-card [color]="themeSubject$ | async" mode="md">
+    <ion-item [color]="themeSubject$ | async">
+      <ion-label>記事を並び変える</ion-label>
+      <ion-select interface="alert" mode="md" okText="決定" cancelText="キャンセル">
+        <ion-select-option value="date">投稿日時順</ion-select-option>
+        <ion-select-option value="watchCount">閲覧数順</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-card>
+</ion-toolbar>
 <ion-content [color]="(themeSubject$ | async) === 'dark' ? 'medium' : ''">
+  <ion-card [color]="themeSubject$ | async" mode="md">
+    <ion-list inset="true" mode="md">
+      <ion-item [color]="themeSubject$ | async">
+        <ion-label>
+          <h1>テストタイトル</h1>
+          <p>日付とかの情報</p>
+        </ion-label>
+      </ion-item>
+      <ion-item [color]="themeSubject$ | async">
+        <ion-label>
+          <h1>テストタイトル</h1>
+          <p>日付とかの情報</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
 </ion-content>
