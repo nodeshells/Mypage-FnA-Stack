@@ -7,6 +7,5 @@ export const environment = {
     projectId: 'my-portfolio-46601',
     storageBucket: 'my-portfolio-46601.appspot.com',
     messagingSenderId: '127553745692'
-  },
-  admin_permission: {mailaddress: 'kenta.job09@gmail.com'}
+  }
 };
