@@ -16,7 +16,7 @@
     
 ### 初回セットアップ(Node.jsはインストール済みとする)
 1.firebase-toolsをglobalにインストール
-
+ 
     npm install -g firebase-tools
 
 2.Typescriptをglobalにインストール
