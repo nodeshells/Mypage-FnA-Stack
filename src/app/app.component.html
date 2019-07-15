@@ -11,7 +11,7 @@
           </ion-button>
         </ion-buttons>
         <ion-title>メニュー</ion-title>
-        <ion-button mode="ios" size="small" slot="end" (click)="toggleTheme()">
+        <ion-button mode="ios" size="medium" slot="end" (click)="toggleTheme()">
           <ion-icon *ngIf="(themeState$ | async) === ''" name="sunny" slot="icon-only"></ion-icon>
           <ion-icon *ngIf="(themeState$ | async) === 'dark'" name="moon" slot="icon-only"></ion-icon>
         </ion-button>
