@@ -44,8 +44,9 @@ ion-card {
     margin: 0;
 }
 
+
 @media screen and (max-width: 1023px) {
-    img {
+    ion-img {
         width: auto;
         max-height: 300px;
         object-fit: cover;

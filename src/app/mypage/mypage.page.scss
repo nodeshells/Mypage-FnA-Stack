@@ -10,6 +10,10 @@ ion-button {
     margin: 0;
 }
 
+ion-card {
+    margin: 0;
+}
+
 .grid_container {
     min-height: 100%;
     padding: 20px;
@@ -62,10 +66,14 @@ ion-button {
     color: #ccc;
 }
 
+.head-ion-item {
+    padding-top: 1%;
+}
+
 @media screen and (max-width: 1024px) {
     .grid_container {
         min-height: 100%;
-        padding: 0%;
+        padding: 0;
         display: grid;
         grid-template-columns: 1fr;
         grid-row-gap: 1px;
@@ -77,5 +85,9 @@ ion-button {
         grid-template-columns: 1fr;
         grid-row-gap: 1px;
         grid-column-gap: 1px;
+    }
+
+    ion-card {
+        margin: 3%;
     }
 }
