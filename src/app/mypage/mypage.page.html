@@ -19,7 +19,7 @@
             </ion-card-title>
           </ion-card-header>
           <ion-card-content *ngIf="(UserData$ | async) as User">
-            <ion-img class="profile_img" src="assets/profile3.jpg" alt="kenta"></ion-img>
+            <img class="profile_img" src="assets/profile3.jpg" alt="kenta">
             <p style="text-align:center;">名前: Kenta</p>
             <p>性別: {{User.gender}}</p>
             <p>出身: {{User['from']}}</p>
@@ -34,12 +34,13 @@
           </ion-card-content>
         </ion-card>
       </div>
-      <ion-spinner *ngIf="this.loadState" style="margin: 0 auto" color="blue" size="big"></ion-spinner>
+      <ion-spinner *ngIf="this.loadState" style="margin: 0 auto" [color]="themeSubject$ | async"
+                   size="big"></ion-spinner>
       <div class="skill_grid_container">
         <ng-container *ngFor="let skill of (SkillData$ | async)">
           <ion-card [color]="themeSubject$ | async"
                     class="{{skill.color}} white-text" mode="md">
-            <ion-item [color]="themeSubject$ | async" lines="none">
+            <ion-item class="head-ion-item" [color]="themeSubject$ | async" lines="none">
               <ion-button [fill]="(themeSubject$ | async) === 'dark' ? 'solid': 'outline'"
                           [color]="themeSubject$ | async" slot="end" href="{{skill.url}}">
                 サイトへ

@@ -7,11 +7,11 @@ import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-mypage',
-  templateUrl: './mypage.component.html',
-  styleUrls: ['./mypage.component.scss'],
+  templateUrl: './mypage.page.html',
+  styleUrls: ['./mypage.page.scss'],
   providers: [FirestoreService]
 })
-export class MypageComponent implements OnInit {
+export class MypagePage implements OnInit {
   myAge = 0;
   currentYear = '';
   loadState = true;
