@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {SharedService} from '../shared/shared.service';
 
 @Component({
   selector: 'app-blog',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blog.page.scss'],
 })
 export class BlogPage implements OnInit {
+  themeSubject$;
 
-  constructor() { }
+  constructor(private shared: SharedService) {
+    this.themeSubject$ = this.shared.themesubject;
+  }
 
   ngOnInit() {
   }
