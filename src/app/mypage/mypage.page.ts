@@ -22,9 +22,6 @@ export class MypagePage implements OnInit {
 
   constructor(private firestoreService: FirestoreService, private sanitizer: DomSanitizer, private shared: SharedService) {
     this.themeSubject$ = this.shared.themesubject;
-  }
-
-  ngOnInit() {
     // 年齢を取得して変数に入れる
     this.getOld();
     // FireStoreのドキュメントをWatchする
@@ -43,6 +40,9 @@ export class MypagePage implements OnInit {
       return skill.skilldata;
     }));
     this.UserData$ = this.firestoreService.getUserData();
+  }
+
+  ngOnInit() {
   }
 
   getOld() {

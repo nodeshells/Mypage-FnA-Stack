@@ -9,4 +9,13 @@
 </ion-header>
 
 <ion-content [color]="(themeSubject$ | async) === 'dark' ? 'medium' : ''">
+  <ion-card mode="md" [color]="themeSubject$ | async">
+    <ion-card-header>
+      <ion-card-title>テスト用</ion-card-title>
+      <ion-card-subtitle>日付等のデータ</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <div [innerHTML]="mdTest | mdToHtml"></div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
