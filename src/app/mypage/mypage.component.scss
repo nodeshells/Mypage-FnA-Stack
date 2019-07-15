@@ -2,8 +2,12 @@
     margin: 0;
 }
 
-.background {
-    min-height: 100%;
+//.background {
+//    min-height: 100%;
+//}
+
+ion-button {
+    margin: 0;
 }
 
 .grid_container {
@@ -16,7 +20,7 @@
 }
 
 .skill_grid_container {
-        display: grid;
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-row-gap: 20px;
     grid-column-gap: 15px;
@@ -43,6 +47,7 @@
 }
 
 .star-rating .star-rating-item {
+    height: 29px;
     position: absolute;
     overflow: hidden;
 }
@@ -60,17 +65,17 @@
 @media screen and (max-width: 1024px) {
     .grid_container {
         min-height: 100%;
-        padding: 20px;
+        padding: 0%;
         display: grid;
         grid-template-columns: 1fr;
-        grid-row-gap: 30px;
-        grid-column-gap: 30px;
+        grid-row-gap: 1px;
+        grid-column-gap: 1px;
     }
 
     .skill_grid_container {
         display: grid;
         grid-template-columns: 1fr;
-        grid-row-gap: 20px;
-        grid-column-gap: 15px;
+        grid-row-gap: 1px;
+        grid-column-gap: 1px;
     }
 }

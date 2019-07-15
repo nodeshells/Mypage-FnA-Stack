@@ -1,300 +1,65 @@
-<!--<div class="background">-->
-<!--  <div class="grid_container">-->
-<!--    <div name="profile">-->
-<!--      <mz-card class="blue white-text" [hoverable]="false">-->
-<!--        <mz-card-title>-->
-<!--          <p style="text-align:center;">プロフィール</p>-->
-<!--        </mz-card-title>-->
-<!--        <mz-card-content>-->
-<!--          <img class="profile_img" src="assets/profile3.jpg" alt="kenta">-->
-<!--          <p style="text-align:center;">名前: Kenta</p>-->
-<!--          <dl>-->
-<!--            <dt>性別:</dt>-->
-<!--            <dd>男</dd>-->
-<!--            <dt>出身:</dt>-->
-<!--            <dd>島根県</dd>-->
-<!--            <dt>年齢:</dt>-->
-<!--            <dd>現在{{this.myAge}}歳 ({{this.currentYear}}年)</dd>-->
-<!--            <dt>職業:</dt>-->
-<!--            <dd>SE</dd>-->
-<!--            <dt>趣味:</dt>-->
-<!--            <dd>PC,アニメ,ゲーム</dd>-->
-<!--          </dl>-->
-<!--          自己紹介:-->
-<!--          <p>はじめまして、Kentaと言います。</p>-->
-<!--          <p>-->
-<!--            岐阜のIT系のベンチャー企業でSEとして働いております。メインはバックエンドですが、最近はフロントエンドの技術を多く触るようになってきました。得意な分野とは違う分野ですが頑張って技術を磨いていきたいと思います。このページ内に自分の使用できるスキルをまとめておきたいと思います。</p>-->
-<!--        </mz-card-content>-->
-<!--      </mz-card>-->
-<!--    </div>-->
-<!--    <mz-spinner *ngIf="this.loadState" style="margin: 0 auto" color="blue" size="big"></mz-spinner>-->
-<!--    <div class="skill_grid_container">-->
-<!--      <ng-container *ngFor="let skill of (SkillData$ | async)">-->
-<!--        <a *ngIf="skill.display" href="{{skill.url}}">-->
-<!--          <mz-card class="{{skill.color}} white-text" [hoverable]="true">-->
-<!--            <mz-card-title>-->
-<!--              {{skill.skillname}}-->
-<!--            </mz-card-title>-->
-<!--            <mz-card-content>-->
-<!--              <p>{{skill.desc}}</p>-->
-<!--              <p>使用年数: {{skill.experience}}年</p>-->
-<!--              <dl>-->
-<!--                <dt>-->
-<!--                  <h6>習熟度:</h6>-->
-<!--                </dt>-->
-<!--                <dd>-->
-<!--                  <div class="star-rating">-->
-<!--                    <div class="star-rating-item" [style]="skill.star"></div>-->
-<!--                  </div>-->
-<!--                </dd>-->
-<!--              </dl>-->
-<!--            </mz-card-content>-->
-<!--          </mz-card>-->
-<!--        </a>-->
-<!--      </ng-container>-->
-<!--    </div>-->
-<!--    &lt;!&ndash;    <div class="skill_grid_container">&ndash;&gt;-->
-<!--    &lt;!&ndash;      <a href="https://nodejs.org/ja/">&ndash;&gt;-->
-<!--    &lt;!&ndash;        <mz-card class="green darken-1 white-text" [hoverable]="true">&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;            Node.js&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>JavaScriptをサーバーサイドで動かすプラットフォームです。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>使用年数: 3年</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <h6>習熟度:</h6>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <div class="star-rating">&ndash;&gt;-->
-<!--    &lt;!&ndash;                  <div class="star-rating-item" style="width:70%;"></div>&ndash;&gt;-->
-<!--    &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;            </dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;        </mz-card>&ndash;&gt;-->
-<!--    &lt;!&ndash;      </a>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <a href="http://expressjs.com/ja/">&ndash;&gt;-->
-<!--    &lt;!&ndash;        <mz-card class="orange darken-1 white-text" [hoverable]="true">&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;            Express&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>Nodeサーバをさっくり作れるNode.jsのフレームワークです。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>使用年数: 3年</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <h6>習熟度:</h6>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <div class="star-rating">&ndash;&gt;-->
-<!--    &lt;!&ndash;                  <div class="star-rating-item" style="width:70%;"></div>&ndash;&gt;-->
-<!--    &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;            </dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;        </mz-card>&ndash;&gt;-->
-<!--    &lt;!&ndash;      </a>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <a href="https://www.mongodb.com/">&ndash;&gt;-->
-<!--    &lt;!&ndash;        <mz-card class="blue-grey darken-1 white-text" [hoverable]="true">&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;            MongoDB&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>ドキュメント志向型のNoSQLDBです。 </p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>SQLに比べ非常に高速です。JavaScriptでクエリの実行が出来ます。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>使用年数: 3年</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <h6>習熟度:</h6>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <div class="star-rating">&ndash;&gt;-->
-<!--    &lt;!&ndash;                  <div class="star-rating-item" style="width:60%;"></div>&ndash;&gt;-->
-<!--    &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;            </dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;        </mz-card>&ndash;&gt;-->
-<!--    &lt;!&ndash;      </a>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <a href="https://angular.jp/">&ndash;&gt;-->
-<!--    &lt;!&ndash;        <mz-card class="red darken-1 white-text" [hoverable]="true">&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;            Angular&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>JavaScriptのSPA開発用のフレームワークです。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>フルスタックな思想で開発されたので、APIを叩く事も、内部でルーティングさせる事も、認証機能を持たせることもライブラリを追加せずに出来ます。（よくばりセットです）</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>使用年数: 3年</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <h6>習熟度:</h6>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <div class="star-rating">&ndash;&gt;-->
-<!--    &lt;!&ndash;                  <div class="star-rating-item" style="width:80%;"></div>&ndash;&gt;-->
-<!--    &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;            </dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;        </mz-card>&ndash;&gt;-->
-<!--    &lt;!&ndash;      </a>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <a href="https://firebase.google.com/">&ndash;&gt;-->
-<!--    &lt;!&ndash;        <mz-card class="orange lighten-1 white-text" [hoverable]="true">&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;            Firebase&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>GoogleのmBaaSクラウドサービスです。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>バックエンドの管理や面倒な実装をGoogleが肩代わりしてくれます。リアルタイムNoSQLデータベースや、ユーザ認証等のサービスがあります。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>使用年数: 1年未満</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <h6>習熟度:</h6>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <div class="star-rating">&ndash;&gt;-->
-<!--    &lt;!&ndash;                  <div class="star-rating-item" style="width:20%;"></div>&ndash;&gt;-->
-<!--    &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;            </dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;        </mz-card>&ndash;&gt;-->
-<!--    &lt;!&ndash;      </a>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <a href="https://ja.wikipedia.org/wiki/HyperText_Markup_Language">&ndash;&gt;-->
-<!--    &lt;!&ndash;        <mz-card class="orange darken-4 white-text" [hoverable]="true">&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;            HTML&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>WEBサイトの構造を決めるマークアップ言語です。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>このページにも使用されています。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>使用年数: 4年</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <h6>習熟度:</h6>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <div class="star-rating">&ndash;&gt;-->
-<!--    &lt;!&ndash;                  <div class="star-rating-item" style="width:100%;"></div>&ndash;&gt;-->
-<!--    &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;            </dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;        </mz-card>&ndash;&gt;-->
-<!--    &lt;!&ndash;      </a>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <a href="https://ja.wikipedia.org/wiki/Cascading_Style_Sheets">&ndash;&gt;-->
-<!--    &lt;!&ndash;        <mz-card class="blue darken-3 white-text" [hoverable]="true">&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;            CSS&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>WEBサイトを装飾したり、レイアウトを決めたりするのに使用します。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>このページにも使用されています。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>使用年数: 3年</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <h6>習熟度:</h6>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <div class="star-rating">&ndash;&gt;-->
-<!--    &lt;!&ndash;                  <div class="star-rating-item" style="width:50%;"></div>&ndash;&gt;-->
-<!--    &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;            </dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;        </mz-card>&ndash;&gt;-->
-<!--    &lt;!&ndash;      </a>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <a href="https://www.typescriptlang.org/">&ndash;&gt;-->
-<!--    &lt;!&ndash;        <mz-card class="blue lighten-1 white-text" [hoverable]="true">&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;            TypeScript&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>JavaScriptのスーパーセットです。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>JavaScriptに静的型付けとクラスベースオブジェクト指向を追加した物です。コンパイルするとjsファイルになります。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>使用年数: 3年</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <h6>習熟度:</h6>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <div class="star-rating">&ndash;&gt;-->
-<!--    &lt;!&ndash;                  <div class="star-rating-item" style="width:70%;"></div>&ndash;&gt;-->
-<!--    &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;            </dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;        </mz-card>&ndash;&gt;-->
-<!--    &lt;!&ndash;      </a>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <a href="https://www.nativescript.org/">&ndash;&gt;-->
-<!--    &lt;!&ndash;        <mz-card class="blue accent-3 white-text" [hoverable]="true">&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;            NativeScript&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>ハイブリッドアプリ開発用JavaScriptフレームワークです。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>JAVAやSwiftを使用せずにJavaScriptだけでスマホアプリが開発できますが、現状ではまだまだ荒い所が多いです。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>使用年数: 2年</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <h6>習熟度:</h6>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <div class="star-rating">&ndash;&gt;-->
-<!--    &lt;!&ndash;                  <div class="star-rating-item" style="width:60%;"></div>&ndash;&gt;-->
-<!--    &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;            </dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;        </mz-card>&ndash;&gt;-->
-<!--    &lt;!&ndash;      </a>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <a href="https://ionicframework.com/">&ndash;&gt;-->
-<!--    &lt;!&ndash;        <mz-card class="blue accent-2 white-text" [hoverable]="true">&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;            Ionic&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>PWAやHybridアプリの開発用フレームワークです。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>&ndash;&gt;-->
-<!--    &lt;!&ndash;              Angularを使用してハイブリッドアプリのビューを作成できます。Angularの知識をそのままスマホアプリ開発に活かせるので非常に使いやすいと思いました。Angularがアップデートされてパフォーマンスが良くなると、Ionicで作ったアプリも総じてパフォーマンスが良くなると思います。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>使用年数: 1年未満</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <h6>習熟度:</h6>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <div class="star-rating">&ndash;&gt;-->
-<!--    &lt;!&ndash;                  <div class="star-rating-item" style="width:40%;"></div>&ndash;&gt;-->
-<!--    &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;            </dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;        </mz-card>&ndash;&gt;-->
-<!--    &lt;!&ndash;      </a>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <a href="https://www.mysql.com/jp/">&ndash;&gt;-->
-<!--    &lt;!&ndash;        <mz-card class="blue accent-5 white-text" [hoverable]="true">&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;            MySQL&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-title>&ndash;&gt;-->
-<!--    &lt;!&ndash;          <mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>リレーショナル型DBです。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>専門時代に少し習いましたが、業務では驚くほど使っていませんでした。最近、危機感を覚えて一人で復習していました。</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <p>使用年数: 1年未満</p>&ndash;&gt;-->
-<!--    &lt;!&ndash;            <dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <h6>習熟度:</h6>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dt>&ndash;&gt;-->
-<!--    &lt;!&ndash;              <dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <div class="star-rating">&ndash;&gt;-->
-<!--    &lt;!&ndash;                  <div class="star-rating-item" style="width:20%;"></div>&ndash;&gt;-->
-<!--    &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--    &lt;!&ndash;              </dd>&ndash;&gt;-->
-<!--    &lt;!&ndash;            </dl>&ndash;&gt;-->
-<!--    &lt;!&ndash;          </mz-card-content>&ndash;&gt;-->
-<!--    &lt;!&ndash;        </mz-card>&ndash;&gt;-->
-<!--    &lt;!&ndash;      </a>&ndash;&gt;-->
-<!--    &lt;!&ndash;    </div>&ndash;&gt;-->
-<!--  </div>-->
-<!--</div>-->
+<ion-header>
+  <ion-toolbar mode="ios" color="primary">
+    <ion-buttons slot="end">
+      <ion-menu-button>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>マイページ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [color]="(themeSubject$ | async) === 'dark' ? 'medium' : ''">
+  <div class="background">
+    <div class="grid_container">
+      <div name="profile">
+        <ion-card [color]="themeSubject$ | async" class="blue white-text" mode="md">
+          <ion-card-header>
+            <ion-card-title style="text-align: center">
+              プロフィール
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content *ngIf="(UserData$ | async) as User">
+            <img class="profile_img" src="assets/profile3.jpg" alt="kenta">
+            <p style="text-align:center;">名前: Kenta</p>
+            <p>性別: {{User.gender}}</p>
+            <p>出身: {{User['from']}}</p>
+            <p>年齢: 現在{{this.myAge}}歳 ({{this.currentYear}}年)</p>
+            <p>職業: {{User.job}}</p>
+            <p>趣味: {{User.hobby}}</p>
+            <br>
+            <p>自己紹介:</p>
+            <p>
+              {{User.pr}}
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+      <ion-spinner *ngIf="this.loadState" style="margin: 0 auto" color="blue" size="big"></ion-spinner>
+      <div class="skill_grid_container">
+        <ng-container *ngFor="let skill of (SkillData$ | async)">
+          <ion-card [color]="themeSubject$ | async"
+                    class="{{skill.color}} white-text" mode="md">
+            <ion-item [color]="themeSubject$ | async" lines="none">
+              <ion-button [fill]="(themeSubject$ | async) === 'dark' ? 'solid': 'outline'"
+                          [color]="themeSubject$ | async" slot="end" href="{{skill.url}}">
+                サイトへ
+                <ion-icon name="arrow-round-forward"></ion-icon>
+              </ion-button>
+              <ion-card-title slot="start">
+                {{skill.skillname}}
+              </ion-card-title>
+            </ion-item>
+            <ion-card-content>
+              <p>{{skill.desc}}</p>
+              <p>使用年数: {{skill.experience}}年</p>
+              <h6>習熟度:</h6>
+              <div class="star-rating">
+                <div class="star-rating-item" [style]="skill.star"></div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ion-content>

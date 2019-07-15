@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FirestoreService} from '../shared/firebase/firestore.service';
 import {map} from 'rxjs/operators';
 import {DomSanitizer} from '@angular/platform-browser';
+import {SharedService} from '../shared/shared.service';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-mypage',
@@ -13,10 +15,13 @@ export class MypageComponent implements OnInit {
   myAge = 0;
   currentYear = '';
   loadState = true;
+  themeSubject$: Subject<String>;
 
   SkillData$;
+  UserData$;
 
-  constructor(private firestoreService: FirestoreService, private sanitizer: DomSanitizer) {
+  constructor(private firestoreService: FirestoreService, private sanitizer: DomSanitizer, private shared: SharedService) {
+    this.themeSubject$ = this.shared.themesubject;
   }
 
   ngOnInit() {
@@ -37,6 +42,7 @@ export class MypageComponent implements OnInit {
       this.loadState = false;
       return skill.skilldata;
     }));
+    this.UserData$ = this.firestoreService.getUserData();
   }
 
   getOld() {
