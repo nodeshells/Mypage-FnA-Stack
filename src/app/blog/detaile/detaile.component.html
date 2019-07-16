@@ -11,11 +11,18 @@
 <ion-content [color]="(themeSubject$ | async) === 'dark' ? 'medium' : ''">
   <ion-card mode="md" [color]="themeSubject$ | async">
     <ion-card-header>
-      <ion-card-title>テスト用</ion-card-title>
-      <ion-card-subtitle>日付等のデータ</ion-card-subtitle>
+      <ion-card-title>{{testData.title}}</ion-card-title>
+      <ion-card-subtitle>{{formatDate(testData.date)}}</ion-card-subtitle>
+      <div class="hidden-chip">
+        <ion-chip [color]="(themeSubject$ | async) === 'dark' ? 'primary' : 'dark'"
+                  [outline]="(themeSubject$ | async) === 'dark'"
+                  *ngFor="let tag of testData.tag">
+          <ion-label>{{tag}}</ion-label>
+        </ion-chip>
+      </div>
     </ion-card-header>
     <ion-card-content>
-      <div [innerHTML]="mdTest | mdToHtml"></div>
+      <div [innerHTML]="testData.blogmain | mdToHtml"></div>
     </ion-card-content>
   </ion-card>
 </ion-content>

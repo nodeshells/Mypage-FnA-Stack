@@ -1,28 +1,46 @@
 import {Component, OnInit} from '@angular/core';
 import {SharedService} from '../../shared/shared.service';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-detaile',
   templateUrl: './detaile.component.html',
   styleUrls: ['./detaile.component.scss'],
-  providers: []
 })
 export class DetaileComponent implements OnInit {
-  themeSubject$;
-  mdTest =
-      '## MDテスト \n ' +
-      '# MDテスト \n ' +
-      '--- \n' +
-      '- こんにちは！ \n' +
-      '  - **やったぜ！** \n' +
-      '\n' +
-      '![名刺工房ロゴ画像](https://meishi.artisj.com/summary/image/logo.gif "アーティス名刺工房")';
+  themeSubject$: Subject<String>;
+  testData = {
+    date: new Date(),
+    title: 'テストデータ',
+    auther: 'テストマン',
+    tag: ['初投稿', '技術系', 'Angular', 'ノウハウ', '悲しみ', '尊い', 'デビルマン'],
+    blogmain:
+        '# MDテスト \n ' +
+        '## MDテスト \n ' +
+        '--- \n' +
+        '- こんにちは！ \n' +
+        '  - **やったぜ！** \n' +
+        '\n' +
+        '![猫さんの画像](https://www.asahicom.jp/articles/images/AS20171019002581_comm.jpg)\n' +
+        '\n' +
+        '---\n' +
+        '\n' +
+        '# 終わりです'
+  };
 
   constructor(private shared: SharedService) {
     this.themeSubject$ = this.shared.themesubject;
   }
 
   ngOnInit() {
+  }
+
+  formatDate(date) {
+    const y = date.getFullYear();
+    const m = date.getMonth() + 1;
+    const d = date.getDate();
+    const day = '日月火水木金土'.charAt(date.getDay());
+    return `${y}年${m}月${d}日 (${day})`;
   }
 
 }
