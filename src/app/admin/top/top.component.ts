@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../shared/authguard/user.service';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../../shared/authguard/user.service';
+import {Subject} from 'rxjs';
+import {SharedService} from '../../shared/shared.service';
 
 @Component({
   selector: 'app-top',
@@ -10,8 +12,11 @@ import { UserService } from '../../shared/authguard/user.service';
 export class TopComponent implements OnInit {
   user_photo_url = '';
   user_name = '';
+  themeState$: Subject<String>;
 
-  constructor(private user: UserService) { }
+  constructor(private user: UserService, private shared: SharedService) {
+    this.themeState$ = this.shared.themesubject;
+  }
 
   ngOnInit() {
     this.getUserdata();

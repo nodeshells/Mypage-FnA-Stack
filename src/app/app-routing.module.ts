@@ -5,7 +5,10 @@ import {UserService} from './shared/authguard/user.service';
 
 
 const myRoutes = [
-  {path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
   {path: 'top', loadChildren: () => import('./top/top.module').then(m => m.TopPageModule)},
   {path: 'profile', loadChildren: () => import('./mypage/mypage.module').then(m => m.MypagePageModule)},
   {path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogPageModule)},

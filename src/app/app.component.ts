@@ -12,11 +12,11 @@ import {MenuController} from '@ionic/angular';
   providers: [],
 })
 export class AppComponent implements OnDestroy, OnInit, AfterViewInit {
-  themeState = '';
   themeState$: Subject<String>;
 
   constructor(private domSanitizer: DomSanitizer, private sharedservice: SharedService, private storage: Storage,
               private menu: MenuController) {
+    this.sharedservice.initTheme();
     this.themeState$ = this.sharedservice.themesubject;
   }
 
@@ -32,9 +32,8 @@ export class AppComponent implements OnDestroy, OnInit, AfterViewInit {
   }
 
   toggleTheme() {
-    const themeState = this.sharedservice.toggleTheme(this.themeState);
+    const themeState = this.sharedservice.toggleTheme(this.sharedservice.themeState);
     this.storage.set('Theme', themeState).then();
-    this.themeState = themeState;
   }
 
   closeMenu() {

@@ -130,3 +130,16 @@
 <!--</div>-->
 <!--&lt;!&ndash; END MAIN &ndash;&gt;-->
 <!--&lt;!&ndash; //////////////////////////////////////////////////////////////////////////// &ndash;&gt;-->
+<ion-header>
+  <ion-toolbar mode="ios" color="primary">
+    <ion-buttons slot="end">
+      <ion-menu-button>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>管理者トップ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [color]="(themeState$ | async) === 'dark' ? 'medium' : ''">
+
+</ion-content>

@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {SharedService} from './shared.service';
 import {MdToHtmlPipe} from './pipe/md-to-html.pipe';
 
 @NgModule({
@@ -8,10 +7,8 @@ import {MdToHtmlPipe} from './pipe/md-to-html.pipe';
     CommonModule,
   ],
   exports: [MdToHtmlPipe],
-  declarations: [MdToHtmlPipe],
-  providers: [
-    SharedService
-  ]
+  declarations: [MdToHtmlPipe]
 })
+
 export class SharedModule {
 }

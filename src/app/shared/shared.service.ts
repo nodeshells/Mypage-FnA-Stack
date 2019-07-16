@@ -8,18 +8,14 @@ import {Storage} from '@ionic/storage';
 
 declare let ga;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class SharedService {
   public themesubject: Subject<String>;
   public themeState = '';
 
   constructor(private breakpointObserver: BreakpointObserver, private router: Router, private storage: Storage) {
-    this.storage.get('Theme').then((value) => {
-      if (value !== null) {
-        this.themesubject.next(value);
-      }
-    });
-    this.themesubject = new BehaviorSubject(this.themeState);
   }
 
   // 画面サイズの検出
@@ -41,13 +37,26 @@ export class SharedService {
     });
   }
 
+  // テーマ設定の初期化
+  initTheme() {
+    this.storage.get('Theme').then((value) => {
+      if (value !== null) {
+        this.themeState = value;
+        this.themesubject.next(value);
+      }
+    });
+    this.themesubject = new BehaviorSubject(this.themeState);
+  }
+
   // テーマの切り替え(ダークorライト)
   toggleTheme(state: string) {
     if (state === 'dark') {
       this.themesubject.next('');
+      this.themeState = '';
       return '';
     } else {
       this.themesubject.next('dark');
+      this.themeState = 'dark';
       return 'dark';
     }
   }

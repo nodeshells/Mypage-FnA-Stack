@@ -40,7 +40,7 @@ const firebase = {
     AngularFireModule.initializeApp(firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    ColorSketchModule
+    ColorSketchModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
