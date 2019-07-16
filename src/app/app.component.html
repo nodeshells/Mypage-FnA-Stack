@@ -3,6 +3,9 @@
     <ion-header>
       <ion-toolbar mode="ios" color="primary">
         <ion-buttons slot="start">
+          <ion-button href="https://ionicframework.com/" size="small" fill="clear">
+            <ion-icon name="logo-ionic" size="large"></ion-icon>
+          </ion-button>
           <ion-button href="https://angular.jp/" size="small" fill="clear">
             <ion-icon size="large" src="assets/Angular_full_color_logo.svg"></ion-icon>
           </ion-button>
@@ -10,13 +13,13 @@
             <ion-icon size="large" src="assets/firebase-logo.svg"></ion-icon>
           </ion-button>
         </ion-buttons>
-        <ion-button (click)="authService.doLogout()" *ngIf="(authService.checkLoginState() | async) !== null" mode="ios"
-                    size="medium" slot="end">
-          <ion-icon name="log-out"></ion-icon>
-        </ion-button>
         <ion-button mode="ios" size="medium" slot="end" (click)="toggleTheme()">
           <ion-icon *ngIf="(themeState$ | async) === ''" name="sunny" slot="icon-only"></ion-icon>
           <ion-icon *ngIf="(themeState$ | async) === 'dark'" name="moon" slot="icon-only"></ion-icon>
+        </ion-button>
+        <ion-button (click)="authService.doLogout()" *ngIf="(authService.checkLoginState() | async) !== null" mode="ios"
+                    size="medium" slot="end">
+          <ion-icon name="log-out" slot="icon-only"></ion-icon>
         </ion-button>
       </ion-toolbar>
       <ion-toolbar mode="ios" color="primary">

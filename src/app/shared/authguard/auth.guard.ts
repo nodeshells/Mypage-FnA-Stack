@@ -36,14 +36,25 @@ export class AuthGuard implements CanActivate {
         try {
           if (LoginState) {
             // ログイン済みだったら
-            resolve(await this.checkAdmin(LoginState.email));
+            if (await this.checkAdmin(LoginState.email)) {
+              resolve(true);
+            } else {
+              this.router.navigate(['/top']);
+              resolve(false);
+            }
           } else {
             // ログインしてログイン情報を確認
             const LoginInfo = await this.authService.doGoogleLogin();
-            resolve(await this.checkAdmin(LoginInfo.user.email));
+            if (await this.checkAdmin(LoginInfo.user.email)) {
+              resolve(true);
+            } else {
+              this.router.navigate(['/top']);
+              resolve(false);
+            }
           }
         } catch (e) {
           await this.authService.doLogout();
+          this.router.navigate(['/top']);
           return resolve(false);
         }
       });
