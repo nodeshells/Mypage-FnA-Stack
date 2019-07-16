@@ -24,7 +24,7 @@
     "hosting:kill": "firebase hosting:disable",
     "firebase:serve": "firebase serve",
     "firebase:deploy": "firebase deploy --only hosting",
-    "tunnel:start": "ssh -R mypagedvserver:80:localhost:4200 serveo.net",
+    "tunnel:start": "ssh -R ktldev:80:localhost:4200 serveo.net",
     "test": "run-p test:*",
     "test:client": "ng test",
     "test:server": "npm-run-all -s build:server_test -p watch:server_test  boot:server_test",
