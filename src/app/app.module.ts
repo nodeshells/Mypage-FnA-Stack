@@ -40,10 +40,13 @@ const firebase = {
     AngularFireModule.initializeApp(firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     ColorSketchModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor() {
+  }
 }

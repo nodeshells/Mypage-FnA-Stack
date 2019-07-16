@@ -1,32 +1,52 @@
 import {Injectable} from '@angular/core';
-import {CanActivate, ActivatedRouteSnapshot, Router} from '@angular/router';
-import {AngularFireAuth} from 'angularfire2/auth';
-import {UserService} from './user.service';
+import {CanActivate, Router} from '@angular/router';
 import {SharedService} from '../shared.service';
+import {AuthService} from './auth.service';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-
   constructor(
-      public afAuth: AngularFireAuth,
-      public userService: UserService,
       private sharedservice: SharedService,
-      private router: Router
+      private router: Router,
+      private authService: AuthService,
+      private afs: AngularFirestore
   ) {
   }
 
+  async checkAdmin(email: string) {
+    try {
+      // FireStoreに問い合わせてadminかチェックする
+      const checkAdmin = await this.afs.collection('admins').doc(email).get().toPromise();
+      if (checkAdmin.data) {
+        return true;
+      } else {
+        await this.authService.doLogout();
+        return false;
+      }
+    } catch (e) {
+      await this.authService.doLogout();
+      return false;
+    }
+  }
+
   canActivate(): Promise<boolean> {
-    return new Promise((resolve, reject) => {
-      this.userService.getCurrentUser()
-          .then(user => {
-            // 許可したメールアドレスのみ通す(設定はenvironmentから)
-            console.log(user);
-            this.router.navigate(['/top']);
-            return resolve(false);
-          }, err => {
-            this.router.navigate(['/top']);
-            return resolve(false);
-          });
+    return new Promise(async (resolve, reject) => {
+      this.authService.checkLoginState().subscribe(async (LoginState) => {
+        try {
+          if (LoginState) {
+            // ログイン済みだったら
+            resolve(await this.checkAdmin(LoginState.email));
+          } else {
+            // ログインしてログイン情報を確認
+            const LoginInfo = await this.authService.doGoogleLogin();
+            resolve(await this.checkAdmin(LoginInfo.user.email));
+          }
+        } catch (e) {
+          await this.authService.doLogout();
+          return resolve(false);
+        }
+      });
     });
   }
 }
