@@ -1,0 +1,13 @@
+<ion-tabs>
+  <ion-tab-bar [color]="(themeState$ | async) === 'dark' ? 'dark' : ''" slot="bottom">
+    <ion-tab-button tab="preview">
+      <ion-icon name="paper"></ion-icon>
+      <ion-label>最新の記事</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="manager">
+      <ion-icon name="filing"></ion-icon>
+      <ion-label>管理</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

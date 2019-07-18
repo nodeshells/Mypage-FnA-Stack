@@ -1,135 +1,3 @@
-<!--&lt;!&ndash; START MAIN &ndash;&gt;-->
-<!--<div id="main">-->
-<!--  &lt;!&ndash; START WRAPPER &ndash;&gt;-->
-<!--  <div class="wrapper">-->
-<!--    &lt;!&ndash; START LEFT SIDEBAR NAV&ndash;&gt;-->
-<!--    <aside id="left-sidebar-nav">-->
-<!--      <ul id="slide-out" class="side-nav fixed leftside-navigation">-->
-<!--        <li class="user-details light-green">-->
-<!--          <div class="row">-->
-<!--            <div class="col col s4 m4 l4">-->
-<!--              <img [src]="user_photo_url" alt="" class="circle responsive-img valign profile-image cyan">-->
-<!--            </div>-->
-<!--            <div class="col col s8 m8 l8">-->
-<!--              <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn"-->
-<!--                 data-activates="profile-dropdown-nav">-->
-<!--                {{this.user_name }}-->
-<!--              </a>-->
-<!--              <p class="user-roal">Administrator</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </li>-->
-<!--        <li class="no-padding">-->
-<!--          &lt;!&ndash;          <ul class="collapsible" data-collapsible="accordion">&ndash;&gt;-->
-<!--          &lt;!&ndash;            <li class="bold">&ndash;&gt;-->
-<!--          &lt;!&ndash;              <a href="index.html" class="waves-effect waves-cyan">&ndash;&gt;-->
-<!--          &lt;!&ndash;                <i class="material-icons">pie_chart_outlined</i>&ndash;&gt;-->
-<!--          &lt;!&ndash;                <span class="nav-text">Dashboard</span>&ndash;&gt;-->
-<!--          &lt;!&ndash;              </a>&ndash;&gt;-->
-<!--          &lt;!&ndash;            </li>&ndash;&gt;-->
-<!--          &lt;!&ndash;            <li class="bold">&ndash;&gt;-->
-<!--          &lt;!&ndash;              <a href="cards-basic.html" class="waves-effect waves-cyan">&ndash;&gt;-->
-<!--          &lt;!&ndash;                <i class="material-icons">cast</i>&ndash;&gt;-->
-<!--          &lt;!&ndash;                <span class="nav-text">Cards</span>&ndash;&gt;-->
-<!--          &lt;!&ndash;              </a>&ndash;&gt;-->
-<!--          &lt;!&ndash;            </li>&ndash;&gt;-->
-<!--          &lt;!&ndash;            <li class="bold">&ndash;&gt;-->
-<!--          &lt;!&ndash;              <a href="ui-basic-buttons.html" class="waves-effect waves-cyan">&ndash;&gt;-->
-<!--          &lt;!&ndash;                <i class="material-icons">insert_link</i>&ndash;&gt;-->
-<!--          &lt;!&ndash;                <span class="nav-text">Buttons</span>&ndash;&gt;-->
-<!--          &lt;!&ndash;              </a>&ndash;&gt;-->
-<!--          &lt;!&ndash;            </li>&ndash;&gt;-->
-<!--          &lt;!&ndash;            <li class="bold">&ndash;&gt;-->
-<!--          &lt;!&ndash;              <a href="form-layouts.html" class="waves-effect waves-cyan">&ndash;&gt;-->
-<!--          &lt;!&ndash;                <i class="material-icons">format_color_text</i>&ndash;&gt;-->
-<!--          &lt;!&ndash;                <span class="nav-text">Forms</span>&ndash;&gt;-->
-<!--          &lt;!&ndash;              </a>&ndash;&gt;-->
-<!--          &lt;!&ndash;            </li>&ndash;&gt;-->
-<!--          &lt;!&ndash;            <li class="bold">&ndash;&gt;-->
-<!--          &lt;!&ndash;              <a href="css-typography.html" class="waves-effect waves-cyan">&ndash;&gt;-->
-<!--          &lt;!&ndash;                <i class="material-icons">format_size</i>&ndash;&gt;-->
-<!--          &lt;!&ndash;                <span class="nav-text">Typography</span>&ndash;&gt;-->
-<!--          &lt;!&ndash;              </a>&ndash;&gt;-->
-<!--          &lt;!&ndash;            </li>&ndash;&gt;-->
-<!--          &lt;!&ndash;            <li class="bold">&ndash;&gt;-->
-<!--          &lt;!&ndash;              <a href="css-color.html" class="waves-effect waves-cyan">&ndash;&gt;-->
-<!--          &lt;!&ndash;                <i class="material-icons">invert_colors</i>&ndash;&gt;-->
-<!--          &lt;!&ndash;                <span class="nav-text">Color</span>&ndash;&gt;-->
-<!--          &lt;!&ndash;              </a>&ndash;&gt;-->
-<!--          &lt;!&ndash;            </li>&ndash;&gt;-->
-<!--          &lt;!&ndash;            <li class="bold">&ndash;&gt;-->
-<!--          &lt;!&ndash;              <a href="table-basic.html" class="waves-effect waves-cyan">&ndash;&gt;-->
-<!--          &lt;!&ndash;                <i class="material-icons">border_all</i>&ndash;&gt;-->
-<!--          &lt;!&ndash;                <span class="nav-text">Table</span>&ndash;&gt;-->
-<!--          &lt;!&ndash;              </a>&ndash;&gt;-->
-<!--          &lt;!&ndash;            </li>&ndash;&gt;-->
-<!--          &lt;!&ndash;            <li class="bold">&ndash;&gt;-->
-<!--          &lt;!&ndash;              <a href="ui-icons.html" class="waves-effect waves-cyan">&ndash;&gt;-->
-<!--          &lt;!&ndash;                <i class="material-icons">lightbulb_outline</i>&ndash;&gt;-->
-<!--          &lt;!&ndash;                <span class="nav-text">Icons</span>&ndash;&gt;-->
-<!--          &lt;!&ndash;              </a>&ndash;&gt;-->
-<!--          &lt;!&ndash;            </li>&ndash;&gt;-->
-<!--          &lt;!&ndash;          </ul>&ndash;&gt;-->
-<!--        </li>-->
-<!--      </ul>-->
-<!--      <a href="#" data-activates="slide-out"-->
-<!--         class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only">-->
-<!--        <i class="material-icons">menu</i>-->
-<!--      </a>-->
-<!--    </aside>-->
-<!--    &lt;!&ndash; END LEFT SIDEBAR NAV&ndash;&gt;-->
-<!--    &lt;!&ndash; //////////////////////////////////////////////////////////////////////////// &ndash;&gt;-->
-<!--    &lt;!&ndash; START CONTENT &ndash;&gt;-->
-<!--    <section id="content">-->
-<!--      &lt;!&ndash;start container&ndash;&gt;-->
-<!--      <div class="grid_container">-->
-<!--        <mz-card routerLink="/admin/edit-profile" class="blue darken-3 white-text" [hoverable]="true">-->
-<!--          <mz-card-title>-->
-<!--            プロフィールページの管理-->
-<!--          </mz-card-title>-->
-<!--          <mz-card-content>-->
-<!--            プロフィールページに表示するコンテンツを管理します。-->
-<!--          </mz-card-content>-->
-<!--        </mz-card>-->
-<!--        &lt;!&ndash;        <a>&ndash;&gt;-->
-<!--        &lt;!&ndash;          <mz-card class="blue darken-3 white-text" [hoverable]="true">&ndash;&gt;-->
-<!--        &lt;!&ndash;            <mz-card-title>&ndash;&gt;-->
-<!--        &lt;!&ndash;              タイムラインページの管理&ndash;&gt;-->
-<!--        &lt;!&ndash;            </mz-card-title>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <mz-card-content>&ndash;&gt;-->
-<!--        &lt;!&ndash;              タイムラインページに表示するコンテンツを管理します。&ndash;&gt;-->
-<!--        &lt;!&ndash;            </mz-card-content>&ndash;&gt;-->
-<!--        &lt;!&ndash;          </mz-card>&ndash;&gt;-->
-<!--        &lt;!&ndash;        </a>&ndash;&gt;-->
-<!--        &lt;!&ndash;        <a>&ndash;&gt;-->
-<!--        &lt;!&ndash;          <mz-card class="blue darken-3 white-text" [hoverable]="true">&ndash;&gt;-->
-<!--        &lt;!&ndash;            <mz-card-title>&ndash;&gt;-->
-<!--        &lt;!&ndash;              技術プレビューページの管理&ndash;&gt;-->
-<!--        &lt;!&ndash;            </mz-card-title>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <mz-card-content>&ndash;&gt;-->
-<!--        &lt;!&ndash;              技術プレビューページに表示するコンテンツを管理します。&ndash;&gt;-->
-<!--        &lt;!&ndash;            </mz-card-content>&ndash;&gt;-->
-<!--        &lt;!&ndash;          </mz-card>&ndash;&gt;-->
-<!--        &lt;!&ndash;        </a>&ndash;&gt;-->
-<!--        &lt;!&ndash;        <a>&ndash;&gt;-->
-<!--        &lt;!&ndash;          <mz-card class="blue darken-3 white-text" [hoverable]="true">&ndash;&gt;-->
-<!--        &lt;!&ndash;            <mz-card-title>&ndash;&gt;-->
-<!--        &lt;!&ndash;              趣味ページの管理&ndash;&gt;-->
-<!--        &lt;!&ndash;            </mz-card-title>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <mz-card-content>&ndash;&gt;-->
-<!--        &lt;!&ndash;              趣味ページに表示するコンテンツを管理します。&ndash;&gt;-->
-<!--        &lt;!&ndash;            </mz-card-content>&ndash;&gt;-->
-<!--        &lt;!&ndash;          </mz-card>&ndash;&gt;-->
-<!--        &lt;!&ndash;        </a>&ndash;&gt;-->
-<!--      </div>-->
-<!--      &lt;!&ndash;end container&ndash;&gt;-->
-<!--    </section>-->
-<!--    &lt;!&ndash; END CONTENT &ndash;&gt;-->
-<!--  </div>-->
-<!--  &lt;!&ndash; END WRAPPER &ndash;&gt;-->
-<!--</div>-->
-<!--&lt;!&ndash; END MAIN &ndash;&gt;-->
-<!--&lt;!&ndash; //////////////////////////////////////////////////////////////////////////// &ndash;&gt;-->
 <ion-header>
   <ion-toolbar mode="ios" color="primary">
     <ion-buttons slot="end">
@@ -141,5 +9,22 @@
 </ion-header>
 
 <ion-content [color]="(themeState$ | async) === 'dark' ? 'medium' : ''">
-
+  <ion-card mode="md" [color]="themeState$ | async" routerLink="/admin/profile/preview">
+    <ion-card-header>
+      <ion-card-title>プロフィール編集</ion-card-title>
+      <ion-card-subtitle>マイページのプロフィールを編集できます。</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+  <ion-card mode="md" [color]="themeState$ | async" routerLink="/admin/skill/preview">
+    <ion-card-header>
+      <ion-card-title>スキル編集</ion-card-title>
+      <ion-card-subtitle>マイページのスキルを編集できます。</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+  <ion-card mode="md" [color]="themeState$ | async" routerLink="/admin/blog/manager">
+    <ion-card-header>
+      <ion-card-title>ブログ管理</ion-card-title>
+      <ion-card-subtitle>ブログの管理を出来ます。</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
 </ion-content>

@@ -7,6 +7,7 @@ import {IonicModule} from '@ionic/angular';
 
 import {TopPage} from './top.page';
 import {ToppageComponent} from './toppage/toppage.component';
+import {SharedModule} from '../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
+    SharedModule,
   ],
   declarations: [TopPage, ToppageComponent]
 })
