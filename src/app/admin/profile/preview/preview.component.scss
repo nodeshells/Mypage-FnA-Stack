@@ -1,0 +1,93 @@
+.card {
+    margin: 0;
+}
+
+//.background {
+//    min-height: 100%;
+//}
+
+ion-button {
+    margin: 0;
+}
+
+ion-card {
+    margin: 0;
+}
+
+.grid_container {
+    min-height: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-row-gap: 30px;
+    grid-column-gap: 20px;
+}
+
+.skill_grid_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 20px;
+    grid-column-gap: 15px;
+}
+
+.skill_grid_container mz-card {
+    height: 100%;
+}
+
+.profile_img {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: auto;
+    margin: 15px auto;
+    max-width: 220px;
+    border-radius: 50%;
+}
+
+.star-rating {
+    position: relative;
+    display: inline-block;
+    font-size: 25px;
+}
+
+.star-rating .star-rating-item {
+    height: 29px;
+    position: absolute;
+    overflow: hidden;
+}
+
+.star-rating .star-rating-item:before {
+    content: "★★★★★";
+    color: #ffcc33;
+}
+
+.star-rating:after {
+    content: "★★★★★";
+    color: #ccc;
+}
+
+.head-ion-item {
+    padding-top: 1%;
+}
+
+@media screen and (max-width: 1024px) {
+    .grid_container {
+        min-height: 100%;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 1px;
+        grid-column-gap: 1px;
+    }
+
+    .skill_grid_container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 1px;
+        grid-column-gap: 1px;
+    }
+
+    ion-card {
+        margin: 3%;
+    }
+}

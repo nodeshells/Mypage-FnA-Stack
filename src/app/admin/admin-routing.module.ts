@@ -1,6 +1,5 @@
 import {Routes} from '@angular/router';
 import {TopComponent} from './top/top.component';
-import {ProfilePreviewComponent} from './profile/preview/preview.component';
 import {ProfileEditComponent} from './profile/edit/edit.component';
 import {SkillPreviewComponent} from './skill/preview/preview.component';
 import {SkillEditComponent} from './skill/edit/edit.component';
@@ -11,8 +10,9 @@ import {BlogsearchComponent} from './blog/blogsearch/blogsearch.component';
 import {BlogpreviewComponent} from './blog/blogpreview/blogpreview.component';
 import {BlogeditComponent} from './blog/blogedit/blogedit.component';
 import {BlogmanagerComponent} from './blog/blogmanager/blogmanager.component';
-import {BlogPageModule} from '../blog/blog.module';
 import {BlogpostComponent} from './blog/blogpost/blogpost.component';
+import {MypagePage} from '../mypage/mypage.page';
+import {ProfilePreviewComponent} from './profile/preview/preview.component';
 
 export const myRoutes: Routes = [
   {

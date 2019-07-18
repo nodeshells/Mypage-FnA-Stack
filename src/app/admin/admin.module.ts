@@ -17,6 +17,7 @@ import {BlogpreviewComponent} from './blog/blogpreview/blogpreview.component';
 import {BlogsearchComponent} from './blog/blogsearch/blogsearch.component';
 import {BlogmanagerComponent} from './blog/blogmanager/blogmanager.component';
 import {BlogpostComponent} from './blog/blogpost/blogpost.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -24,10 +25,12 @@ import {BlogpostComponent} from './blog/blogpost/blogpost.component';
     RouterModule.forChild(myRoutes),
     SharedModule,
     IonicModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  declarations: [TopComponent, ProfileEditComponent, ProfilePreviewComponent, SkillEditComponent, SkillPreviewComponent
-    , ProfiletopComponent, SkilltopComponent, BlogtopComponent, BlogeditComponent, BlogpreviewComponent, BlogsearchComponent
-    , BlogmanagerComponent, BlogpostComponent],
+  declarations: [TopComponent, ProfileEditComponent, ProfilePreviewComponent, SkillEditComponent,
+    SkillPreviewComponent, ProfiletopComponent, SkilltopComponent, BlogtopComponent, BlogeditComponent,
+    BlogpreviewComponent, BlogsearchComponent, BlogmanagerComponent, BlogpostComponent],
 })
 export class AdminModule {
 }

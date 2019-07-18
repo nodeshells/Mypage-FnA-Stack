@@ -4,6 +4,7 @@ import {map} from 'rxjs/operators';
 import {BreakpointObserver} from '@angular/cdk/layout';
 import {Router, NavigationEnd} from '@angular/router';
 import {Storage} from '@ionic/storage';
+import {AlertController, ToastController} from '@ionic/angular';
 
 
 declare let ga;
@@ -15,7 +16,13 @@ export class SharedService {
   public themesubject: Subject<String>;
   public themeState = '';
 
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private storage: Storage) {
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private storage: Storage, private toast: ToastController) {
+  }
+
+  // toast
+  async dispToast(toastmessage: string, killtime = 2000) {
+    const toast = await this.toast.create({message: toastmessage, duration: killtime});
+    await toast.present();
   }
 
   // 画面サイズの検出
@@ -61,11 +68,4 @@ export class SharedService {
     }
   }
 
-  mailCheck(user): boolean {
-    if (false) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 }
