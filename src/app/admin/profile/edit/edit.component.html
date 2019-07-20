@@ -36,7 +36,7 @@
           </ion-item>
           <ion-item [color]="themeState$ | async">
             <ion-label position="floating">PR文</ion-label>
-            <ion-textarea [color]="(themeState$ | async) === 'dark' ? 'medium' : ''"
+            <ion-textarea autoGrow="true" [color]="(themeState$ | async) === 'dark' ? 'medium' : ''"
                           [formControl]="editForm.controls['pr']" placeholder="PRを入力してください。"
                           [value]="editforms.pr"></ion-textarea>
           </ion-item>

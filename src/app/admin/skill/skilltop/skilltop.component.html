@@ -1,13 +1,14 @@
-<ion-tabs>
-  <ion-tab-bar [color]="(themeState$ | async) === 'dark' ? 'dark' : ''" slot="bottom">
-    <ion-tab-button tab="preview">
-      <ion-icon name="paper"></ion-icon>
-      <ion-label>プレビュー</ion-label>
-    </ion-tab-button>
+<!--<ion-tabs>-->
+<!--  <ion-tab-bar [color]="(themeState$ | async) === 'dark' ? 'dark' : ''" slot="bottom">-->
+<!--    <ion-tab-button tab="preview">-->
+<!--      <ion-icon name="paper"></ion-icon>-->
+<!--      <ion-label>プレビュー</ion-label>-->
+<!--    </ion-tab-button>-->
 
-    <ion-tab-button tab="edit">
-      <ion-icon name="create"></ion-icon>
-      <ion-label>編集</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
+<!--    <ion-tab-button tab="edit">-->
+<!--      <ion-icon name="create"></ion-icon>-->
+<!--      <ion-label>編集</ion-label>-->
+<!--    </ion-tab-button>-->
+<!--  </ion-tab-bar>-->
+<!--</ion-tabs>-->
+<ion-router-outlet></ion-router-outlet>

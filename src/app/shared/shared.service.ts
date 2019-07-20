@@ -4,7 +4,8 @@ import {map} from 'rxjs/operators';
 import {BreakpointObserver} from '@angular/cdk/layout';
 import {Router, NavigationEnd} from '@angular/router';
 import {Storage} from '@ionic/storage';
-import {AlertController, ToastController} from '@ionic/angular';
+import {ToastController} from '@ionic/angular';
+import * as uuid from 'uuid';
 
 
 declare let ga;
@@ -66,6 +67,23 @@ export class SharedService {
       this.themeState = 'dark';
       return 'dark';
     }
+  }
+
+  // ルーティング関係
+  redirectToNoquery(url) {
+    // this.router.navigateByUrl('/routeing', {skipLocationChange: true}).then(() =>
+    //     this.router.navigate([url]));
+    this.router.navigate([url]);
+  }
+
+  redirectTo(url, query) {
+    // queryでparametaを送信する時はMatrixURIを使用する('hoge', {hogehoge:'hugahuga')
+    this.router.navigate([url, query]);
+  }
+
+  // UUID生成
+  genUuid() {
+    return uuid.v4();
   }
 
 }

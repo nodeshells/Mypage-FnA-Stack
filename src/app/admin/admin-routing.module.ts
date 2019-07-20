@@ -13,6 +13,7 @@ import {BlogmanagerComponent} from './blog/blogmanager/blogmanager.component';
 import {BlogpostComponent} from './blog/blogpost/blogpost.component';
 import {MypagePage} from '../mypage/mypage.page';
 import {ProfilePreviewComponent} from './profile/preview/preview.component';
+import {AddskillComponent} from './skill/addskill/addskill.component';
 
 export const myRoutes: Routes = [
   {
@@ -34,7 +35,8 @@ export const myRoutes: Routes = [
     component: SkilltopComponent,
     children: [
       {path: 'preview', component: SkillPreviewComponent},
-      {path: 'edit', component: SkillEditComponent}
+      {path: 'edit', component: SkillEditComponent},
+      {path: 'addskill', component: AddskillComponent}
     ]
   },
   {

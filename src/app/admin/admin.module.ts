@@ -18,6 +18,7 @@ import {BlogsearchComponent} from './blog/blogsearch/blogsearch.component';
 import {BlogmanagerComponent} from './blog/blogmanager/blogmanager.component';
 import {BlogpostComponent} from './blog/blogpost/blogpost.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AddskillComponent} from './skill/addskill/addskill.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   ],
   declarations: [TopComponent, ProfileEditComponent, ProfilePreviewComponent, SkillEditComponent,
     SkillPreviewComponent, ProfiletopComponent, SkilltopComponent, BlogtopComponent, BlogeditComponent,
-    BlogpreviewComponent, BlogsearchComponent, BlogmanagerComponent, BlogpostComponent],
+    BlogpreviewComponent, BlogsearchComponent, BlogmanagerComponent, BlogpostComponent, AddskillComponent],
 })
 export class AdminModule {
 }
