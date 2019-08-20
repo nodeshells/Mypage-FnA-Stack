@@ -30,8 +30,11 @@ ion-card {
     grid-column-gap: 15px;
 }
 
-.skill_grid_container mz-card {
-    height: 100%;
+.skill_grid_container {
+    ion-card {
+        height: auto;
+        overflow: hidden;
+    }
 }
 
 .profile_img {
