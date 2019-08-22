@@ -6,19 +6,14 @@
 
 ## Japanese README:
 ### 特色
-    Firebase & Angular6で作るWebサービスです。
-    AngularMaterial2を導入済みです。
-    Ngx-Materializeも導入済みです。
+    Firebase & Angular8 & Ionicで作るWebサービスです。
     コーディング規約としてTslint-config-semistandardを使用しています。
-    フロントエンドはAngular6で実装し、バックエンドを全てFirebaseで実装する想定です。
+    フロントエンドはAngular8で実装し、バックエンドを全てFirebaseで実装します。
 
-### マテリアルフレームワークのドキュメント
-    materialize_css
-    https://sherweb.github.io/ngx-materialize/home 
-
-    AngularMaterial2
-    https://material.angular.io/components/categories
-
+### デザインフレームワークのドキュメント
+    Ionic
+    https://ionicframework.com/docs
+    
 ### 初回セットアップ(Node.jsはインストール済みとする)
 1.firebase-toolsをglobalにインストール
  
@@ -37,29 +32,11 @@
     参照サイト
     https://qiita.com/Yamamoto0525/items/fb23707831ff6d181544
 
-    src/environments/environment_config.ts でファイルを新規作成し、下記のコードを記述。
-    (xの箇所は上記のサイトを参考に書き換える)
     
     任意で入力:
-    analytics は GoogleAnalyticsのIDを入力。
-    admin_permission は Firebase Authenticationのログインを制限(ホワイトリスト)
-
-    export const environment_config = {
-      firebase: {
-        apiKey: 'xxxxxxxxxxxxxxxxx',
-        authDomain: 'xxxxxxxxxxxxxxxxx',
-        databaseURL: 'xxxxxxxxxxxxxxxxx',
-        projectId: 'xxxxxxxxxxxxxxxxx',
-        storageBucket: 'xxxxxxxxxxxxxxxxx',
-        messagingSenderId: 'xxxxxxxxxxxxxxxxx'
-      },
-      analytics: {
-        id: 'XX-XXXXXXXXX-X'
-      },
-      admin_permission: {
-        mailaddress: 'XXXXXXXXXXXXXX@hoge.com'
-      }
-    };
+    src/index.htmlにGoogleAnalyticsのIDがあるので変更してください。
+    または、コードから削除してください。
+    
 
 5.firebaseにログイン
 
