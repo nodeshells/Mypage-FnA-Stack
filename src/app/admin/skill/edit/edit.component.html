@@ -28,14 +28,17 @@
                     [ngModel]="skill.url"></ion-input>
           </ion-item>
           <ion-item [color]="themeSubject$ | async">
-            <ion-label position="stacked">経験年数</ion-label>
-            <ion-range mode="md" pin="true" step="1" min="0"
-                       [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"
+            <ion-label position="stacked">経験年数 (年)</ion-label>
+            <ion-input type="number" [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"
                        [formControl]="editForm.controls['skillexp']"
-                       [ngModel]="skill.experience"></ion-range>
+                       [ngModel]="skill.experience"></ion-input>
+            <!--            <ion-range mode="md" pin="true" step="1" min="0"-->
+            <!--                       [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"-->
+            <!--                       [formControl]="editForm.controls['skillexp']"-->
+            <!--                       [ngModel]="skill.experience"></ion-range>-->
           </ion-item>
           <ion-item [color]="themeSubject$ | async">
-            <ion-label position="stacked">スキル習熟度</ion-label>
+            <ion-label position="stacked">スキル習熟度 (%)</ion-label>
             <ion-range mode="md" pin="true" step="1" max="100" min="0"
                        [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"
                        [formControl]="editForm.controls['skillstar']"

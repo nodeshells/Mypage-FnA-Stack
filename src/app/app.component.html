@@ -13,18 +13,18 @@
             <ion-icon size="large" src="assets/firebase-logo.svg"></ion-icon>
           </ion-button>
         </ion-buttons>
+        <ion-button (click)="authService.doLogout()" *ngIf="(authService.checkLoginState() | async) !== null" mode="ios"
+                    size="medium" slot="end">
+          <ion-icon name="log-out" slot="icon-only"></ion-icon>
+        </ion-button>
         <ion-button mode="ios" size="medium" slot="end" (click)="toggleTheme()">
           <ion-icon *ngIf="(themeState$ | async) === ''" name="sunny" slot="icon-only"></ion-icon>
           <ion-icon *ngIf="(themeState$ | async) === 'dark'" name="moon" slot="icon-only"></ion-icon>
         </ion-button>
-        <ion-button (click)="authService.doLogout()" *ngIf="(authService.checkLoginState() | async) !== null" mode="ios"
-          size="medium" slot="end">
-          <ion-icon name="log-out" slot="icon-only"></ion-icon>
-        </ion-button>
       </ion-toolbar>
-      <ion-toolbar mode="ios" color="primary">
-        <ion-title>メニュー</ion-title>
-      </ion-toolbar>
+<!--      <ion-toolbar mode="ios" color="primary">-->
+      <!--        <ion-title>メニュー</ion-title>-->
+      <!--      </ion-toolbar>-->
     </ion-header>
     <ion-content [color]="themeState$ | async">
       <ion-list mode="ios">
@@ -41,7 +41,7 @@
   </ion-menu>
   <ion-router-outlet mode="md" id="menu-content"></ion-router-outlet>
 </ion-split-pane>
-<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+<ion-fab *ngIf="false" vertical="bottom" horizontal="end" slot="fixed">
   <ion-menu-button>
     <ion-fab-button>
       <ion-icon name="menu"></ion-icon>

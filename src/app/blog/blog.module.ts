@@ -1,23 +1,26 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 
 import {IonicModule} from '@ionic/angular';
 
 import {BlogPage} from './blog.page';
 import {DetaileComponent} from './detaile/detaile.component';
 import {SharedModule} from '../shared/shared.module';
-import {MdToHtmlPipe} from '../shared/pipe/md-to-html.pipe';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'top',
     component: BlogPage,
   },
   {
     path: 'detail',
     component: DetaileComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'top'
   }
 ];
 
