@@ -11,16 +11,12 @@ import {BlogpreviewComponent} from './blog/blogpreview/blogpreview.component';
 import {BlogeditComponent} from './blog/blogedit/blogedit.component';
 import {BlogmanagerComponent} from './blog/blogmanager/blogmanager.component';
 import {BlogpostComponent} from './blog/blogpost/blogpost.component';
-import {MypagePage} from '../mypage/mypage.page';
 import {ProfilePreviewComponent} from './profile/preview/preview.component';
 import {AddskillComponent} from './skill/addskill/addskill.component';
 
 export const myRoutes: Routes = [
   {
-    path: '',
-    children: [
-      {path: 'top', component: TopComponent}
-    ]
+    path: 'top', component: TopComponent
   },
   {
     path: 'profile',
@@ -49,6 +45,10 @@ export const myRoutes: Routes = [
       {path: 'preview', component: BlogpreviewComponent},
       {path: 'edit', component: BlogeditComponent}
     ]
+  },
+  {
+    path: '**',
+    redirectTo: 'top'
   }
 ];
 
