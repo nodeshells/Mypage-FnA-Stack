@@ -19,7 +19,7 @@
             </ion-card-title>
           </ion-card-header>
           <ion-card-content *ngIf="(UserData$ | async) as User">
-            <img class="profile_img" src="assets/profile3.jpg" alt="kenta">
+            <img decoding="async" class="profile_img" src="assets/profile3.jpg" alt="kenta">
             <p style="text-align:center;">名前: Kenta</p>
             <p>性別: {{User.gender}}</p>
             <p>出身: {{User['from']}}</p>
@@ -41,7 +41,7 @@
           <ion-card [color]="themeSubject$ | async"
                     class="{{skill.color}} white-text" mode="md">
             <ion-item class="head-ion-item" [color]="themeSubject$ | async" lines="none">
-              <ion-button [fill]="(themeSubject$ | async) === 'dark' ? 'solid': 'outline'"
+              <ion-button mode="ios" [fill]="(themeSubject$ | async) === 'dark' ? 'solid': 'outline'"
                           [color]="themeSubject$ | async" slot="end" href="{{skill.url}}">
                 サイトへ
                 <ion-icon name="arrow-round-forward"></ion-icon>
