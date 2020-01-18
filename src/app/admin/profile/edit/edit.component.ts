@@ -5,6 +5,13 @@ import {FirestoreService} from '../../../shared/firebase/firestore.service';
 import {Observable} from 'rxjs';
 import {AngularFirestore} from '@angular/fire/firestore';
 
+interface EditFormObject {
+  name: string;
+  job: string;
+  hobby: string;
+  pr: string;
+}
+
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -13,15 +20,21 @@ import {AngularFirestore} from '@angular/fire/firestore';
 })
 export class ProfileEditComponent implements OnInit {
   themeState$;
-  UserData$: Observable<any>;
+  UserData$: Observable<EditFormObject>;
   editForm: FormGroup;
-  editFormObj = {};
+  editFormObj: EditFormObject;
 
   constructor(private sharedService: SharedService, private builder: FormBuilder, private firestoreService: FirestoreService, private afs: AngularFirestore) {
     this.themeState$ = this.sharedService.themesubject;
     this.UserData$ = this.firestoreService.getUserData();
-    this.UserData$.subscribe(user => {
+    this.UserData$.subscribe((user: EditFormObject) => {
       this.editFormObj = user;
+      this.editForm = this.builder.group({
+        name: [user.name],
+        job: [user.job],
+        hobby: [user.hobby],
+        pr: [user.pr]
+      });
     });
     this.editForm = this.builder.group({
       name: [''],

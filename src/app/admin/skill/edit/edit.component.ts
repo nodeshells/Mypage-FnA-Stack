@@ -5,6 +5,15 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {ActivatedRoute} from '@angular/router';
 
+interface SkillDoc {
+  desc: string;
+  experience: number;
+  skillid: string;
+  skillname: string;
+  star: number;
+  url: string;
+}
+
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -14,8 +23,7 @@ export class SkillEditComponent implements OnInit {
   themeSubject$: Subject<String>;
   editForm: FormGroup;
   skillid: string;
-  filtedData: Object = null;
-
+  filtedData: SkillDoc = null;
 
   constructor(private shared: SharedService, private builder: FormBuilder, private afs: AngularFirestore,
               private activatedRoute: ActivatedRoute) {
@@ -26,13 +34,6 @@ export class SkillEditComponent implements OnInit {
       }
     }));
     this.themeSubject$ = this.shared.themesubject;
-    this.editForm = this.builder.group({
-      skillname: [''],
-      skilldesc: [''],
-      skillexp: [''],
-      skillstar: [''],
-      skillurl: ['']
-    });
     const SkillDataRef = this.afs.collection('profile').doc('Skill');
     SkillDataRef.get().subscribe(data => {
       if (data.exists) {
@@ -40,7 +41,21 @@ export class SkillEditComponent implements OnInit {
         const filtedData = skilldata.filter(x => x.skillid === this.skillid);
         this.filtedData = filtedData[0];
         // console.log(this.filtedData);
+        this.editForm = this.builder.group({
+          skillname: [this.filtedData.skillname],
+          skilldesc: [this.filtedData.desc],
+          skillexp: [this.filtedData.experience],
+          skillstar: [this.filtedData.star],
+          skillurl: [this.filtedData.url]
+        });
       }
+    });
+    this.editForm = this.builder.group({
+      skillname: [''],
+      skilldesc: [''],
+      skillexp: [''],
+      skillstar: [''],
+      skillurl: ['']
     });
   }
 
