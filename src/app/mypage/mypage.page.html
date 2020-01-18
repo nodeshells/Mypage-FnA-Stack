@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content [color]="(themeSubject$ | async) === 'dark' ? 'medium' : ''">
-  <div class="background">
+  <div>
     <div class="grid_container">
       <div name="profile">
         <ion-card [color]="themeSubject$ | async" class="blue white-text" mode="md">
@@ -19,7 +19,7 @@
             </ion-card-title>
           </ion-card-header>
           <ion-card-content *ngIf="(UserData$ | async) as User">
-            <img decoding="async" class="profile_img" src="assets/profile3.jpg" alt="kenta">
+            <img class="profile_img" src="assets/profile3.jpg" alt="kenta">
             <p style="text-align:center;">名前: Kenta</p>
             <p>性別: {{User.gender}}</p>
             <p>出身: {{User['from']}}</p>
