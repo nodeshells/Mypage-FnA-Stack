@@ -24,7 +24,7 @@ export class AppComponent implements OnDestroy, OnInit, AfterViewInit {
   ];
 
   constructor(private domSanitizer: DomSanitizer, private sharedservice: SharedService, private storage: Storage,
-              private menu: MenuController, private authService: AuthService) {
+              private menu: MenuController, public authService: AuthService) {
     this.sharedservice.initTheme();
     this.themeState$ = this.sharedservice.themesubject;
 
