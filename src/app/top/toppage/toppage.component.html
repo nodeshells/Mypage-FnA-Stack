@@ -1,10 +1,10 @@
 <ion-header>
-  <ion-toolbar mode="ios" color="primary">
+  <ion-toolbar mode="md" color="primary" [class.ion-text-center]="!isMobile">
     <ion-buttons slot="end">
       <ion-menu-button>
       </ion-menu-button>
     </ion-buttons>
-    <ion-title>トップ</ion-title>
+    <ion-title [class.iontext-left]="isMobile">Kenta Technology Lab</ion-title>
   </ion-toolbar>
 </ion-header>
 

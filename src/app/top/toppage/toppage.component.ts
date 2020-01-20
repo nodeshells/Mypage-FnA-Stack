@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SharedService} from '../../shared/shared.service';
+import {Platform} from '@ionic/angular';
 
 @Component({
   selector: 'app-toppage',
@@ -11,7 +12,7 @@ export class ToppageComponent implements OnInit {
   themeState$;
   isMobile;
 
-  constructor(private sharedservice: SharedService) {
+  constructor(private sharedservice: SharedService, private platform: Platform) {
     this.sharedservice.displaysizedetect().subscribe((isMobile: boolean) => {
       this.isMobile = isMobile;
     });

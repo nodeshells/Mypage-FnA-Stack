@@ -15,9 +15,10 @@ import {AuthService} from './shared/authguard/auth.service';
 export class AppComponent implements OnDestroy, OnInit, AfterViewInit {
   themeState$: Subject<String>;
   sideMenu = [
-    {labelName: 'TOPページ', iconName: 'home', routerLink: '/top'},
-    {labelName: 'マイページ', iconName: 'happy', routerLink: '/profile'},
-    {labelName: 'ブログ', iconName: 'text', routerLink: '/blog'},
+    {labelName: 'トップ', iconName: 'home', routerLink: '/top'},
+    {labelName: '管理者の自己紹介', iconName: 'happy', routerLink: '/profile'},
+    // TODO ブログの優先度が高い
+    // {labelName: 'ブログ', iconName: 'text', routerLink: '/blog'},
     // { labelName: '職務経歴', iconName: 'filing', routerLink: '' },
     // { labelName: '技術プレビュー', iconName: 'construct', routerLink: '' },
     {labelName: '管理者ページ', iconName: 'glasses', routerLink: '/admin'},

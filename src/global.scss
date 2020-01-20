@@ -41,6 +41,10 @@ ion-card {
     }
 }
 
+ion-toolbar {
+    --min-height: 65px;
+}
+
 .alertDeleteButton {
     color: var(--ion-color-danger) !important;
 }
