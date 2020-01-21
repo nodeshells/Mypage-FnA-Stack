@@ -32,6 +32,16 @@ ion-spinner {
 }
 
 ion-card {
+    &.light-theme {
+        background: white !important;
+    }
+
+    ion-card-content {
+        &.light-theme {
+            background: white !important;
+        }
+    }
+
     .card-content-ios {
         padding-top: 5px;
     }
