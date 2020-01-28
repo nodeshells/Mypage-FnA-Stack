@@ -15,22 +15,24 @@
         <ion-list no-padding>
           <ion-item [color]="themeSubject$ | async">
             <ion-label position="floating">スキルの名前</ion-label>
-            <ion-input [color]="(themeSubject$ | async) === 'dark' ? 'medium' : ''"
+            <ion-input [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"
                        [formControl]="addForm.controls['skillname']" type="text"
                        placeholder="スキルの名前を入力してください"></ion-input>
           </ion-item>
           <ion-item [color]="themeSubject$ | async">
             <ion-label position="floating">スキルのURL</ion-label>
             <ion-input
-                    [color]="(themeSubject$ | async) === 'dark' ? 'medium' : ''"
+                    [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"
                     [formControl]="addForm.controls['skillurl']"
                     type="string" placeholder="スキルのURLを入力してください"></ion-input>
           </ion-item>
           <ion-item [color]="themeSubject$ | async">
             <ion-label position="stacked">経験年数</ion-label>
-            <ion-range mode="md" pin="true" step="1" min="0"
-                       [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"
-                       [formControl]="addForm.controls['skillexp']"></ion-range>
+            <ion-input type="number" [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"
+                       [formControl]="addForm.controls['skillexp']"></ion-input>
+<!--            <ion-range mode="md" pin="true" step="1" min="0"-->
+<!--                       [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"-->
+<!--                       [formControl]="addForm.controls['skillexp']"></ion-range>-->
           </ion-item>
           <ion-item [color]="themeSubject$ | async">
             <ion-label position="stacked">スキル習熟度</ion-label>
@@ -40,7 +42,7 @@
           </ion-item>
           <ion-item [color]="themeSubject$ | async">
             <ion-label position="floating">PR文</ion-label>
-            <ion-textarea autoGrow="true" [color]="(themeSubject$ | async) === 'dark' ? 'medium' : ''"
+            <ion-textarea autoGrow="true" [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"
                           [formControl]="addForm.controls['skilldesc']" placeholder="スキルの説明を入力してください"
             ></ion-textarea>
           </ion-item>

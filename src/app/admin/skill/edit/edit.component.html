@@ -15,14 +15,14 @@
         <ion-list no-padding>
           <ion-item [color]="themeSubject$ | async">
             <ion-label position="floating">スキルの名前</ion-label>
-            <ion-input [color]="(themeSubject$ | async) === 'dark' ? 'medium' : ''"
+            <ion-input [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"
                        [formControl]="editForm.controls['skillname']" type="text"
                        placeholder="スキルの名前を入力してください" [ngModel]="skill.skillname"></ion-input>
           </ion-item>
           <ion-item [color]="themeSubject$ | async">
             <ion-label position="floating">スキルのURL</ion-label>
             <ion-input
-                    [color]="(themeSubject$ | async) === 'dark' ? 'medium' : ''"
+                    [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"
                     [formControl]="editForm.controls['skillurl']"
                     type="string" placeholder="スキルのURLを入力してください"
                     [ngModel]="skill.url"></ion-input>
@@ -46,7 +46,7 @@
           </ion-item>
           <ion-item [color]="themeSubject$ | async">
             <ion-label position="floating">説明文</ion-label>
-            <ion-textarea autoGrow="true" [color]="(themeSubject$ | async) === 'dark' ? 'medium' : ''"
+            <ion-textarea autoGrow="true" [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"
                           [formControl]="editForm.controls['skilldesc']" placeholder="スキルの説明を入力してください"
                           [ngModel]="skill.desc"
             ></ion-textarea>
