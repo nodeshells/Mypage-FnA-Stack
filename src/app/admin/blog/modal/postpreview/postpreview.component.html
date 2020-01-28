@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar mode="ios" color="primary">
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon size="large" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>プレビュー</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [color]="(themeState$ | async) === 'dark' ? 'medium' : ''">
+  <ion-card mode="md" [color]="themeState$ | async">
+    <ion-card-header>
+      <ion-card-title>{{title}}</ion-card-title>
+      <ion-card-subtitle>{{formatDate(date)}}</ion-card-subtitle>
+      <div class="hidden-chip">
+        <ion-chip [color]="(themeState$ | async) === 'dark' ? 'primary' : 'dark'"
+                  [outline]="(themeState$ | async) === 'dark'"
+                  *ngFor="let tag of tags">
+          <ion-label>{{tag}}</ion-label>
+        </ion-chip>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      <div [innerHTML]="mdString | mdToHtml"></div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

@@ -44,7 +44,7 @@ const firebase = {
     ColorSketchModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor() {

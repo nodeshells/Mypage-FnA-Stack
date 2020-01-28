@@ -8,5 +8,40 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [color]="(themeState$ | async) === 'dark' ? 'medium' : ''">
-
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openPreview()">
+      <ion-icon name="phone-portrait"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-card mode="md" [color]="themeState$ | async">
+    <form [formGroup]="editForm">
+      <ion-card-content>
+        <ion-list no-padding >
+          <ion-item [color]="themeState$ | async">
+            <ion-label position="floating">タイトル</ion-label>
+            <ion-input [color]="(themeState$ | async) === 'dark' ? 'primary' : ''"
+                       [formControl]="editForm.controls['title']" type="text"
+                       placeholder="名前を入力してください。"></ion-input>
+          </ion-item>
+          <ion-item [color]="themeState$ | async">
+            <ion-label position="floating">タグ</ion-label>
+            <ion-input [color]="(themeState$ | async) === 'dark' ? 'primary' : ''"
+                       [formControl]="editForm.controls['tags']" type="text" placeholder="職業を入力してください。"></ion-input>
+          </ion-item>
+          <ion-item [color]="themeState$ | async">
+            <ion-label position="floating">本文</ion-label>
+            <ion-textarea autoGrow="true" [color]="(themeState$ | async) === 'dark' ? 'primary' : ''"
+                          [formControl]="editForm.controls['mdString']" placeholder="PRを入力してください。"></ion-textarea>
+          </ion-item>
+        </ion-list>
+        <div style="display: flex; justify-content: center; margin-top: 2%;">
+          <ion-button  (click)="postBlog()" mode="md" fill="outline">
+            <ion-icon name="paper-plane"></ion-icon>
+            ブログ投稿
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </form>
+  </ion-card>
 </ion-content>
+

@@ -5,6 +5,8 @@ import {SharedService} from './shared/shared.service';
 import {Storage} from '@ionic/storage';
 import {MenuController} from '@ionic/angular';
 import {AuthService} from './shared/authguard/auth.service';
+import {AngularFirestore} from '@angular/fire/firestore';
+import * as Ballcap from '@1amageek/ballcap';
 
 @Component({
   selector: 'app-root',
@@ -36,10 +38,11 @@ export class AppComponent implements OnDestroy, OnInit, AfterViewInit {
   };
 
   constructor(private domSanitizer: DomSanitizer, private sharedservice: SharedService, private storage: Storage,
-              private menu: MenuController, public authService: AuthService, private metaService: Meta) {
+              private menu: MenuController, public authService: AuthService, private metaService: Meta, private afs: AngularFirestore) {
     this.sharedservice.initTheme();
     this.themeState$ = this.sharedservice.themesubject;
     this.setMetaTag();
+    Ballcap.initialize(this.afs.firestore);
   }
 
   ngOnInit() {

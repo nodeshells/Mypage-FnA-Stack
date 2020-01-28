@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FirestoreService} from '../../shared/firebase/firestore.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {map} from 'rxjs/operators';
+import {ViewSkillDetail} from '../../FirestoreModels/Skill';
 
 @Component({
   selector: 'app-edit-profile',
@@ -41,23 +42,25 @@ export class EditProfileComponent implements OnInit {
   constructor(private firestoreService: FirestoreService, private sanitizer: DomSanitizer) {
     // FireStoreのSkillドキュメントをWatchする
     this.SkillData$ = this.firestoreService.getSkilldata().pipe(map(skill => {
-      skill.skilldata.forEach((skills) => {
-        // skillの習熟度の値をバックアップ
-        skills.starRate = skills.star;
-
-        // skillの中に入っている習熟度の数値をstyle情報に変換する(星を表示するため)
-        skills.star = this.sanitizer.bypassSecurityTrustStyle('width:' + skills.star + '%;');
-
-        if (!skills.color) {
-          // カードの情報が無かったらデフォルトのカラーを適用
-          skills.color = 'green darken-1';
-        }
+      this.SkillData = skill.skilldata.map((skills) => {
+        const viewSkillDetail: ViewSkillDetail = {
+          skillid: skills.skillid,
+          skillname: skills.skillname,
+          // skillの習熟度の値をバックアップ
+          starRate: skills.star,
+          // skillの中に入っている習熟度の数値をstyle情報に変換する(星を表示するため)
+          star: this.sanitizer.bypassSecurityTrustStyle('width:' + skills.star + '%;'),
+          experience: skills.experience,
+          url: skills.url,
+          desc: skills.desc
+        };
+        return viewSkillDetail;
       });
       // 読み込みを完了させる
       this.loadState = false;
-      this.SkillData = skill.skilldata;
+      // this.SkillData = skill.skilldata;
       // console.log(this.SkillData);
-      return skill.skilldata;
+      return this.SkillData;
     }));
     this.UserData$ = this.firestoreService.getUserData();
     this.getOld();

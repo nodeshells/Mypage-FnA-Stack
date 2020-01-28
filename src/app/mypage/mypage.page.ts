@@ -4,12 +4,12 @@ import {map} from 'rxjs/operators';
 import {DomSanitizer} from '@angular/platform-browser';
 import {SharedService} from '../shared/shared.service';
 import {Subject} from 'rxjs';
+import {ViewSkillDetail} from '../FirestoreModels/Skill';
 
 @Component({
   selector: 'app-mypage',
   templateUrl: './mypage.page.html',
-  styleUrls: ['./mypage.page.scss'],
-  providers: [FirestoreService]
+  styleUrls: ['./mypage.page.scss']
 })
 export class MypagePage implements OnInit {
   myAge = 0;
@@ -25,19 +25,27 @@ export class MypagePage implements OnInit {
     // 年齢を取得して変数に入れる
     this.getOld();
     // FireStoreのドキュメントをWatchする
+    // FireStoreのSkillドキュメントをWatchする
     this.SkillData$ = this.firestoreService.getSkilldata().pipe(map(skill => {
-      skill.skilldata.forEach((skills) => {
-        // skillの中に入っている習熟度の数値をstyle情報に変換する(星を表示するため)
-        skills.star = this.sanitizer.bypassSecurityTrustStyle('width:' + skills.star + '%;');
-
-        if (!skills.color) {
-          // カードの情報が無かったらデフォルトのカラーを適用
-          skills.color = 'green darken-1';
-        }
+      const SkillData = skill.skilldata.map((skills) => {
+        const viewSkillDetail: ViewSkillDetail = {
+          skillid: skills.skillid,
+          skillname: skills.skillname,
+          // skillの習熟度の値をバックアップ
+          starRate: skills.star,
+          // skillの中に入っている習熟度の数値をstyle情報に変換する(星を表示するため)
+          star: this.sanitizer.bypassSecurityTrustStyle('width:' + skills.star + '%;'),
+          experience: skills.experience,
+          url: skills.url,
+          desc: skills.desc
+        };
+        return viewSkillDetail;
       });
       // 読み込みを完了させる
       this.loadState = false;
-      return skill.skilldata;
+      // this.SkillData = skill.skilldata;
+      // console.log(this.SkillData);
+      return SkillData;
     }));
     this.UserData$ = this.firestoreService.getUserData();
   }
