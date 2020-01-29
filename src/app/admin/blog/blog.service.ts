@@ -2,13 +2,14 @@ import {Injectable} from '@angular/core';
 import {Blogs, PostBlogForm, PostPreviewData} from '../../FirestoreModels/Blogs';
 import {ModalController} from '@ionic/angular';
 import {PostpreviewComponent} from './modal/postpreview/postpreview.component';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogService {
 
-  constructor(private modalController: ModalController) {
+  constructor(private modalController: ModalController, private afs: AngularFirestore) {
   }
 
   async postBlog(PostData: PostBlogForm) {
@@ -17,7 +18,9 @@ export class BlogService {
     postData.blogMainMd = PostData.mdString;
     postData.title = PostData.title;
     postData.tags = PostData.tags;
-    await postData.save();
+    await this.afs.collection('blogs').add(postData);
+
+    // await postData.save();
   }
 
   async getAllBlogData() {
@@ -32,7 +35,7 @@ export class BlogService {
         });
       }
     } catch (e) {
-
+      console.error(e);
     }
   }
 

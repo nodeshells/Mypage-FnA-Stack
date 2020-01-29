@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {SharedService} from '../../../shared/shared.service';
 import {BlogService} from '../blog.service';
 import {Blogs} from '../../../FirestoreModels/Blogs';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-blogpreview',
@@ -10,11 +11,11 @@ import {Blogs} from '../../../FirestoreModels/Blogs';
 })
 export class BlogpreviewComponent implements OnInit {
   themeState$;
-  blogDataPromise: Promise<Blogs[]>;
+  blogData$: Observable<Blogs[]>;
 
   constructor(private shared: SharedService, private blogService: BlogService) {
     this.themeState$ = this.shared.themesubject;
-    this.blogDataPromise = this.blogService.getAllBlogData();
+    this.blogData$ = this.blogService.getAllBlogData();
   }
 
   ngOnInit() {

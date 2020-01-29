@@ -15,7 +15,7 @@ export class PostpreviewComponent implements OnInit {
   @Input() mdString: string;
   @Input() tags: string[];
 
-  constructor(private shared: SharedService, private modalController: ModalController) {
+  constructor(public shared: SharedService, private modalController: ModalController) {
     this.themeState$ = this.shared.themesubject;
   }
 

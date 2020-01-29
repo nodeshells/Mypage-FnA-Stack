@@ -30,7 +30,7 @@ import {TagInputModule} from 'ngx-chips';
     IonicModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
-    TagInputModule
+    TagInputModule,
   ],
   declarations: [TopComponent, ProfileEditComponent, ProfilePreviewComponent, SkillEditComponent,
     SkillPreviewComponent, ProfiletopComponent, SkilltopComponent, BlogtopComponent, BlogeditComponent,

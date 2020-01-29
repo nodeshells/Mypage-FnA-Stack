@@ -8,8 +8,10 @@ import {User} from '../../FirestoreModels/User';
   providedIn: 'root'
 })
 export class FirestoreService {
+  db: AngularFirestore;
 
   constructor(private afs: AngularFirestore) {
+    this.db = this.afs;
   }
 
   // Mypage用のSkillデータを取得しにいく

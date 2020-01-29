@@ -28,7 +28,7 @@ export class DetaileComponent implements OnInit {
         '# 終わりです'
   };
 
-  constructor(private shared: SharedService) {
+  constructor(public shared: SharedService) {
     this.themeSubject$ = this.shared.themesubject;
   }
 
