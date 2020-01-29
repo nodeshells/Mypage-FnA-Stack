@@ -36,22 +36,35 @@ export class BlogpostComponent implements OnInit {
       title: this.editForm.controls.title.value as string,
       mdString: this.editForm.controls.mdString.value as string,
       public: true,
-      tags: ['test', 'test']
+      tags: this.saveTags()
     };
-    await this.blogService.postBlog(postData);
+    try {
+      await this.blogService.postBlog(postData);
+      await this.shared.dispToast('記事の投稿が完了しました');
+      // ブログ管理画面に戻る
+      this.shared.redirectToNoquery('/admin/blog/manager');
+    } catch (e) {
+      await this.shared.dispToast('記事の投稿に失敗しました');
+    }
   }
 
   async openPreview() {
-    let tags = [];
-    if (this.tagsArray.length > 0) {
-      tags = this.tagsArray.map((tag: Tag) => tag.value);
-    }
     const previewData: PostPreviewData = {
       title: this.editForm.controls.title.value as string,
       mdString: this.editForm.controls.mdString.value as string,
-      tags: tags
+      tags: this.saveTags()
     };
     await this.blogService.openBlogPreviewModal(previewData);
-    console.log(this.tagsArray);
   }
+
+  // タグを保存する形に変換する ['ほげ', 'ふが']
+  private saveTags() {
+    let tags: string[] = [];
+    // タグが入力されていたら
+    if (this.tagsArray.length > 0) {
+      tags = this.tagsArray.map((tag: Tag) => tag.value);
+    }
+    return tags;
+  }
+
 }

@@ -12,7 +12,7 @@
   <ion-card mode="md" [color]="themeSubject$ | async">
     <ion-card-header>
       <ion-card-title>{{testData.title}}</ion-card-title>
-      <ion-card-subtitle>{{formatDate(testData.date)}}</ion-card-subtitle>
+      <ion-card-subtitle>{{shared.formatDate(testData.date)}}</ion-card-subtitle>
       <div class="hidden-chip">
         <ion-chip [color]="(themeSubject$ | async) === 'dark' ? 'primary' : 'dark'"
                   [outline]="(themeSubject$ | async) === 'dark'"

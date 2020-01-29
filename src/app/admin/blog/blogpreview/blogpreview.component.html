@@ -9,5 +9,20 @@
 </ion-header>
 
 <ion-content [color]="(themeState$ | async) === 'dark' ? 'medium' : ''">
-
+  <ion-card mode="md" [color]="themeState$ | async" *ngFor="let blogCont of (blogDataPromise | async)">
+    <ion-card-header>
+      <ion-card-title>{{blogCont.title}}</ion-card-title>
+      <ion-card-subtitle>投稿日時: {{shared.formatDate(blogCont.createdAt.toDate())}}</ion-card-subtitle>
+      <div class="hidden-chip">
+        <ion-chip [color]="(themeState$ | async) === 'dark' ? 'primary' : 'dark'"
+                  [outline]="(themeState$ | async) === 'dark'"
+                  *ngFor="let tag of blogCont.tags">
+          <ion-label>{{tag}}</ion-label>
+        </ion-chip>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      <div [innerHTML]="blogCont.blogMainMd | mdToHtml"></div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

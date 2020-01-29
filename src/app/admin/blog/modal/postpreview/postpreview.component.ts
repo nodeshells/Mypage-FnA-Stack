@@ -26,12 +26,4 @@ export class PostpreviewComponent implements OnInit {
     await this.modalController.dismiss();
   }
 
-  formatDate(date) {
-    const y = date.getFullYear();
-    const m = date.getMonth() + 1;
-    const d = date.getDate();
-    const day = '日月火水木金土'.charAt(date.getDay());
-    return `${y}年${m}月${d}日 (${day})`;
-  }
-
 }

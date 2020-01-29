@@ -86,4 +86,14 @@ export class SharedService {
     return uuid.v4();
   }
 
+  formatDate(date) {
+    const y = date.getFullYear();
+    const m = date.getMonth() + 1;
+    const d = date.getDate();
+    const h = date.getHours();
+    const minute = date.getMinutes();
+    const day = '日月火水木金土'.charAt(date.getDay());
+    return `${y}年${m}月${d}日(${day}) ${h}時${minute}分`;
+  }
+
 }
