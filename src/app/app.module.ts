@@ -13,6 +13,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {IonicModule} from '@ionic/angular';
 import {IonicStorageModule} from '@ionic/storage';
+import {TagInputModule} from 'ngx-chips';
 
 const firebase = {
   apiKey: 'AIzaSyDXAkI4db4eoTnfXbzTCYJ-_Hlh7mA3RKo',
@@ -42,6 +43,7 @@ const firebase = {
     AngularFirestoreModule,
     AngularFirestoreModule.enablePersistence(),
     ColorSketchModule,
+    TagInputModule
   ],
   providers: [],
   bootstrap: [AppComponent],

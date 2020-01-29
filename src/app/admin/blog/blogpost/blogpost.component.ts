@@ -4,6 +4,10 @@ import {BlogService} from '../blog.service';
 import {Blogs, PostBlogForm, PostPreviewData} from '../../../FirestoreModels/Blogs';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
+interface Tag {
+  display: string;
+  value: string;
+}
 
 @Component({
   selector: 'app-blogpost',
@@ -13,6 +17,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class BlogpostComponent implements OnInit {
   themeState$;
   editForm: FormGroup;
+  tagsArray: Tag[];
 
   constructor(private shared: SharedService, private blogService: BlogService, private builder: FormBuilder) {
     this.themeState$ = this.shared.themesubject;
@@ -33,15 +38,20 @@ export class BlogpostComponent implements OnInit {
       public: true,
       tags: ['test', 'test']
     };
-   await this.blogService.postBlog(postData);
+    await this.blogService.postBlog(postData);
   }
 
-  async openPreview(){
+  async openPreview() {
+    let tags = [];
+    if (this.tagsArray.length > 0) {
+      tags = this.tagsArray.map((tag: Tag) => tag.value);
+    }
     const previewData: PostPreviewData = {
       title: this.editForm.controls.title.value as string,
       mdString: this.editForm.controls.mdString.value as string,
-      tags: ['test', 'test']
+      tags: tags
     };
-   await this.blogService.openBlogPreviewModal(previewData);
+    await this.blogService.openBlogPreviewModal(previewData);
+    console.log(this.tagsArray);
   }
 }

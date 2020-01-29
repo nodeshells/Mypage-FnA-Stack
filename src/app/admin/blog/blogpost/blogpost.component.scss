@@ -1,0 +1,14 @@
+// inputChipsのダークモード対応
+.darkMode {
+    ::ng-deep tag {
+        background: var(--ion-color-primary) !important;
+    }
+
+    ::ng-deep input.ng2-tag-input__text-input {
+        background: var(--ion-color-dark) !important;
+    }
+
+    ::ng-deep .ng2-tag-input {
+        border-bottom: var(--ion-color-dark) !important;
+    }
+}
