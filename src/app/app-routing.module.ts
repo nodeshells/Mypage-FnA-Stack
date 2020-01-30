@@ -1,10 +1,9 @@
 import {NgModule} from '@angular/core';
-import {PreloadAllModules, RouterModule} from '@angular/router';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {AuthGuard} from './shared/authguard/auth.guard';
-import {UserService} from './shared/authguard/user.service';
 
 
-const myRoutes = [
+const myRoutes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
@@ -21,7 +20,7 @@ const myRoutes = [
 @NgModule({
   imports: [RouterModule.forRoot(myRoutes, {preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule],
-  providers: [AuthGuard, UserService]
+  providers: [AuthGuard]
 })
 export class AppRoutingModule {
 }

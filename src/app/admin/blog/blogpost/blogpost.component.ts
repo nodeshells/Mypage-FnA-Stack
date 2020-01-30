@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SharedService} from '../../../shared/shared.service';
 import {BlogService} from '../blog.service';
-import {Blogs, PostBlogForm, PostPreviewData} from '../../../FirestoreModels/Blogs';
+import {PostBlogForm, PostPreviewData} from '../../../Models/Blog';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 interface Tag {

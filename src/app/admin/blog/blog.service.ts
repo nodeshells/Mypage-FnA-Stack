@@ -1,43 +1,34 @@
 import {Injectable} from '@angular/core';
-import {Blogs, PostBlogForm, PostPreviewData} from '../../FirestoreModels/Blogs';
+import {Blog, PostBlogForm, PostPreviewData} from '../../Models/Blog';
 import {ModalController} from '@ionic/angular';
-import {PostpreviewComponent} from './modal/postpreview/postpreview.component';
-import {AngularFirestore} from '@angular/fire/firestore';
+import {PostpreviewComponent} from '../../shared/modal/postpreview/postpreview.component';
+
+import {Collection} from 'firebase-firestorm/lib';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogService {
 
-  constructor(private modalController: ModalController, private afs: AngularFirestore) {
+  constructor(private modalController: ModalController) {
   }
 
   async postBlog(PostData: PostBlogForm) {
-    const postData: Blogs = new Blogs();
+    const postData = new Blog();
     postData.public = PostData.public;
     postData.blogMainMd = PostData.mdString;
     postData.title = PostData.title;
     postData.tags = PostData.tags;
-    await this.afs.collection('blogs').add(postData);
-
-    // await postData.save();
+    await Collection(Blog).create(postData);
   }
 
   async getAllBlogData() {
-    const blogData: Blogs = new Blogs();
-    try {
-      const qsnap = await blogData.parent.get();
-      if (!qsnap.empty) {
-        return qsnap.docs.map((doc) => {
-          if (doc.exists) {
-            return doc.data() as Blogs;
-          }
-        });
-      }
-    } catch (e) {
-      console.error(e);
+    const querySnapShot = await Collection(Blog).query().where('public', '==', true).get();
+    if (!querySnapShot.empty) {
+      return querySnapShot.docs.map(blogData => blogData);
     }
   }
+
 
   async openBlogPreviewModal(previewData: PostPreviewData) {
     const modal = await this.modalController.create({component: PostpreviewComponent, componentProps: previewData});

@@ -1,7 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
-
-import { PostpreviewComponent } from './postpreview.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {PostpreviewComponent} from './postpreview.component';
 
 describe('PostpreviewComponent', () => {
   let component: PostpreviewComponent;
@@ -9,8 +7,8 @@ describe('PostpreviewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PostpreviewComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [PostpreviewComponent],
+      imports: []
     }).compileComponents();
 
     fixture = TestBed.createComponent(PostpreviewComponent);

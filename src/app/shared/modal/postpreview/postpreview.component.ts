@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ModalController} from '@ionic/angular';
-import {SharedService} from '../../../../shared/shared.service';
+import {SharedService} from '../../shared.service';
 
 @Component({
   selector: 'app-postpreview',

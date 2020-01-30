@@ -4,7 +4,7 @@ import {map} from 'rxjs/operators';
 import {DomSanitizer} from '@angular/platform-browser';
 import {SharedService} from '../shared/shared.service';
 import {Subject} from 'rxjs';
-import {ViewSkillDetail} from '../FirestoreModels/Skill';
+import {ViewSkillDetail} from '../Models/Skill';
 
 @Component({
   selector: 'app-mypage',

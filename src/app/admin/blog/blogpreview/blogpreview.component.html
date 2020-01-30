@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content [color]="(themeState$ | async) === 'dark' ? 'medium' : ''">
-  <ion-card mode="md" [color]="themeState$ | async" *ngFor="let blogCont of (blogDataPromise | async)">
+  <ion-card mode="md" [color]="themeState$ | async" *ngFor="let blogCont of (promiseBlogData | async)">
     <ion-card-header>
       <ion-card-title>{{blogCont.title}}</ion-card-title>
       <ion-card-subtitle>投稿日時: {{shared.formatDate(blogCont.createdAt.toDate())}}</ion-card-subtitle>

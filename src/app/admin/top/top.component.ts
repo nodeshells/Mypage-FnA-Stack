@@ -7,7 +7,6 @@ import {SharedService} from '../../shared/shared.service';
   selector: 'app-top',
   templateUrl: './top.component.html',
   styleUrls: ['./top.component.scss'],
-  providers: [UserService]
 })
 export class TopComponent implements OnInit {
   user_photo_url = '';
@@ -19,7 +18,7 @@ export class TopComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getUserdata();
+    // this.getUserdata();
   }
 
   async getUserdata() {

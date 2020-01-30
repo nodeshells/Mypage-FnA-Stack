@@ -28,7 +28,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
+    IonicModule.forRoot(),
     RouterModule.forChild(routes),
     SharedModule
   ],

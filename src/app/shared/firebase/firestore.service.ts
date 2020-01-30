@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
-import {Skill, SkillDetail} from '../../FirestoreModels/Skill';
-import {User} from '../../FirestoreModels/User';
+import {Skill} from '../../Models/Skill';
+import {User} from '../../Models/User';
 
 @Injectable({
   providedIn: 'root'

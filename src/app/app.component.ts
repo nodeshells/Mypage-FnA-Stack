@@ -5,9 +5,9 @@ import {SharedService} from './shared/shared.service';
 import {Storage} from '@ionic/storage';
 import {MenuController} from '@ionic/angular';
 import {AuthService} from './shared/authguard/auth.service';
-import {AngularFirestore} from '@angular/fire/firestore';
-import * as Ballcap from '@1amageek/ballcap';
 import * as firestorm from 'firebase-firestorm';
+import {AngularFirestore} from '@angular/fire/firestore';
+
 
 @Component({
   selector: 'app-root',
@@ -43,9 +43,7 @@ export class AppComponent implements OnDestroy, OnInit, AfterViewInit {
     this.sharedservice.initTheme();
     this.themeState$ = this.sharedservice.themesubject;
     this.setMetaTag();
-
-    Ballcap.initialize(this.afs.firestore);
-    // firestorm.initialize(this.afs.firestore);
+    firestorm.initialize(this.afs.firestore);
   }
 
   ngOnInit() {

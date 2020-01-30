@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FirestoreService} from '../../shared/firebase/firestore.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {map} from 'rxjs/operators';
-import {ViewSkillDetail} from '../../FirestoreModels/Skill';
+import {ViewSkillDetail} from '../../Models/Skill';
 
 @Component({
   selector: 'app-edit-profile',

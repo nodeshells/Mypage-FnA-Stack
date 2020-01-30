@@ -6,7 +6,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {map} from 'rxjs/operators';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {AlertController} from '@ionic/angular';
-import {ViewSkillDetail} from '../../../FirestoreModels/Skill';
+import {ViewSkillDetail} from '../../../Models/Skill';
 
 @Component({
   selector: 'app-preview',
