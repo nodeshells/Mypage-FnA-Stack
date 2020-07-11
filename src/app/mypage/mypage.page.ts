@@ -18,7 +18,7 @@ export class MypagePage implements OnInit {
   themeSubject$: Subject<String>;
 
   SkillData$;
-  UserData$;
+  UserData$ = this.firestoreService.getUserData();
 
   constructor(private firestoreService: FirestoreService, private sanitizer: DomSanitizer, private shared: SharedService) {
     this.themeSubject$ = this.shared.themesubject;
@@ -47,7 +47,6 @@ export class MypagePage implements OnInit {
       // console.log(this.SkillData);
       return SkillData;
     }));
-    this.UserData$ = this.firestoreService.getUserData();
   }
 
   ngOnInit() {

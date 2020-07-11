@@ -14,14 +14,14 @@
       <div name="profile">
         <ion-card [color]="themeSubject$ | async" class="blue white-text" mode="md">
           <ion-card-header>
-            <ion-card-title style="text-align: center">
-              プロフィール
+            <ion-card-title class="profile__title" style="text-align: center">
+              Admin Profile
             </ion-card-title>
           </ion-card-header>
           <ion-card-content *ngIf="(UserData$ | async) as User">
             <img class="profile_img" src="assets/profile3.jpg" alt="kenta">
-            <p style="text-align:center;">名前: Kenta</p>
-            <p>性別: {{User.gender}}</p>
+            <p style="font-size: 1.2rem; text-align:center; margin-top: 16px">Kenta</p>
+            <p style="margin-top: 8px">性別: {{User.gender}}</p>
             <p>出身: {{User['from']}}</p>
             <p>年齢: 現在{{this.myAge}}歳 ({{this.currentYear}}年)</p>
             <p>職業: {{User.job}}</p>
@@ -39,14 +39,14 @@
       <div class="skill_grid_container">
         <ng-container *ngFor="let skill of (SkillData$ | async)">
           <ion-card [color]="themeSubject$ | async"
-                    class="{{skill.color}} white-text" mode="md">
+                    class="{{skill.color}} white-text skillcard" mode="md">
             <ion-item class="head-ion-item" [color]="themeSubject$ | async" lines="none">
               <ion-button mode="ios" [fill]="(themeSubject$ | async) === 'dark' ? 'solid': 'outline'"
                           [color]="themeSubject$ | async" slot="end" href="{{skill.url}}">
                 サイトへ
                 <ion-icon name="arrow-round-forward"></ion-icon>
               </ion-button>
-              <ion-card-title slot="start">
+              <ion-card-title class="skillcard__title" slot="start">
                 {{skill.skillname}}
               </ion-card-title>
             </ion-item>
