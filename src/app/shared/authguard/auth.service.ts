@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {AngularFireAuth} from 'angularfire2/auth';
 import * as firebase from 'firebase';
 import {User} from 'firebase';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
+import {AngularFireAuth} from '@angular/fire/auth';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
@@ -18,8 +18,7 @@ export class AuthService {
       const provider = new firebase.auth.GoogleAuthProvider();
       provider.addScope('profile');
       provider.addScope('email');
-      this.afAuth.auth
-          .signInWithPopup(provider)
+      this.afAuth.signInWithPopup(provider)
           .then(res => {
             resolve(res);
           }, err => {
@@ -35,7 +34,7 @@ export class AuthService {
   doLogout() {
     return new Promise((resolve, reject) => {
       if (firebase.auth().currentUser) {
-        this.afAuth.auth.signOut();
+        this.afAuth.signOut();
         this.router.navigate(['/top']);
         resolve();
       } else {

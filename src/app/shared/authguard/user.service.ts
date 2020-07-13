@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {AngularFireAuth} from 'angularfire2/auth';
 import * as firebase from 'firebase';
+import {AngularFireAuth} from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +26,7 @@ export class UserService {
   }
 
   async logOut() {
-    await this.afAuth.auth.signOut();
+    await this.afAuth.signOut();
   }
 
   // updateCurrentUser(value): Promise<any> {

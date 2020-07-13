@@ -5,14 +5,14 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {SharedModule} from './shared/shared.module';
 import {AppRoutingModule} from './app-routing.module';
-import {AngularFireModule} from 'angularfire2';
-import {AngularFireAuthModule} from 'angularfire2/auth';
-import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {ColorSketchModule} from 'ngx-color/sketch';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {IonicModule} from '@ionic/angular';
 import {IonicStorageModule} from '@ionic/storage';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 
 const firebase = {
   apiKey: 'AIzaSyDXAkI4db4eoTnfXbzTCYJ-_Hlh7mA3RKo',
