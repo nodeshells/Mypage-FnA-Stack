@@ -8,6 +8,7 @@ import {IonicModule} from '@ionic/angular';
 import {TopPage} from './top.page';
 import {ToppageComponent} from './toppage/toppage.component';
 import {SharedModule} from '../shared/shared.module';
+import {BackgroundThreejsComponent} from './background-threejs/background-threejs.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     SharedModule,
   ],
-  declarations: [TopPage, ToppageComponent]
+  declarations: [TopPage, ToppageComponent, BackgroundThreejsComponent]
 })
 export class TopPageModule {
 }

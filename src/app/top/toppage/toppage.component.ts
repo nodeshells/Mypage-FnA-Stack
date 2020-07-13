@@ -1,7 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {SharedService} from '../../shared/shared.service';
 import {Platform} from '@ionic/angular';
-import {Subscription} from 'rxjs';
+import {interval, Subscription} from 'rxjs';
+
 
 @Component({
   selector: 'app-toppage',
@@ -12,6 +13,18 @@ export class ToppageComponent implements OnInit, OnDestroy {
   themeState$;
   isMobile;
   displaySizeSubscription: Subscription;
+  animationIntervalSubscription: Subscription;
+  camera;
+  scene;
+  renderer;
+  geometry;
+  sphere;
+  material;
+  mesh;
+  plane;
+  effect;
+  controls;
+  start = Date.now();
 
   constructor(private sharedservice: SharedService, private platform: Platform) {
   }
@@ -26,5 +39,6 @@ export class ToppageComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.displaySizeSubscription?.unsubscribe();
   }
+
 
 }
