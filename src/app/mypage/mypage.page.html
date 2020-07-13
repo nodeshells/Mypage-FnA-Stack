@@ -27,7 +27,7 @@
             <p>職業: {{User.job}}</p>
             <p>趣味: {{User.hobby}}</p>
             <br>
-            <p>自己紹介:</p>
+            <p>自己紹介</p>
             <p>
               {{User.pr}}
             </p>
@@ -42,9 +42,9 @@
                     class="{{skill.color}} white-text skillcard" mode="md">
             <ion-item class="head-ion-item" [color]="themeSubject$ | async" lines="none">
               <ion-button mode="ios" [fill]="(themeSubject$ | async) === 'dark' ? 'solid': 'outline'"
-                          [color]="themeSubject$ | async" slot="end" href="{{skill.url}}">
-                サイトへ
-                <ion-icon name="arrow-round-forward"></ion-icon>
+                          [color]="themeSubject$ | async" slot="end" target="_blank" href="{{skill.url}}">
+                技術詳細
+                <ion-icon style="margin-left: 2px" name="arrow-forward"></ion-icon>
               </ion-button>
               <ion-card-title class="skillcard__title" slot="start">
                 {{skill.skillname}}
@@ -52,10 +52,14 @@
             </ion-item>
             <ion-card-content>
               <p>{{skill.desc}}</p>
-              <p>使用年数: {{skill.experience}}年</p>
-              <h6>習熟度:</h6>
-              <div class="star-rating">
-                <div class="star-rating-item" [style]="skill.star"></div>
+              <div class="ion-margin-top skillExp" style="width: 100%">
+                <p style="display: flex; justify-content: flex-end">使用年数: {{skill.experience}}年</p>
+                <div class="skillExp__star-rating">
+                  <p style="margin-top: 10px; margin-right: 8px">習熟度:</p>
+                  <div class="star-rating">
+                    <div class="star-rating-item" [style]="skill.star"></div>
+                  </div>
+                </div>
               </div>
             </ion-card-content>
           </ion-card>
