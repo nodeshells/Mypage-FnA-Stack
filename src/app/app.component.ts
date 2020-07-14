@@ -44,10 +44,10 @@ export class AppComponent implements OnDestroy, OnInit, AfterViewInit {
     this.themeState$ = this.sharedservice.themesubject;
     this.setMetaTag();
     firestorm.initialize(this.afs.firestore);
+    this.sharedservice.routeingtop();
   }
 
   ngOnInit() {
-    this.sharedservice.routeingtop();
   }
 
   ngOnDestroy(): void {

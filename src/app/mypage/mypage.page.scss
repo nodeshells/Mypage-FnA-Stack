@@ -64,9 +64,11 @@ ion-card {
     justify-content: center;
     width: 80%;
     height: auto;
-    margin: 15px auto;
+    margin: 8px auto;
     max-width: 220px;
+    padding-bottom: 0px;
     border-radius: 50%;
+    border: var(--ion-color-primary) 2px solid;
 }
 
 .star-rating {

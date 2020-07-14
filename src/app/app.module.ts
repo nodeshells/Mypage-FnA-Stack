@@ -39,7 +39,6 @@ const firebase = {
     AppRoutingModule,
     AngularFireModule.initializeApp(firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule,
     AngularFirestoreModule.enablePersistence(),
     ColorSketchModule,
   ],
