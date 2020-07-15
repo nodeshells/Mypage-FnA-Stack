@@ -12,6 +12,11 @@ img {
     max-width: 100%;
     height: auto;
 
+    &__backimg {
+        width: 100%;
+        height: auto;
+    }
+
     .logo-img-block {
         width: 100%;
         position: absolute;

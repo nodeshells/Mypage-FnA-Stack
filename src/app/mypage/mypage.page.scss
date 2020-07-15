@@ -15,6 +15,10 @@ ion-card {
 }
 
 .profile {
+    &__card {
+        min-height: 700px;
+    }
+
     &__title {
         font-family: 'Montserrat', sans-serif;
         font-size: 2em;
@@ -62,7 +66,7 @@ ion-card {
 .profile_img {
     display: flex;
     justify-content: center;
-    width: 80%;
+    width: 100%;
     height: auto;
     margin: 8px auto;
     max-width: 220px;

@@ -11,15 +11,15 @@
 <ion-content [color]="(themeSubject$ | async) === 'dark' ? 'medium' : ''">
   <div>
     <div class="grid_container">
-      <div name="profile">
-        <ion-card [color]="themeSubject$ | async" class="blue white-text">
+      <div class="profile">
+        <ion-card [color]="themeSubject$ | async" class="blue white-text profile__card">
           <ion-card-header>
             <ion-card-title class="profile__title" style="text-align: center">
               Admin Profile
             </ion-card-title>
           </ion-card-header>
           <ion-card-content *ngIf="(UserData$ | async) as User">
-            <img class="profile_img" src="assets/profile3.jpg" alt="kenta">
+            <img decoding="async" width="220" height="220" class="profile_img" src="assets/profile3.jpg" alt="kenta">
             <ion-card-title style="font-size: 1.2rem; text-align:center; margin-top: 8px;">
               Kenta
             </ion-card-title>
