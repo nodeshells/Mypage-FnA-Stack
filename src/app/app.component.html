@@ -22,14 +22,15 @@
           <ion-icon *ngIf="(themeState$ | async) === 'dark'" name="moon" slot="icon-only"></ion-icon>
         </ion-button>
       </ion-toolbar>
-<!--      <ion-toolbar mode="ios" color="primary">-->
+      <!--      <ion-toolbar mode="ios" color="primary">-->
       <!--        <ion-title>メニュー</ion-title>-->
       <!--      </ion-toolbar>-->
     </ion-header>
     <ion-content [color]="themeState$ | async">
       <ion-list mode="ios">
-        <ion-menu-toggle auto-hide="false" *ngFor="let menuContents of sideMenu;">
-          <ion-item [color]="themeState$ | async" button="true" [routerLink]="menuContents['routerLink']">
+        <ion-menu-toggle>
+          <ion-item *ngFor="let menuContents of sideMenu;" [color]="themeState$ | async" button="true"
+                    [routerLink]="menuContents['routerLink']">
             <ion-icon color="primary" slot="start" [name]="menuContents['iconName']"></ion-icon>
             <ion-label>
               {{menuContents['labelName']}}
