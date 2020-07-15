@@ -52,6 +52,13 @@ ion-card {
     }
 }
 
+.skillExp {
+    &__star-rating {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
 .profile_img {
     display: flex;
     justify-content: center;
@@ -70,7 +77,7 @@ ion-card {
 
 .star-rating .star-rating-item {
     height: 29px;
-    position: absolute;
+    position: absolute;;
     overflow: hidden;
 }
 
