@@ -1,7 +1,7 @@
 {
-  "name": "app",
-  "short_name": "app",
-  "theme_color": "#1976d2",
+  "name": "Kenta-Technology-Lab",
+  "short_name": "KTL",
+  "theme_color": "#428cff",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
