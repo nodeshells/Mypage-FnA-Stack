@@ -27,9 +27,9 @@
       <!--      </ion-toolbar>-->
     </ion-header>
     <ion-content [color]="themeState$ | async">
-      <ion-list mode="ios">
-        <ion-menu-toggle>
-          <ion-item *ngFor="let menuContents of sideMenu;" [color]="themeState$ | async" button="true"
+      <ion-list>
+        <ion-menu-toggle autoHide="false">
+          <ion-item *ngFor="let menuContents of sideMenu;" [color]="themeState$ | async" button="true" detail="true"
                     [routerLink]="menuContents['routerLink']">
             <ion-icon color="primary" slot="start" [name]="menuContents['iconName']"></ion-icon>
             <ion-label>
