@@ -27,7 +27,7 @@
       <!--      </ion-toolbar>-->
     </ion-header>
     <ion-content [color]="themeState$ | async">
-      <ion-list>
+      <ion-list class="ion-no-padding">
         <ion-menu-toggle autoHide="false">
           <ion-item *ngFor="let menuContents of sideMenu;" [color]="themeState$ | async" button="true" detail="true"
                     [routerLink]="menuContents['routerLink']">
