@@ -3,7 +3,7 @@
   "index": "/index.html",
   "assetGroups": [
     {
-      "name": "Kenta-Technology-Lab",
+      "name": "app",
       "installMode": "prefetch",
       "resources": {
         "files": [
@@ -13,8 +13,7 @@
           "/*.js"
         ]
       }
-    },
-    {
+    }, {
       "name": "assets",
       "installMode": "lazy",
       "updateMode": "prefetch",
