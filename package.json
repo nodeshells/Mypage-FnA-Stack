@@ -11,6 +11,7 @@
     "start:client_nohost": "ng serve --host 0.0.0.0 --disable-host-check",
     "build": "npm run build:client",
     "build:client": "ng build --prod",
+    "analyzer": "webpack-bundle-analyzer www/stats.json",
     "serve": "ng build --prod & npm run firebase:serve",
     "deploy": "ng build --prod & npm run firebase:deploy",
     "hosting:kill": "firebase hosting:disable",
@@ -85,6 +86,7 @@
     "supertest": "^4.0.2",
     "ts-node": "^8.3.0",
     "tslint": "~5.18.0",
-    "typescript": "3.9.6"
+    "typescript": "3.9.6",
+    "webpack-bundle-analyzer": "^3.8.0"
   }
 }
