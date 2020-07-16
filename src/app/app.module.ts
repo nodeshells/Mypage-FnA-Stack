@@ -1,20 +1,16 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
-import {SharedModule} from './shared/shared.module';
 import {AppRoutingModule} from './app-routing.module';
-import {ColorSketchModule} from 'ngx-color/sketch';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClientModule} from '@angular/common/http';
 import {IonicModule} from '@ionic/angular';
 import {IonicStorageModule} from '@ionic/storage';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuthModule} from '@angular/fire/auth';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 
 const firebase = {
   apiKey: 'AIzaSyDXAkI4db4eoTnfXbzTCYJ-_Hlh7mA3RKo',
@@ -32,18 +28,13 @@ const firebase = {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
-    ReactiveFormsModule,
-    HttpClientModule,
-    FormsModule,
-    SharedModule,
-    AppRoutingModule,
     AngularFireModule.initializeApp(firebase),
     AngularFireAuthModule,
     AngularFirestoreModule.enablePersistence(),
-    ColorSketchModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
   ],
   providers: [],
   bootstrap: [AppComponent],
