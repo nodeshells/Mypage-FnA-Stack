@@ -18,7 +18,7 @@ const myRoutes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(myRoutes, {preloadingStrategy: PreloadAllModules})],
+  imports: [RouterModule.forRoot(myRoutes, { preloadingStrategy: PreloadAllModules, relativeLinkResolution: 'legacy' })],
   exports: [RouterModule],
   providers: [AuthGuard]
 })

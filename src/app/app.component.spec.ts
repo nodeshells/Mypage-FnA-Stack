@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import { ComponentFixture, TestBed, inject, waitForAsync } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/Rx';
@@ -32,7 +32,7 @@ describe('AppComponent', () => {
     }
   }
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [ FormsModule ],
       declarations: [
@@ -55,13 +55,13 @@ describe('AppComponent', () => {
     fixture.detectChanges();
   }));
 
-  it('オブジェクトが生成されるか', async(() => {
+  it('オブジェクトが生成されるか', waitForAsync(() => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
 
 
-  it('メッセージを３件保持しているか', async(() => {
+  it('メッセージを３件保持しているか', waitForAsync(() => {
     expect(component.messages).toEqual([
         { message : 'テスト用メッセージ1' },
         { message : 'テスト用メッセージ2' },
@@ -70,7 +70,7 @@ describe('AppComponent', () => {
   }));
 
 
-  it('画面にメッセージが３件表示されているか', async(() => {
+  it('画面にメッセージが３件表示されているか', waitForAsync(() => {
 
     const el = fixture.debugElement.nativeElement;
 
