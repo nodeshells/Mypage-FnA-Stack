@@ -1,72 +1,73 @@
 <ion-header>
-  <ion-toolbar mode="ios" color="primary">
-    <ion-buttons slot="end">
-      <ion-menu-button>
-      </ion-menu-button>
-    </ion-buttons>
-    <ion-title>管理者の自己紹介</ion-title>
-  </ion-toolbar>
+    <ion-toolbar mode="ios" color="primary">
+        <ion-buttons slot="end">
+            <ion-menu-button>
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title>管理者の自己紹介</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [color]="(themeSubject$ | async) === 'dark' ? 'medium' : ''">
-  <div>
-    <div class="grid_container">
-      <div class="profile">
-        <ion-card [color]="themeSubject$ | async" class="blue white-text profile__card">
-          <ion-card-header>
-            <ion-card-title class="profile__title" style="text-align: center">
-              Admin Profile
-            </ion-card-title>
-          </ion-card-header>
-          <ion-card-content *ngIf="(UserData$ | async) as User">
-            <img decoding="async" width="220" height="220" class="profile_img" src="assets/profile3.jpg" alt="kenta">
-            <ion-card-title style="font-size: 1.2rem; text-align:center; margin-top: 8px;">
-              Kenta
-            </ion-card-title>
-            <p style="font-size: 1rem; text-align:center; margin: 0; padding: 0">Software Engineer</p>
-            <p style="margin-top: 24px">性別: {{User.gender}}</p>
-            <p>出身: {{User['from']}}</p>
-            <p>年齢: {{this.myAge}}歳 ({{this.currentYear}}年現在)</p>
-            <p>職業: {{User.job}}</p>
-            <p>趣味: {{User.hobby}}</p>
-            <p style="margin-top: 16px">自己紹介</p>
-            <p>
-              {{User.pr}}
-            </p>
-          </ion-card-content>
-        </ion-card>
-      </div>
-      <ion-spinner *ngIf="this.loadState" style="margin: 0 auto" [color]="themeSubject$ | async"
-                   size="big"></ion-spinner>
-      <div class="skill_grid_container">
-        <ng-container *ngFor="let skill of (SkillData$ | async)">
-          <ion-card [color]="themeSubject$ | async"
-                    class="{{skill.color}} white-text skillcard">
-            <ion-item class="head-ion-item" [color]="themeSubject$ | async" lines="none">
-              <ion-button mode="ios" [fill]="(themeSubject$ | async) === 'dark' ? 'solid': 'outline'"
-                          [color]="themeSubject$ | async" slot="end" target="_blank" href="{{skill.url}}">
-                技術詳細
-                <ion-icon style="margin-left: 2px" name="arrow-forward"></ion-icon>
-              </ion-button>
-              <ion-card-title class="skillcard__title" slot="start">
-                {{skill.skillname}}
-              </ion-card-title>
-            </ion-item>
-            <ion-card-content>
-              <p>{{skill.desc}}</p>
-              <div class="ion-margin-top skillExp" style="width: 100%">
-                <p style="display: flex; justify-content: flex-end">使用年数: {{skill.experience}}年</p>
-                <div class="skillExp__star-rating">
-                  <p style="margin-top: 10px; margin-right: 8px">習熟度:</p>
-                  <div class="star-rating">
-                    <div class="star-rating-item" [style]="skill.star"></div>
-                  </div>
-                </div>
-              </div>
-            </ion-card-content>
-          </ion-card>
-        </ng-container>
-      </div>
+    <div>
+        <div class="grid_container">
+            <div class="profile">
+                <ion-card [color]="themeSubject$ | async" class="blue white-text profile__card">
+                    <ion-card-header>
+                        <ion-card-title class="profile__title" style="text-align: center">
+                            Admin Profile
+                        </ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content *ngIf="(UserData$ | async) as User">
+                        <img decoding="async" width="220" height="220" class="profile_img" src="assets/profile3.jpg"
+                             alt="kenta">
+                        <ion-card-title style="font-size: 1.2rem; text-align:center; margin-top: 8px;">
+                            Kenta
+                        </ion-card-title>
+                        <p style="font-size: 1rem; text-align:center; margin: 0; padding: 0">Software Developer</p>
+                        <p style="margin-top: 24px">性別: {{User.gender}}</p>
+                        <p>出身: {{User['from']}}</p>
+                        <p>年齢: {{this.myAge}}歳 ({{this.currentYear}}年現在)</p>
+                        <p>職業: {{User.job}}</p>
+                        <p>趣味: {{User.hobby}}</p>
+                        <p style="margin-top: 16px">自己紹介</p>
+                        <p>
+                            {{User.pr}}
+                        </p>
+                    </ion-card-content>
+                </ion-card>
+            </div>
+            <ion-spinner *ngIf="this.loadState" style="margin: 0 auto" [color]="themeSubject$ | async"
+                         size="big"></ion-spinner>
+            <div class="skill_grid_container">
+                <ng-container *ngFor="let skill of (SkillData$ | async)">
+                    <ion-card [color]="themeSubject$ | async"
+                              class="{{skill.color}} white-text skillcard">
+                        <ion-item class="head-ion-item" [color]="themeSubject$ | async" lines="none">
+                            <ion-button mode="ios" [fill]="(themeSubject$ | async) === 'dark' ? 'solid': 'outline'"
+                                        [color]="themeSubject$ | async" slot="end" target="_blank" href="{{skill.url}}">
+                                技術詳細
+                                <ion-icon style="margin-left: 2px" name="arrow-forward"></ion-icon>
+                            </ion-button>
+                            <ion-card-title class="skillcard__title" slot="start">
+                                {{skill.skillname}}
+                            </ion-card-title>
+                        </ion-item>
+                        <ion-card-content>
+                            <p>{{skill.desc}}</p>
+                            <div class="ion-margin-top skillExp" style="width: 100%">
+                                <p style="display: flex; justify-content: flex-end">使用年数: {{skill.experience}}年</p>
+                                <div class="skillExp__star-rating">
+                                    <p style="margin-top: 10px; margin-right: 8px">習熟度:</p>
+                                    <div class="star-rating">
+                                        <div class="star-rating-item" [style]="skill.star"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ion-card-content>
+                    </ion-card>
+                </ng-container>
+            </div>
+        </div>
     </div>
-  </div>
 </ion-content>
