@@ -1,64 +1,62 @@
 <ion-header>
-  <ion-toolbar mode="ios" color="primary">
-    <ion-buttons slot="end">
-      <ion-menu-button>
-      </ion-menu-button>
-    </ion-buttons>
-    <ion-title>スキル編集</ion-title>
-  </ion-toolbar>
+    <ion-toolbar mode="ios" color="primary">
+        <ion-buttons slot="end">
+            <ion-menu-button>
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title>スキル編集</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [color]="(themeSubject$ | async) === 'dark' ? 'medium' : ''">
-  <ion-card mode="md" [color]="themeSubject$ | async" *ngIf="filtedData as skill">
-    <form [formGroup]="editForm">
-      <ion-card-content>
-        <ion-list no-padding>
-          <ion-item [color]="themeSubject$ | async">
-            <ion-label position="floating">スキルの名前</ion-label>
-            <ion-input [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"
-                       [formControl]="editForm.controls['skillname']" type="text"
-                       placeholder="スキルの名前を入力してください" [ngModel]="skill.skillname"></ion-input>
-          </ion-item>
-          <ion-item [color]="themeSubject$ | async">
-            <ion-label position="floating">スキルのURL</ion-label>
-            <ion-input
-                    [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"
-                    [formControl]="editForm.controls['skillurl']"
-                    type="string" placeholder="スキルのURLを入力してください"
-                    [ngModel]="skill.url"></ion-input>
-          </ion-item>
-          <ion-item [color]="themeSubject$ | async">
-            <ion-label position="stacked">経験年数 (年)</ion-label>
-            <ion-input type="number" [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"
-                       [formControl]="editForm.controls['skillexp']"
-                       [ngModel]="skill.experience"></ion-input>
-            <!--            <ion-range mode="md" pin="true" step="1" min="0"-->
-            <!--                       [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"-->
-            <!--                       [formControl]="editForm.controls['skillexp']"-->
-            <!--                       [ngModel]="skill.experience"></ion-range>-->
-          </ion-item>
-          <ion-item [color]="themeSubject$ | async">
-            <ion-label position="stacked">スキル習熟度 (%)</ion-label>
-            <ion-range mode="md" pin="true" step="1" max="100" min="0"
-                       [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"
-                       [formControl]="editForm.controls['skillstar']"
-                       [ngModel]="skill.star"></ion-range>
-          </ion-item>
-          <ion-item [color]="themeSubject$ | async">
-            <ion-label position="floating">説明文</ion-label>
-            <ion-textarea autoGrow="true" [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"
-                          [formControl]="editForm.controls['skilldesc']" placeholder="スキルの説明を入力してください"
-                          [ngModel]="skill.desc"
-            ></ion-textarea>
-          </ion-item>
-        </ion-list>
-        <div style="display: flex; justify-content: center; margin-top: 2%;">
-          <ion-button (click)="updateSkill()" mode="md" fill="outline">
-            <ion-icon name="sync"></ion-icon>
-            スキルの更新
-          </ion-button>
-        </div>
-      </ion-card-content>
-    </form>
-  </ion-card>
+<ion-content>
+    <ion-card mode="md" *ngIf="filtedData as skill">
+        <form [formGroup]="editForm">
+            <ion-card-content>
+                <ion-list no-padding>
+                    <ion-item>
+                        <ion-label position="floating">スキルの名前</ion-label>
+                        <ion-input
+                                [formControl]="editForm.controls['skillname']" type="text"
+                                placeholder="スキルの名前を入力してください" [ngModel]="skill.skillname"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">スキルのURL</ion-label>
+                        <ion-input
+                                [formControl]="editForm.controls['skillurl']"
+                                type="string" placeholder="スキルのURLを入力してください"
+                                [ngModel]="skill.url"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="stacked">経験年数 (年)</ion-label>
+                        <ion-input type="number"
+                                   [formControl]="editForm.controls['skillexp']"
+                                   [ngModel]="skill.experience"></ion-input>
+                        <!--            <ion-range mode="md" pin="true" step="1" min="0"-->
+                        <!--                       [color]="(themeSubject$ | async) === 'dark' ? 'primary' : ''"-->
+                        <!--                       [formControl]="editForm.controls['skillexp']"-->
+                        <!--                       [ngModel]="skill.experience"></ion-range>-->
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="stacked">スキル習熟度 (%)</ion-label>
+                        <ion-range mode="md" pin="true" step="1" max="100" min="0"
+                                   [formControl]="editForm.controls['skillstar']"
+                                   [ngModel]="skill.star"></ion-range>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">説明文</ion-label>
+                        <ion-textarea autoGrow="true"
+                                      [formControl]="editForm.controls['skilldesc']" placeholder="スキルの説明を入力してください"
+                                      [ngModel]="skill.desc"
+                        ></ion-textarea>
+                    </ion-item>
+                </ion-list>
+                <div style="display: flex; justify-content: center; margin-top: 2%;">
+                    <ion-button (click)="updateSkill()" mode="md" fill="outline">
+                        <ion-icon name="sync"></ion-icon>
+                        スキルの更新
+                    </ion-button>
+                </div>
+            </ion-card-content>
+        </form>
+    </ion-card>
 </ion-content>

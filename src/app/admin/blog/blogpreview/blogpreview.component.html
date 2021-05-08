@@ -1,28 +1,27 @@
 <ion-header>
-  <ion-toolbar mode="ios" color="primary">
-    <ion-buttons slot="end">
-      <ion-menu-button>
-      </ion-menu-button>
-    </ion-buttons>
-    <ion-title>最新の記事</ion-title>
-  </ion-toolbar>
+    <ion-toolbar mode="ios" color="primary">
+        <ion-buttons slot="end">
+            <ion-menu-button>
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title>最新の記事</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [color]="(themeState$ | async) === 'dark' ? 'medium' : ''">
-  <ion-card mode="md" [color]="themeState$ | async" *ngFor="let blogCont of (promiseBlogData | async)">
-    <ion-card-header>
-      <ion-card-title>{{blogCont.title}}</ion-card-title>
-      <ion-card-subtitle>投稿日時: {{shared.formatDate(blogCont.createdAt.toDate())}}</ion-card-subtitle>
-      <div class="hidden-chip">
-        <ion-chip [color]="(themeState$ | async) === 'dark' ? 'primary' : 'dark'"
-                  [outline]="(themeState$ | async) === 'dark'"
-                  *ngFor="let tag of blogCont.tags">
-          <ion-label>{{tag}}</ion-label>
-        </ion-chip>
-      </div>
-    </ion-card-header>
-    <ion-card-content>
-      <div [innerHTML]="blogCont.blogMainMd | mdToHtml"></div>
-    </ion-card-content>
-  </ion-card>
+<ion-content>
+    <ion-card mode="md" *ngFor="let blogCont of (promiseBlogData | async)">
+        <ion-card-header>
+            <ion-card-title>{{blogCont.title}}</ion-card-title>
+            <ion-card-subtitle>投稿日時: {{shared.formatDate(blogCont.createdAt.toDate())}}</ion-card-subtitle>
+            <div class="hidden-chip">
+                <ion-chip [outline]="(themeState$ | async) === 'dark'"
+                          *ngFor="let tag of blogCont.tags">
+                    <ion-label>{{tag}}</ion-label>
+                </ion-chip>
+            </div>
+        </ion-card-header>
+        <ion-card-content>
+            <div [innerHTML]="blogCont.blogMainMd | mdToHtml"></div>
+        </ion-card-content>
+    </ion-card>
 </ion-content>

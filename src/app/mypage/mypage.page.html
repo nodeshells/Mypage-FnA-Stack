@@ -8,11 +8,11 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content [color]="(themeSubject$ | async) === 'dark' ? 'medium' : ''">
+<ion-content>
     <div>
         <div class="grid_container">
             <div class="profile">
-                <ion-card [color]="themeSubject$ | async" class="blue white-text profile__card">
+                <ion-card class="blue white-text profile__card">
                     <ion-card-header>
                         <ion-card-title class="profile__title" style="text-align: center">
                             Admin Profile
@@ -37,15 +37,15 @@
                     </ion-card-content>
                 </ion-card>
             </div>
-            <ion-spinner *ngIf="this.loadState" style="margin: 0 auto" [color]="themeSubject$ | async"
+            <ion-spinner *ngIf="this.loadState" style="margin: 0 auto"
                          size="big"></ion-spinner>
             <div class="skill_grid_container">
                 <ng-container *ngFor="let skill of (SkillData$ | async)">
-                    <ion-card [color]="themeSubject$ | async"
-                              class="{{skill.color}} white-text skillcard">
-                        <ion-item class="head-ion-item" [color]="themeSubject$ | async" lines="none">
-                            <ion-button mode="ios" [fill]="(themeSubject$ | async) === 'dark' ? 'solid': 'outline'"
-                                        [color]="themeSubject$ | async" slot="end" target="_blank" href="{{skill.url}}">
+                    <ion-card
+                            class="{{skill.color}} white-text skillcard">
+                        <ion-item class="head-ion-item" lines="none">
+                            <ion-button mode="ios" fill="outline"
+                                        slot="end" target="_blank" href="{{skill.url}}">
                                 技術詳細
                                 <ion-icon style="margin-left: 2px" name="arrow-forward"></ion-icon>
                             </ion-button>

@@ -1,64 +1,64 @@
 <ion-header>
-  <ion-toolbar mode="md" color="primary" [class.ion-text-center]="!isMobile">
-    <ion-buttons slot="end">
-      <ion-menu-button>
-      </ion-menu-button>
-    </ion-buttons>
-    <ion-title [class.iontext-left]="isMobile">Kenta Technology Lab</ion-title>
-  </ion-toolbar>
+    <ion-toolbar mode="md" color="primary" [class.ion-text-center]="!isMobile">
+        <ion-buttons slot="end">
+            <ion-menu-button>
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title [class.iontext-left]="isMobile">Kenta Technology Lab</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card mode="md" [color]="themeState$ | async" class="blue white-text">
-    <div class="top-logo">
-      <div class="top-logo__backimg">
-        <img decoding="async" class="dropshadow" src="assets/lab.jpg" alt="lab">
-      </div>
-      <div class="logo-img-block">
-        <img decoding="async" class="logo-img dropshadow" src="assets/logo_transparent.png" alt="logo">
-      </div>
-    </div>
-    <ion-card-header>
-      <ion-card-title>
-        どんなサイト？ 🤔
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>Kentaという人物のホームページです。</p>
-      <p>今までの自分の経歴や、最近触れた技術や、自分の趣味について掲載していきたいと思います。</p>
-    </ion-card-content>
-  </ion-card>
-  <ion-card mode="md" [color]="themeState$ | async" class="blue white-text">
-    <div class="top-logo">
-      <div class="top-logo__backimg">
-        <img decoding="async" class="dropshadow" src="assets/keyboard.jpg" alt="keyboard">
-      </div>
-    </div>
-    <ion-card-header>
-      <ion-card-title>
-        Kentaってどういう人？ 🙂
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      普通の日本人です。高校生までは田んぼと畑と山に囲まれて過ごしていました。
-      中学生だった頃に実家にパソコンが導入され、そこからパソコンにはまりました。
-      ネットサーフィン、ゲーム機の改造、自作パソコン、プログラミングというように少しずつスキルを身につけていきました。
-    </ion-card-content>
-  </ion-card>
-  <ion-card mode="md" [color]="themeState$ | async" class="blue white-text">
-    <div class="top-logo">
-      <div class="top-logo__backimg">
-        <img decoding="async" class="dropshadow" src="assets/console1.jpg" alt="console">
-      </div>
-    </div>
-    <ion-card-header>
-      <ion-card-title>
-        サイトのソースコードを公開していますか？ 😎
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      ソースコードは <a href="https://github.com/nodeshells/Mypage-FnA-Stack">Github</a> 上で公開しています。
-      ご自由にお使いください。
-    </ion-card-content>
-  </ion-card>
+    <ion-card mode="md" class="blue white-text">
+        <div class="top-logo">
+            <div class="top-logo__backimg">
+                <img decoding="async" class="dropshadow" src="assets/lab.jpg" alt="lab">
+            </div>
+            <div class="logo-img-block">
+                <img decoding="async" class="logo-img dropshadow" src="assets/logo_transparent.png" alt="logo">
+            </div>
+        </div>
+        <ion-card-header>
+            <ion-card-title>
+                どんなサイト？ 🤔
+            </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p>Kentaという人物のホームページです。</p>
+            <p>今までの自分の経歴や、最近触れた技術や、自分の趣味について掲載していきたいと思います。</p>
+        </ion-card-content>
+    </ion-card>
+    <ion-card mode="md" class="blue white-text">
+        <div class="top-logo">
+            <div class="top-logo__backimg">
+                <img decoding="async" class="dropshadow" src="assets/keyboard.jpg" alt="keyboard">
+            </div>
+        </div>
+        <ion-card-header>
+            <ion-card-title>
+                Kentaってどういう人？ 🙂
+            </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            普通の日本人です。高校生までは田んぼと畑と山に囲まれて過ごしていました。
+            中学生だった頃に実家にパソコンが導入され、そこからパソコンにはまりました。
+            ネットサーフィン、ゲーム機の改造、自作パソコン、プログラミングというように少しずつスキルを身につけていきました。
+        </ion-card-content>
+    </ion-card>
+    <ion-card mode="md" class="blue white-text">
+        <div class="top-logo">
+            <div class="top-logo__backimg">
+                <img decoding="async" class="dropshadow" src="assets/console1.jpg" alt="console">
+            </div>
+        </div>
+        <ion-card-header>
+            <ion-card-title>
+                サイトのソースコードを公開していますか？ 😎
+            </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            ソースコードは <a href="https://github.com/nodeshells/Mypage-FnA-Stack">Github</a> 上で公開しています。
+            ご自由にお使いください。
+        </ion-card-content>
+    </ion-card>
 </ion-content>

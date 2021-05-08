@@ -1,52 +1,53 @@
 <ion-header>
-  <ion-toolbar mode="ios" color="primary">
-    <ion-buttons slot="end">
-      <ion-menu-button>
-      </ion-menu-button>
-    </ion-buttons>
-    <ion-title>ブログ新規投稿</ion-title>
-  </ion-toolbar>
+    <ion-toolbar mode="ios" color="primary">
+        <ion-buttons slot="end">
+            <ion-menu-button>
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title>ブログ新規投稿</ion-title>
+    </ion-toolbar>
 </ion-header>
-<ion-content [color]="(themeState$ | async) === 'dark' ? 'medium' : ''"
-             [class.darkMode]="(themeState$ | async) === 'dark'">
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="openPreview()">
-      <ion-icon name="phone-portrait"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-  <ion-card mode="md" [color]="themeState$ | async">
-    <form [formGroup]="editForm">
-      <ion-card-content>
-        <ion-list no-padding>
-          <ion-item lines="none" [color]="themeState$ | async">
-            <ion-label>タグ
-              <!--            <ion-input [color]="(themeState$ | async) === 'dark' ? 'primary' : ''"-->
-              <!--                       [formControl]="editForm.controls['tags']" type="text" placeholder="職業を入力してください。"></ion-input>-->
-              <tag-input [ngModelOptions]="{standalone: true}" [(ngModel)]="tagsArray" secondaryPlaceholder="記事のタグを入力"
-                         placeholder="+ タグを追加入力">
-              </tag-input>
-            </ion-label>
-          </ion-item>
-          <ion-item [color]="themeState$ | async">
-            <ion-label position="floating">タイトル</ion-label>
-            <ion-input [color]="(themeState$ | async) === 'dark' ? 'primary' : ''"
-                       [formControl]="editForm.controls['title']" type="text"
-                       placeholder="名前を入力してください。"></ion-input>
-          </ion-item>
-          <ion-item [color]="themeState$ | async">
-            <ion-label position="floating">本文</ion-label>
-            <ion-textarea autoGrow="true" [color]="(themeState$ | async) === 'dark' ? 'primary' : ''"
-                          [formControl]="editForm.controls['mdString']" placeholder="PRを入力してください。"></ion-textarea>
-          </ion-item>
-        </ion-list>
-        <div style="display: flex; justify-content: center; margin-top: 2%;">
-          <ion-button (click)="postBlog()" mode="md" fill="outline">
-            <ion-icon name="paper-plane"></ion-icon>
-            ブログ投稿
-          </ion-button>
-        </div>
-      </ion-card-content>
-    </form>
-  </ion-card>
+<ion-content>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="openPreview()">
+            <ion-icon name="phone-portrait"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+    <ion-card mode="md">
+        <form [formGroup]="editForm">
+            <ion-card-content>
+                <ion-list no-padding>
+                    <ion-item lines="none">
+                        <ion-label>タグ
+                            <!--            <ion-input [color]="(themeState$ | async) === 'dark' ? 'primary' : ''"-->
+                            <!--                       [formControl]="editForm.controls['tags']" type="text" placeholder="職業を入力してください。"></ion-input>-->
+                            <tag-input [ngModelOptions]="{standalone: true}" [(ngModel)]="tagsArray"
+                                       secondaryPlaceholder="記事のタグを入力"
+                                       placeholder="+ タグを追加入力">
+                            </tag-input>
+                        </ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">タイトル</ion-label>
+                        <ion-input
+                                [formControl]="editForm.controls['title']" type="text"
+                                placeholder="名前を入力してください。"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">本文</ion-label>
+                        <ion-textarea autoGrow="true"
+                                      [formControl]="editForm.controls['mdString']"
+                                      placeholder="PRを入力してください。"></ion-textarea>
+                    </ion-item>
+                </ion-list>
+                <div style="display: flex; justify-content: center; margin-top: 2%;">
+                    <ion-button (click)="postBlog()" mode="md" fill="outline">
+                        <ion-icon name="paper-plane"></ion-icon>
+                        ブログ投稿
+                    </ion-button>
+                </div>
+            </ion-card-content>
+        </form>
+    </ion-card>
 </ion-content>
 

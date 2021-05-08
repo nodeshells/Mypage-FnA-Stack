@@ -1,54 +1,53 @@
 <ion-header>
-  <ion-toolbar mode="ios" color="primary">
-    <ion-buttons slot="end">
-      <ion-menu-button>
-      </ion-menu-button>
-    </ion-buttons>
-    <ion-title>プロフィール編集</ion-title>
-  </ion-toolbar>
+    <ion-toolbar mode="ios" color="primary">
+        <ion-buttons slot="end">
+            <ion-menu-button>
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title>プロフィール編集</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [color]="(themeState$ | async) === 'dark' ? 'medium' : ''">
-  <ion-card mode="md" [color]="themeState$ | async">
-    <form [formGroup]="editForm">
-      <ion-card-content>
-        <ion-list no-padding *ngIf="editFormObj as editforms">
-          <ion-item [color]="themeState$ | async">
-            <ion-label position="floating">名前</ion-label>
-            <ion-input [color]="(themeState$ | async) === 'dark' ? 'primary' : ''"
-                       [formControl]="editForm.controls['name']" type="text"
-                       placeholder="名前を入力してください。"
-                       [value]="editforms.name"></ion-input>
-          </ion-item>
-          <ion-item [color]="themeState$ | async">
-            <ion-label position="floating">職業</ion-label>
-            <ion-input [color]="(themeState$ | async) === 'dark' ? 'primary' : ''"
-                       [formControl]="editForm.controls['job']" type="text" placeholder="職業を入力してください。"
-                       [value]="editforms.job"></ion-input>
-          </ion-item>
-          <ion-item [color]="themeState$ | async">
-            <ion-label position="floating">趣味</ion-label>
-            <ion-input
-                    [color]="(themeState$ | async) === 'dark' ? 'primary' : ''"
-                    [formControl]="editForm.controls['hobby']"
-                    type="text" placeholder="趣味を入力してください。"
-                    [value]="editforms.hobby"></ion-input>
-          </ion-item>
-          <ion-item [color]="themeState$ | async">
-            <ion-label position="floating">PR文</ion-label>
-            <ion-textarea autoGrow="true" [color]="(themeState$ | async) === 'dark' ? 'primary' : ''"
-                          [formControl]="editForm.controls['pr']" placeholder="PRを入力してください。"
-                          [value]="editforms.pr"></ion-textarea>
-          </ion-item>
-        </ion-list>
-        <div style="display: flex; justify-content: center; margin-top: 2%;">
-          <ion-button (click)="updateProfile()" mode="md" fill="outline">
-            <ion-icon name="sync"></ion-icon>
-            プロフィール更新
-          </ion-button>
-        </div>
-      </ion-card-content>
-    </form>
-  </ion-card>
+<ion-content>
+    <ion-card mode="md">
+        <form [formGroup]="editForm">
+            <ion-card-content>
+                <ion-list no-padding *ngIf="editFormObj as editforms">
+                    <ion-item>
+                        <ion-label position="floating">名前</ion-label>
+                        <ion-input
+                                [formControl]="editForm.controls['name']" type="text"
+                                placeholder="名前を入力してください。"
+                                [value]="editforms.name"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">職業</ion-label>
+                        <ion-input
+                                [formControl]="editForm.controls['job']" type="text" placeholder="職業を入力してください。"
+                                [value]="editforms.job"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">趣味</ion-label>
+                        <ion-input
+                                [formControl]="editForm.controls['hobby']"
+                                type="text" placeholder="趣味を入力してください。"
+                                [value]="editforms.hobby"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">PR文</ion-label>
+                        <ion-textarea autoGrow="true"
+                                      [formControl]="editForm.controls['pr']" placeholder="PRを入力してください。"
+                                      [value]="editforms.pr"></ion-textarea>
+                    </ion-item>
+                </ion-list>
+                <div style="display: flex; justify-content: center; margin-top: 2%;">
+                    <ion-button (click)="updateProfile()" mode="md" fill="outline">
+                        <ion-icon name="sync"></ion-icon>
+                        プロフィール更新
+                    </ion-button>
+                </div>
+            </ion-card-content>
+        </form>
+    </ion-card>
 </ion-content>
 

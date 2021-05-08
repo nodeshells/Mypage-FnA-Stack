@@ -1,30 +1,30 @@
 <ion-header>
-  <ion-toolbar mode="ios" color="primary">
-    <ion-buttons slot="end">
-      <ion-menu-button>
-      </ion-menu-button>
-    </ion-buttons>
-    <ion-title>管理者トップ</ion-title>
-  </ion-toolbar>
+    <ion-toolbar mode="ios" color="primary">
+        <ion-buttons slot="end">
+            <ion-menu-button>
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title>管理者トップ</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [color]="(themeState$ | async) === 'dark' ? 'medium' : ''">
-  <ion-card mode="md" [color]="themeState$ | async" routerLink="/admin/profile/preview">
-    <ion-card-header>
-      <ion-card-title>プロフィール編集</ion-card-title>
-      <ion-card-subtitle>マイページのプロフィールを編集できます。</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
-  <ion-card mode="md" [color]="themeState$ | async" routerLink="/admin/skill/preview">
-    <ion-card-header>
-      <ion-card-title>スキル管理</ion-card-title>
-      <ion-card-subtitle>マイページのスキルを編集できます。</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
-  <ion-card mode="md" [color]="themeState$ | async" routerLink="/admin/blog/manager">
-    <ion-card-header>
-      <ion-card-title>ブログ管理</ion-card-title>
-      <ion-card-subtitle>ブログを管理できます。</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
+<ion-content>
+    <ion-card mode="md" routerLink="/admin/profile/preview">
+        <ion-card-header>
+            <ion-card-title>プロフィール編集</ion-card-title>
+            <ion-card-subtitle>マイページのプロフィールを編集できます。</ion-card-subtitle>
+        </ion-card-header>
+    </ion-card>
+    <ion-card mode="md" routerLink="/admin/skill/preview">
+        <ion-card-header>
+            <ion-card-title>スキル管理</ion-card-title>
+            <ion-card-subtitle>マイページのスキルを編集できます。</ion-card-subtitle>
+        </ion-card-header>
+    </ion-card>
+    <ion-card mode="md" routerLink="/admin/blog/manager">
+        <ion-card-header>
+            <ion-card-title>ブログ管理</ion-card-title>
+            <ion-card-subtitle>ブログを管理できます。</ion-card-subtitle>
+        </ion-card-header>
+    </ion-card>
 </ion-content>

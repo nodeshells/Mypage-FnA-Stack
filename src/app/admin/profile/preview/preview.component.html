@@ -1,40 +1,40 @@
 <ion-header>
-  <ion-toolbar mode="ios" color="primary">
-    <ion-buttons slot="end">
-      <ion-menu-button>
-      </ion-menu-button>
-    </ion-buttons>
-    <ion-title>プロフィール編集</ion-title>
-  </ion-toolbar>
+    <ion-toolbar mode="ios" color="primary">
+        <ion-buttons slot="end">
+            <ion-menu-button>
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title>プロフィール編集</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [color]="(themeSubject$ | async) === 'dark' ? 'medium' : ''">
-  <div class="background">
-    <div class="grid_container">
-      <div name="profile">
-        <ion-card [color]="themeSubject$ | async" class="blue white-text" mode="md">
-          <ion-card-header>
-            <ion-card-title style="text-align: center">
-              プロフィール
-            </ion-card-title>
-          </ion-card-header>
-          <ion-card-content *ngIf="(UserData$ | async) as User">
-            <img class="profile_img" src="assets/profile3.jpg" alt="kenta">
-            <p style="text-align:center;">名前: Kenta</p>
-            <p>性別: {{User.gender}}</p>
-            <p>出身: {{User['from']}}</p>
-            <p>年齢: 現在{{this.myAge}}歳 ({{this.currentYear}}年)</p>
-            <p>職業: {{User.job}}</p>
-            <p>趣味: {{User.hobby}}</p>
-            <br>
-            <p>自己紹介:</p>
-            <p>
-              {{User.pr}}
-            </p>
-          </ion-card-content>
-        </ion-card>
-      </div>
+<ion-content>
+    <div class="background">
+        <div class="grid_container">
+            <div name="profile">
+                <ion-card class="blue white-text" mode="md">
+                    <ion-card-header>
+                        <ion-card-title style="text-align: center">
+                            プロフィール
+                        </ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content *ngIf="(UserData$ | async) as User">
+                        <img class="profile_img" src="assets/profile3.jpg" alt="kenta">
+                        <p style="text-align:center;">名前: Kenta</p>
+                        <p>性別: {{User.gender}}</p>
+                        <p>出身: {{User['from']}}</p>
+                        <p>年齢: 現在{{this.myAge}}歳 ({{this.currentYear}}年)</p>
+                        <p>職業: {{User.job}}</p>
+                        <p>趣味: {{User.hobby}}</p>
+                        <br>
+                        <p>自己紹介:</p>
+                        <p>
+                            {{User.pr}}
+                        </p>
+                    </ion-card-content>
+                </ion-card>
+            </div>
+        </div>
     </div>
-  </div>
 </ion-content>
 
