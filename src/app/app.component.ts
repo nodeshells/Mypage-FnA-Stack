@@ -27,6 +27,7 @@ export class AppComponent implements OnDestroy, OnInit, AfterViewInit {
         twitter_site: '@nodeshells',
         twitter_creator: '@nodeshells'
     };
+    isSplitPainEnable = false;
 
     constructor(private domSanitizer: DomSanitizer, private sharedservice: SharedService, private storage: Storage,
                 private menu: MenuController, public authService: AuthService, private metaService: Meta, private afs: AngularFirestore) {
@@ -60,6 +61,10 @@ export class AppComponent implements OnDestroy, OnInit, AfterViewInit {
     toggleTheme() {
         const themeState = this.sharedservice.toggleTheme(this.sharedservice.themeState);
         this.storage.set('Theme', themeState).then();
+    }
+
+    onSplitPainEvent(event: any) {
+        this.isSplitPainEnable = !!event.detail.visible;
     }
 
 }
