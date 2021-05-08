@@ -1,24 +1,24 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {TopComponent} from './top/top.component';
+import {TopComponent} from './pages/top/top.component';
 import {SharedModule} from '../shared/shared.module';
 import {IonicModule} from '@ionic/angular';
 import {RouterModule, Routes} from '@angular/router';
-import {ProfileEditComponent} from './profile/edit/edit.component';
-import {ProfilePreviewComponent} from './profile/preview/preview.component';
-import {SkillEditComponent} from './skill/edit/edit.component';
-import {SkillPreviewComponent} from './skill/preview/preview.component';
-import {ProfiletopComponent} from './profile/profiletop/profiletop.component';
-import {SkilltopComponent} from './skill/skilltop/skilltop.component';
-import {BlogtopComponent} from './blog/blogtop/blogtop.component';
-import {BlogeditComponent} from './blog/blogedit/blogedit.component';
-import {BlogpreviewComponent} from './blog/blogpreview/blogpreview.component';
-import {BlogsearchComponent} from './blog/blogsearch/blogsearch.component';
-import {BlogmanagerComponent} from './blog/blogmanager/blogmanager.component';
-import {BlogpostComponent} from './blog/blogpost/blogpost.component';
+import {ProfileEditComponent} from './pages/profile/edit/edit.component';
+import {ProfilePreviewComponent} from './pages/profile/preview/preview.component';
+import {SkillEditComponent} from './pages/skill/edit/edit.component';
+import {SkillPreviewComponent} from './pages/skill/preview/preview.component';
+import {ProfiletopComponent} from './pages/profile/profiletop/profiletop.component';
+import {SkilltopComponent} from './pages/skill/skilltop/skilltop.component';
+import {BlogtopComponent} from './pages/blog/blogtop/blogtop.component';
+import {BlogeditComponent} from './pages/blog/blogedit/blogedit.component';
+import {BlogpreviewComponent} from './pages/blog/blogpreview/blogpreview.component';
+import {BlogsearchComponent} from './pages/blog/blogsearch/blogsearch.component';
+import {BlogmanagerComponent} from './pages/blog/blogmanager/blogmanager.component';
+import {BlogpostComponent} from './pages/blog/blogpost/blogpost.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AddskillComponent} from './skill/addskill/addskill.component';
-import {EditProfileComponent} from './edit-profile/edit-profile.component';
+import {AddskillComponent} from './pages/skill/addskill/addskill.component';
+import {EditProfileComponent} from './pages/edit-profile/edit-profile.component';
 
 const myRoutes: Routes = [
   {
