@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SharedService} from '../../../../shared/shared.service';
-import {BlogService} from '../blog.service';
+import {BlogService} from '../../../services/blog.service';
 
 @Component({
     selector: 'app-blogpreview',
