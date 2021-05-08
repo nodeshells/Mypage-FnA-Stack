@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {SharedService} from '../../shared/shared.service';
+import {SharedService} from '../../../shared/shared.service';
 import {Platform} from '@ionic/angular';
 
 @Component({

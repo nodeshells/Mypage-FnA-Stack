@@ -26,14 +26,7 @@
         <ion-content>
             <ion-list class="ion-no-padding">
                 <ion-menu-toggle autoHide="false">
-                    <ion-item *ngFor="let menuContents of sideMenu;" button="true"
-                              detail="true"
-                              [routerLink]="menuContents['routerLink']">
-                        <ion-icon color="primary" slot="start" [name]="menuContents['iconName']"></ion-icon>
-                        <ion-label>
-                            {{menuContents['labelName']}}
-                        </ion-label>
-                    </ion-item>
+                    <app-sidemenu></app-sidemenu>
                 </ion-menu-toggle>
             </ion-list>
         </ion-content>

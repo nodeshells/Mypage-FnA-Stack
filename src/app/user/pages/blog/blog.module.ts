@@ -7,7 +7,7 @@ import {IonicModule} from '@ionic/angular';
 
 import {BlogPage} from './blog.page';
 import {DetaileComponent} from './detaile/detaile.component';
-import {SharedModule} from '../shared/shared.module';
+import {SharedModule} from '../../../shared/shared.module';
 
 const routes: Routes = [
   {
