@@ -11,6 +11,7 @@ const routes: Routes = [
     {path: 'top', component: ToppageComponent},
     {path: 'profile', loadChildren: () => import('./pages/mypage/mypage.module').then(m => m.MypagePageModule)},
     {path: 'blog', loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogPageModule)},
+    {path: 'clicker', loadChildren: () => import('./pages/clicker/clicker.module').then(m => m.ClickerPageModule)},
 ];
 
 @NgModule({

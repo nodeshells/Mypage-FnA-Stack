@@ -1,14 +1,38 @@
 <ion-header>
     <ion-toolbar mode="ios" color="primary">
-        <ion-buttons slot="end">
-            <ion-menu-button>
-            </ion-menu-button>
-        </ion-buttons>
-        <ion-title>サイトに来てくれてありがとう！</ion-title>
+        <ion-title>猫をどうぞ！</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <div class="cat-click-button">
+        <div style="position: fixed; top: 10%; text-align: center; width: 100%">
+            <!--            <ion-text>-->
+            <!--                <p>-->
+            <!--                    称号-->
+            <!--                </p>-->
+            <!--                <h1>-->
+            <!--                    最強宇宙ねこ！-->
+            <!--                </h1>-->
+            <!--            </ion-text>-->
+            <ion-text>
+                <h1>
+                    回転する猫に触ろう！
+                </h1>
+            </ion-text>
+        </div>
+        <div class="rotation">
+            <ion-avatar class="cat-click-button__avatar " id="cookieButton" (click)="clickCookie()">
+                <img src="assets/clicker/catimage.jpeg" alt="">
+            </ion-avatar>
+        </div>
+        <div style="position: fixed; bottom: 10%; text-align: center; width: 100%">
+            <ion-text>
+                <h3>
+                    スコア: {{counter}}
+                </h3>
+            </ion-text>
+        </div>
+    </div>
 </ion-content>
 
