@@ -1,11 +1,12 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
-import {Subject} from 'rxjs';
 import {DomSanitizer, Meta} from '@angular/platform-browser';
 import {SharedService} from './shared/shared.service';
 import {Storage} from '@ionic/storage';
 import {MenuController} from '@ionic/angular';
 import {AuthService} from './shared/authguard/auth.service';
 import {AngularFirestore} from '@angular/fire/firestore';
+import firebase from 'firebase';
+import {environment} from '../environments/environment';
 
 
 @Component({
@@ -15,7 +16,6 @@ import {AngularFirestore} from '@angular/fire/firestore';
     providers: [],
 })
 export class AppComponent implements OnDestroy, OnInit, AfterViewInit {
-    themeState$: Subject<String>;
     // メタデータの設定
     metaObject = {
         title: 'Kenta Technology Lab',
@@ -29,12 +29,17 @@ export class AppComponent implements OnDestroy, OnInit, AfterViewInit {
     };
     isSplitPainEnable = false;
 
-    constructor(private domSanitizer: DomSanitizer, private sharedservice: SharedService, private storage: Storage,
+    constructor(private domSanitizer: DomSanitizer,
+                private sharedService: SharedService,
+                private storage: Storage,
                 private menu: MenuController, public authService: AuthService, private metaService: Meta, private afs: AngularFirestore) {
-        this.sharedservice.initTheme();
-        this.themeState$ = this.sharedservice.themesubject;
         this.setMetaTag();
-        this.sharedservice.routeingtop();
+        this.sharedService.routeingtop();
+        const appCheck = firebase.appCheck();
+        /**
+         * Enable Recaptcha
+         */
+        appCheck.activate(environment.recaptchaSiteKey);
     }
 
     ngOnInit() {
@@ -59,8 +64,7 @@ export class AppComponent implements OnDestroy, OnInit, AfterViewInit {
     }
 
     toggleTheme() {
-        const themeState = this.sharedservice.toggleTheme(this.sharedservice.themeState);
-        this.storage.set('Theme', themeState).then();
+        const themeState = this.sharedService.toggleTheme(this.sharedService.themeState);
     }
 
     onSplitPainEvent(event: any) {
